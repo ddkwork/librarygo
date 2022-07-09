@@ -1,15 +1,16 @@
 package notes
 
-//fyne.io/cloud  v0.0.0-20220623211051-c87517a0a3cd
 import (
 	"fmt"
+	"runtime"
+
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/driver/desktop"
 	"fyne.io/fyne/v2/layout"
 	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
-	"runtime"
 )
 
 type Ui struct {
@@ -33,26 +34,25 @@ func (u *Ui) setNote(n *note) {
 	}
 	u.current = n
 	u.content.Bind(n.content)
-	u.content.Validator = nil
 	u.list.Refresh()
 }
 
 func (u *Ui) buildList() *widget.List {
 	l := widget.NewList(
 		func() int {
-			return len(u.Notes.notes())
+			return len(u.Notes.notes)
 		},
 		func() fyne.CanvasObject {
 			return widget.NewLabel("Title")
 		},
 		func(id widget.ListItemID, obj fyne.CanvasObject) {
 			l := obj.(*widget.Label)
-			n := u.Notes.notes()[id]
+			n := u.Notes.notes[id]
 			l.Bind(n.title())
 		})
 
 	l.OnSelected = func(id widget.ListItemID) {
-		n := u.Notes.notes()[id]
+		n := u.Notes.notes[id]
 		u.setNote(n)
 	}
 
@@ -60,10 +60,9 @@ func (u *Ui) buildList() *widget.List {
 }
 
 func (u *Ui) removeCurrentNote() {
-	u.Notes.delete(u.current)
-	visible := u.Notes.notes()
-	if len(visible) > 0 {
-		u.setNote(visible[0])
+	u.Notes.remove(u.current)
+	if len(u.Notes.notes) > 0 {
+		u.setNote(u.Notes.notes[0])
 	} else {
 		u.setNote(nil)
 	}
@@ -76,9 +75,8 @@ func (u *Ui) LoadUI() fyne.CanvasObject {
 
 	u.list = u.buildList()
 
-	visible := u.Notes.notes()
-	if len(visible) > 0 {
-		u.setNote(visible[0])
+	if len(u.Notes.notes) > 0 {
+		u.setNote(u.Notes.notes[0])
 		u.list.Select(0)
 	}
 
@@ -115,7 +113,23 @@ func (u *Ui) placeholderContent() string {
 		if runtime.GOOS == "darwin" {
 			modifier = "cmd"
 		}
-		text += fmt.Sprintf("\n\nOr use the keyboard shortcut %s+N.", modifier)
+		text += fmt.Sprintf("\n\nOr use they keyboard shortcut %s+N.", modifier)
 	}
 	return text
+}
+
+func main() {
+	a := app.NewWithID("xyz.andy.notes")
+	a.Settings().SetTheme(&MyTheme{})
+	w := a.NewWindow("Notes")
+
+	list := &Notelist{Pref: a.Preferences()}
+	list.Load()
+	notesUI := &Ui{Notes: list}
+
+	w.SetContent(notesUI.LoadUI())
+	notesUI.RegisterKeys(w)
+
+	w.Resize(fyne.NewSize(400, 320))
+	w.ShowAndRun()
 }

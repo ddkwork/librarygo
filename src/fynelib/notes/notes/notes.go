@@ -7,17 +7,9 @@ import (
 )
 
 func main() {
-	a := app.NewWithID("com.fynelabs.notes")
-	//cloud.Enable(a)
-	a.SetIcon(notes.ResourceIconPng)
+	a := app.NewWithID("xyz.andy.notes")
 	a.Settings().SetTheme(&notes.MyTheme{})
-	w := a.NewWindow("Fyne Notes")
-
-	w.SetMainMenu(fyne.NewMainMenu(
-		fyne.NewMenu("File",
-			fyne.NewMenuItem("Sync...", func() {
-				//cloud.ShowSettings(a, w)
-			}))))
+	w := a.NewWindow("Notes")
 
 	list := &notes.Notelist{Pref: a.Preferences()}
 	list.Load()
@@ -26,6 +18,6 @@ func main() {
 	w.SetContent(notesUI.LoadUI())
 	notesUI.RegisterKeys(w)
 
-	w.Resize(fyne.NewSize(500, 320))
+	w.Resize(fyne.NewSize(400, 320))
 	w.ShowAndRun()
 }
