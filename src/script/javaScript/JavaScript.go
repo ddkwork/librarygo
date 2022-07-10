@@ -2,7 +2,7 @@ package javaScript
 
 import (
 	_ "embed"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/dop251/goja"
 )
 
@@ -30,5 +30,5 @@ func New() Interface {
 func (o *object) Value() goja.Value { return o.value }
 func (o *object) Run(src string) bool {
 	o.value, o.err = goja.New().RunString(src)
-	return check.Error(o.err)
+	return mycheck.Error(o.err)
 }

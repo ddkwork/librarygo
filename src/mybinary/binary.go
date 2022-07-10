@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Package binary implements simple translation between numbers and byte
+// Package mybinary implements simple translation between numbers and byte
 // sequences and encoding and decoding of varints.
 //
 // Numbers are translated by reading and writing fixed-size values.
@@ -19,7 +19,7 @@
 // high-performance serialization, especially for large data structures,
 // should look at more advanced solutions such as the encoding/gob
 // package or protocol buffers.
-package binary
+package mybinary
 
 import (
 	"errors"
@@ -50,7 +50,7 @@ var BigEndian bigEndian
 type littleEndian struct{}
 
 func (littleEndian) Uint16(b []byte) uint16 {
-	_ = b[1] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[1] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint16(b[0]) | uint16(b[1])<<8
 }
 
@@ -62,7 +62,7 @@ func (littleEndian) PutUint16(v uint16) (b []byte) {
 }
 
 func (littleEndian) Uint32(b []byte) uint32 {
-	_ = b[3] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[3] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint32(b[0]) | uint32(b[1])<<8 | uint32(b[2])<<16 | uint32(b[3])<<24
 }
 
@@ -76,7 +76,7 @@ func (littleEndian) PutUint32(v uint32) (b []byte) {
 }
 
 func (littleEndian) Uint64(b []byte) uint64 {
-	_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[7] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint64(b[0]) | uint64(b[1])<<8 | uint64(b[2])<<16 | uint64(b[3])<<24 |
 		uint64(b[4])<<32 | uint64(b[5])<<40 | uint64(b[6])<<48 | uint64(b[7])<<56
 }
@@ -96,12 +96,12 @@ func (littleEndian) PutUint64(v uint64) (b []byte) {
 
 func (littleEndian) String() string { return "LittleEndian" }
 
-func (littleEndian) GoString() string { return "binary.LittleEndian" }
+func (littleEndian) GoString() string { return "mybinary.LittleEndian" }
 
 type bigEndian struct{}
 
 func (bigEndian) Uint16(b []byte) uint16 {
-	_ = b[1] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[1] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint16(b[1]) | uint16(b[0])<<8
 }
 
@@ -113,7 +113,7 @@ func (bigEndian) PutUint16(v uint16) (b []byte) {
 }
 
 func (bigEndian) Uint32(b []byte) uint32 {
-	_ = b[3] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[3] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint32(b[3]) | uint32(b[2])<<8 | uint32(b[1])<<16 | uint32(b[0])<<24
 }
 
@@ -127,7 +127,7 @@ func (bigEndian) PutUint32(v uint32) (b []byte) {
 }
 
 func (bigEndian) Uint64(b []byte) uint64 {
-	_ = b[7] // bounds check hint to compiler; see golang.org/issue/14808
+	_ = b[7] // bounds mycheck hint to compiler; see golang.org/issue/14808
 	return uint64(b[7]) | uint64(b[6])<<8 | uint64(b[5])<<16 | uint64(b[4])<<24 |
 		uint64(b[3])<<32 | uint64(b[2])<<40 | uint64(b[1])<<48 | uint64(b[0])<<56
 }
@@ -147,9 +147,9 @@ func (bigEndian) PutUint64(v uint64) (b []byte) {
 
 func (bigEndian) String() string { return "BigEndian" }
 
-func (bigEndian) GoString() string { return "binary.BigEndian" }
+func (bigEndian) GoString() string { return "mybinary.BigEndian" }
 
-// Read reads structured binary data from r into data.
+// Read reads structured mybinary data from r into data.
 // Data must be a pointer to a fixed-size value or a slice
 // of fixed-size values.
 // Bytes read from r are decoded using the specified byte order
@@ -256,7 +256,7 @@ func Read(r io.Reader, order ByteOrder, data interface{}) error {
 		size = dataSize(v)
 	}
 	if size < 0 {
-		return errors.New("binary.Read: invalid type " + reflect.TypeOf(data).String())
+		return errors.New("mybinary.Read: invalid type " + reflect.TypeOf(data).String())
 	}
 	d := &decoder{order: order, buf: make([]byte, size)}
 	if _, err := io.ReadFull(r, d.buf); err != nil {
@@ -266,7 +266,7 @@ func Read(r io.Reader, order ByteOrder, data interface{}) error {
 	return nil
 }
 
-// Write writes the binary representation of data into w.
+// Write writes the mybinary representation of data into w.
 // Data must be a fixed-size value or a slice of fixed-size
 // values, or a pointer to such data.
 // Boolean values encode as one byte: 1 for true, and 0 for false.
@@ -386,7 +386,7 @@ func Write(w io.Writer, order ByteOrder, data interface{}) error {
 	v := reflect.Indirect(reflect.ValueOf(data))
 	size := dataSize(v)
 	if size < 0 {
-		return errors.New("binary.Write: invalid type " + reflect.TypeOf(data).String())
+		return errors.New("mybinary.Write: invalid type " + reflect.TypeOf(data).String())
 	}
 	buf := make([]byte, size)
 	e := &encoder{order: order, buf: buf}
@@ -556,7 +556,7 @@ func (d *decoder) value(v reflect.Value) {
 		l := v.NumField()
 		for i := 0; i < l; i++ {
 			// Note: Calling v.CanSet() below is an optimization.
-			// It would be sufficient to check the field name,
+			// It would be sufficient to mycheck the field name,
 			// but creating the StructField info for each field is
 			// costly (run "go test -bench=ReadStruct" and compare
 			// results when making changes to this code).

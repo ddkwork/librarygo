@@ -230,7 +230,7 @@ func (t *Terminal) run() {
 	for {
 		num, err := t.out.Read(buf)
 		if err != nil {
-			// this is the pre-go 1.13 way to check for the read failing (terminal closed)
+			// this is the pre-go 1.13 way to mycheck for the read failing (terminal closed)
 			if err.Error() == "EOF" {
 				break // term exit on macOS
 			} else if err, ok := err.(*os.PathError); ok && err.Err.Error() == "input/output error" {

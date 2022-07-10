@@ -2,11 +2,11 @@ package structBytes
 
 import (
 	"bytes"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/stream/structBytes/goBinary"
 )
 
-var c = check.Default
+var c = mycheck.Default
 
 type (
 	Interface interface {

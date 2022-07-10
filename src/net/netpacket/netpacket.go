@@ -1,7 +1,7 @@
 package netpacket
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/net/httpClient"
 	"github.com/hjson/hjson-go"
@@ -63,13 +63,13 @@ func (o *object) HandlePacket() (ok bool) {
 			AllowMinusZero: false,
 			UnknownAsNull:  false,
 		})
-		if !check.Error(err) {
+		if !mycheck.Error(err) {
 			return
 		}
 		mylog.Info("", string(marshal))
 		o.HttpClient().SetRequestUrl(handle.ReqUrl)
 		if !handle.Fn() {
-			return check.Error("请检查发包数据结构是否正确")
+			return mycheck.Error("请检查发包数据结构是否正确")
 		}
 	}
 	return true

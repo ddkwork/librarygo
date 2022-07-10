@@ -3,7 +3,7 @@ package table
 import (
 	"bytes"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/stream/tool"
 	"go/format"
 	"strconv"
@@ -102,7 +102,7 @@ func main() {
 }`)
 	fnNewLine()
 	source, err := format.Source(b.Bytes())
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	return string(source)

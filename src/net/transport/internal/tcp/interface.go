@@ -2,14 +2,14 @@ package tcp
 
 import (
 	"bytes"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"net"
 )
 
 var (
 	SrcBufChan = make(chan []byte, 1)
 	DstBufChan = make(chan []byte, 1)
-	c          = check.Default
+	c          = mycheck.Default
 )
 
 type (

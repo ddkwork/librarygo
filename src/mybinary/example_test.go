@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package binary_test
+package mybinary_test
 
 import (
 	"bytes"
@@ -16,7 +16,7 @@ func ExampleWrite() {
 	var pi float64 = math.Pi
 	err := binary.Write(buf, binary.LittleEndian, pi)
 	if err != nil {
-		fmt.Println("binary.Write failed:", err)
+		fmt.Println("mybinary.Write failed:", err)
 	}
 	fmt.Printf("% x", buf.Bytes())
 	// Output: 18 2d 44 54 fb 21 09 40
@@ -32,7 +32,7 @@ func ExampleWrite_multi() {
 	for _, v := range data {
 		err := binary.Write(buf, binary.LittleEndian, v)
 		if err != nil {
-			fmt.Println("binary.Write failed:", err)
+			fmt.Println("mybinary.Write failed:", err)
 		}
 	}
 	fmt.Printf("%x", buf.Bytes())
@@ -45,7 +45,7 @@ func ExampleRead() {
 	buf := bytes.NewReader(b)
 	err := binary.Read(buf, binary.LittleEndian, &pi)
 	if err != nil {
-		fmt.Println("binary.Read failed:", err)
+		fmt.Println("mybinary.Read failed:", err)
 	}
 	fmt.Print(pi)
 	// Output: 3.141592653589793
@@ -63,7 +63,7 @@ func ExampleRead_multi() {
 	}
 
 	if err := binary.Read(r, binary.LittleEndian, &data); err != nil {
-		fmt.Println("binary.Read failed:", err)
+		fmt.Println("mybinary.Read failed:", err)
 	}
 
 	fmt.Println(data.PI)

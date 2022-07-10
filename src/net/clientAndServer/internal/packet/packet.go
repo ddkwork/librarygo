@@ -46,7 +46,7 @@ func (o *object) HeadIsNil() bool {
 	if err != nil {
 		return false
 	}
-	//if !check.Error(err) {
+	//if !mycheck.Error(err) {
 	//	return false
 	//}
 	return readByte == 0

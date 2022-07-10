@@ -3,7 +3,7 @@ package httpClient
 import (
 	"bytes"
 	"errors"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"io"
 	"io/ioutil"
 	"net/http"
@@ -54,7 +54,7 @@ func (o *object) NewRequest() (ok bool) { //todo 考虑一个携程带上一个�
 	}
 
 	request, o.error = http.NewRequest(o.method, o.requestUrl+o.path, body)
-	if !check.Error(o.error) {
+	if !mycheck.Error(o.error) {
 		return
 	}
 
@@ -71,7 +71,7 @@ func (o *object) NewRequest() (ok bool) { //todo 考虑一个携程带上一个�
 
 	//发起请求
 	response, o.error = o.client.Do(request)
-	if !check.Error(o.error) {
+	if !mycheck.Error(o.error) {
 		return
 	}
 
@@ -79,20 +79,20 @@ func (o *object) NewRequest() (ok bool) { //todo 考虑一个携程带上一个�
 	defer func() {
 		if response == nil {
 			o.error = errors.New("response == nil")
-			check.Error(o.error)
+			mycheck.Error(o.error)
 			return
 		}
-		check.Error(response.Body.Close())
+		mycheck.Error(response.Body.Close())
 	}()
 
 	//读返回body
 	switch response.StatusCode {
 	case http.StatusOK, o.stopCode:
 		o.responseBuf, o.error = ioutil.ReadAll(response.Body) //todo 外部判断gzip，是否可以提进来，就不用重复劳动了
-		return check.Error(o.error)
+		return mycheck.Error(o.error)
 	default:
 		o.error = errors.New(response.Status + " != StopCode " + strconv.Itoa(o.stopCode))
-		return check.Error(o.error)
+		return mycheck.Error(o.error)
 	}
 }
 func (o *object) ResponseBuf() []byte { return o.responseBuf }
@@ -102,7 +102,7 @@ var Default = New()
 
 func New() Interface {
 	jar, err := cookiejar.New(nil)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return nil
 	}
 	return &object{

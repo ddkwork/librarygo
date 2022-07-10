@@ -3,7 +3,7 @@ package show
 import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/widget"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 )
 
 type (
@@ -23,7 +23,7 @@ func (o *object) Error() {
 
 func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
 	start := widget.NewLabelWithStyle("", fyne.TextAlignLeading, fyne.TextStyle{})
-	start.SetText(check.Body())
+	start.SetText(mycheck.Body())
 	return start
 }
 

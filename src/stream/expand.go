@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"math/big"
 	"sort"
 	"strings"
@@ -31,10 +31,10 @@ func (b *Buffer) HexStringUpper() string { return fmt.Sprintf("%#X", b.Bytes())[
 func (b *Buffer) SizeCheck() bool {
 	switch b.Len() {
 	case 0:
-		return check.Error("buffer len == 0")
+		return mycheck.Error("buffer len == 0")
 	default:
 		if b.Len()%8 != 0 {
-			return check.Error(" len%8 != 0")
+			return mycheck.Error(" len%8 != 0")
 		}
 	}
 	return true
@@ -90,7 +90,7 @@ func (o *Buffer) SplitBytes(splitSize int) (blocks [][]byte) {
 func (o *Buffer) Merge(bytesSlice ...[]byte) *Buffer {
 	b := bytes.NewBuffer(nil)
 	for i := 0; i < len(bytesSlice); i++ {
-		if !check.Error2(b.Write(bytesSlice[i])) {
+		if !mycheck.Error2(b.Write(bytesSlice[i])) {
 			return nil
 		}
 	}

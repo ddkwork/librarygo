@@ -77,8 +77,8 @@ type CustomButtonRender struct {
 	CButton CustomButton
 }
 
-// MinSize calculates the minimum size of a check.
-// This is based on the contained text, the check icon and a standard amount of padding added.
+// MinSize calculates the minimum size of a mycheck.
+// This is based on the contained text, the mycheck icon and a standard amount of padding added.
 func (r *CustomButtonRender) MinSize() fyne.Size {
 	tmin := r.Text.MinSize()
 	var iconsize float32 = 0
@@ -91,7 +91,7 @@ func (r *CustomButtonRender) MinSize() fyne.Size {
 
 }
 
-// Layout : Layout the components of the check widget
+// Layout : Layout the components of the mycheck widget
 func (r *CustomButtonRender) Layout(size fyne.Size) {
 
 	//resize all objects

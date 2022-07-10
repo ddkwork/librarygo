@@ -21,7 +21,7 @@ func TestLog(t *testing.T) {
 	})
 	p.Info("infomation", "tttttttttttttttttttttttt")
 	p.Trace("trace", "kkkkkkkkkkkkkkkkkkkk")
-	//check.Error("this is a error")
+	//mycheck.Error("this is a error")
 	p.Warning("warnning", "mmmmmmmmm")
 	p.Success("Success", "vgoTest pass")
 	p.Success("中文 Success", "vgoTest pass")

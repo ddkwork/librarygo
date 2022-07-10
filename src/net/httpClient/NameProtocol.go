@@ -1,7 +1,7 @@
 package httpClient
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/stream/tool"
 )
 
@@ -20,10 +20,10 @@ var (
 
 func (o *object) CheckProtocol(Protocol, hostPort string) (ok bool) {
 	if hostPort == "" {
-		return check.Error("hostPort == nil ")
+		return mycheck.Error("hostPort == nil ")
 	}
 	if Protocol == "" {
-		return check.Error("Protocol == nil ")
+		return mycheck.Error("Protocol == nil ")
 	}
 	switch Protocol {
 	case ProtoName.Http():

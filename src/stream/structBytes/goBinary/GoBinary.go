@@ -3,7 +3,7 @@ package goBinary
 import (
 	"bytes"
 	"encoding/gob"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 )
 
 type (
@@ -17,7 +17,7 @@ type (
 	}
 )
 
-var c = check.Default
+var c = mycheck.Default
 
 func New() Interface {
 	return &object{}

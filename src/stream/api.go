@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/hex"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 )
 
 type (
@@ -57,7 +57,7 @@ func NewString(s string) *Buffer          { return &Buffer{Buffer: bytes.NewBuff
 func NewHexString(s string) (b *Buffer) {
 	b = New()
 	decodeString, err := hex.DecodeString(s)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		b.WriteString(err.Error())
 		return
 	}

@@ -1,7 +1,7 @@
 package strconv
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"strconv"
 )
 
@@ -21,7 +21,7 @@ func (o *object) FormatUint(i uint64, base int) string { return strconv.FormatUi
 
 func (o *object) ParseUint(s string, base int, bitSize int) bool {
 	o.value, o.error = strconv.ParseUint(s, base, bitSize)
-	return check.Error(o.error)
+	return mycheck.Error(o.error)
 }
 
 func (o *object) Value() uint64 {

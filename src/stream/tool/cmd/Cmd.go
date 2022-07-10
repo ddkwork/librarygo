@@ -3,7 +3,7 @@ package cmd
 import (
 	"bufio"
 	"bytes"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/stream"
 	"golang.org/x/text/encoding/simplifiedchinese"
@@ -40,7 +40,7 @@ func (o *object) convertByte2String(byte []byte, charset charset) string {
 	switch charset {
 	case GB18030:
 		decodeBytes, err := simplifiedchinese.GB18030.NewDecoder().Bytes(byte)
-		if !check.Error(err) {
+		if !mycheck.Error(err) {
 			return "err GB18030.NewDecoder()"
 		}
 		str = string(decodeBytes)
@@ -54,16 +54,16 @@ func (o *object) convertByte2String(byte []byte, charset charset) string {
 
 func (o *object) checkCmdResult(arg string, cmd *exec.Cmd) {
 	outReader, err := cmd.StdoutPipe()
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	errReader, err := cmd.StderrPipe()
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	cmdReader := io.MultiReader(outReader, errReader)
 
-	if !check.Error(cmd.Run()) { //run是同步，start是异步
+	if !mycheck.Error(cmd.Run()) { //run是同步，start是异步
 		return
 	}
 	Stdin := bufio.NewScanner(cmdReader)
@@ -72,7 +72,7 @@ func (o *object) checkCmdResult(arg string, cmd *exec.Cmd) {
 		cmdRe = strings.Replace(cmdRe, "\r\n", "", -1)
 		mylog.Info("cmd命令 "+arg+" 返回:", cmdRe)
 	}
-	//if !check.Error(cmd.Wait()) {
+	//if !mycheck.Error(cmd.Wait()) {
 	//	return
 	//}
 }
@@ -97,7 +97,7 @@ func (o *object) CmdBuf2ChineseString(arg interface{}) (str string) {
 func (o *object) UTF82GBK(src string) *stream.Buffer {
 	GB18030 := simplifiedchinese.All[0]
 	all, err := ioutil.ReadAll(transform.NewReader(bytes.NewReader([]byte(src)), GB18030.NewEncoder()))
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return stream.NewErrorInfo(err.Error())
 	}
 	return stream.NewBytes(all)
@@ -107,7 +107,7 @@ func (o *object) UTF82GBK(src string) *stream.Buffer {
 func (o *object) GBK2UTF8(src []byte) string {
 	GB18030 := simplifiedchinese.All[0]
 	all, err := ioutil.ReadAll(transform.NewReader(bytes.NewReader(src), GB18030.NewDecoder()))
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return ""
 	}
 	return string(all)

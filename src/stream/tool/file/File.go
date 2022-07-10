@@ -5,7 +5,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	mypath "github.com/ddkwork/librarygo/src/stream/tool/path"
 	"github.com/hjson/hjson-go"
 	"go/format"
@@ -35,7 +35,7 @@ type (
 
 func (o *object) Copy(source, destination string) (ok bool) {
 	base := filepath.Base(source)
-	return check.Error(filepath.Walk(source, func(path string, info fs.FileInfo, err error) error {
+	return mycheck.Error(filepath.Walk(source, func(path string, info fs.FileInfo, err error) error {
 		split := strings.Split(path, base)
 		dst := filepath.Join(destination, base, split[1])
 		switch {
@@ -45,18 +45,18 @@ func (o *object) Copy(source, destination string) (ok bool) {
 			}
 		default:
 			buf, err := ioutil.ReadFile(path)
-			if !check.Error(err) {
-				return check.Object()
+			if !mycheck.Error(err) {
+				return mycheck.Object()
 			}
 			f, err := os.Create(dst)
-			if !check.Error(err) {
+			if !mycheck.Error(err) {
 				return err
 			}
-			if !check.Error2(f.Write(buf)) {
-				return check.Object()
+			if !mycheck.Error2(f.Write(buf)) {
+				return mycheck.Object()
 			}
-			if !check.Error(f.Close()) {
-				return check.Object()
+			if !mycheck.Error(f.Close()) {
+				return mycheck.Object()
 			}
 		}
 		return err
@@ -74,42 +74,42 @@ func (o *object) buffer(data any) *bytes.Buffer {
 }
 
 func (o *object) WriteTruncate(name string, data any) (ok bool) {
-	if !check.Error(os.Truncate(name, 0)) {
+	if !mycheck.Error(os.Truncate(name, 0)) {
 		return
 	}
 	return o.WriteAppend(name, data)
 }
 func (o *object) WriteAppend(name string, data any) (ok bool) {
 	f, err := os.OpenFile(name, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		if !mypath.New().CreatDirectory(name) {
 			return o.WriteAppend(name, data)
 		}
 	}
-	if !check.Error2(f.Write(o.buffer(data).Bytes())) {
+	if !mycheck.Error2(f.Write(o.buffer(data).Bytes())) {
 		return
 	}
-	if !check.Error2(f.WriteString("\n")) {
+	if !mycheck.Error2(f.WriteString("\n")) {
 		return
 	}
-	return check.Error(f.Close())
+	return mycheck.Error(f.Close())
 }
 func (o *object) WriteGoCode(name string, data any) (ok bool) {
 	b, err := format.Source(o.buffer(data).Bytes())
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	return o.WriteAppend(name, b)
 }
 func (o *object) WriteBinary(name string, data any) (ok bool) {
 	file, err := os.Create(name)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
-	if !check.Error2(file.Write(o.buffer(data).Bytes())) {
+	if !mycheck.Error2(file.Write(o.buffer(data).Bytes())) {
 		return
 	}
-	return check.Error(file.Close())
+	return mycheck.Error(file.Close())
 }
 func (o *object) ToLines(data any) (lines []string, ok bool) {
 	newReader := bufio.NewReader(o.buffer(data))
@@ -119,7 +119,7 @@ func (o *object) ToLines(data any) (lines []string, ok bool) {
 		case io.EOF:
 			return lines, true
 		default:
-			if !check.Error(err) {
+			if !mycheck.Error(err) {
 				return
 			}
 		}
@@ -135,7 +135,7 @@ func (o *object) WriteJson(name string, Obj any) (ok bool) {
 		oo = Obj
 	}
 	data, err := json.MarshalIndent(oo, " ", " ")
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	return o.WriteAppend(name, data)
@@ -150,7 +150,7 @@ func (o *object) WriteHjson(name string, Obj any) (ok bool) {
 		AllowMinusZero: false,
 		UnknownAsNull:  false,
 	})
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	return o.WriteAppend(name, data)

@@ -3,7 +3,7 @@ package gzip
 import (
 	"bytes"
 	"compress/gzip"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/stream"
 	"io/ioutil"
 )
@@ -18,7 +18,7 @@ type (
 func New() Interface { return &object{s: stream.NewNil()} }
 
 func (o *object) Decode(in []byte) *stream.Buffer {
-	c := check.Default
+	c := mycheck.Default
 	reader, err := gzip.NewReader(bytes.NewReader(in))
 	if !(c.Error(err)) {
 		return nil
@@ -31,7 +31,7 @@ func (o *object) Decode(in []byte) *stream.Buffer {
 		c.Error(reader.Close())
 	}()
 	all, err2 := ioutil.ReadAll(reader)
-	if !check.Error(err2) {
+	if !mycheck.Error(err2) {
 		return stream.NewErrorInfo(err2.Error())
 	}
 	return stream.NewBytes(all)

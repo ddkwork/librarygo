@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/net/clientAndServer/internal/packet"
 	"github.com/ddkwork/librarygo/src/stream"
@@ -17,7 +17,7 @@ type (
 		Replay(data string) bool
 	}
 	object struct {
-		check check.Interface
+		check mycheck.Interface
 		data  packet.Interface
 		l     net.Listener
 		conn  net.Conn
@@ -57,7 +57,7 @@ func (o *object) Server() {
 		}
 		//o.data.Reset()
 		//go func() {
-		//    defer func() { check.Error(conn.Close()) }()
+		//    defer func() { mycheck.Error(conn.Close()) }()
 		n, err := o.conn.Read(o.data.Bytes())
 		if err != nil || n == 0 {
 			continue
@@ -72,7 +72,7 @@ func (o *object) Server() {
 
 func New() Interface {
 	return &object{
-		check: check.Default,
+		check: mycheck.Default,
 		data:  packet.New(),
 	}
 }

@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-package binary
+package mybinary
 
 // This file implements "varintStream" encoding of 64-bit integers.
 // The encoding is:
@@ -26,7 +26,7 @@ package binary
 
 import (
 	"errors"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"io"
 )
 
@@ -120,7 +120,7 @@ func (v *_varint) PutUvarint(value uint64) varintStream {
 	return v.s
 }
 
-var c = check.Default
+var c = mycheck.Default
 
 func (v *_varint) Uvarint(bytes []byte) varintStream {
 	var (
@@ -273,7 +273,7 @@ func Varint(buf []byte) (int64, int) {
 	return x, n
 }
 
-var overflow = errors.New("binary: varintStream overflows a 64-bit integer")
+var overflow = errors.New("mybinary: varintStream overflows a 64-bit integer")
 
 // ReadUvarint reads an encoded unsigned integer from r and returns it as a uint64.
 func ReadUvarint(r io.ByteReader) (uint64, error) {

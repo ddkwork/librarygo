@@ -54,12 +54,12 @@ func TestStackFmt(t *testing.T) {
 	stack := `goroutine 18 [running]:
 runtime/debug.Stack()
 	C:/Program Files/Go/src/runtime/debug/stack.go:24 +0x65
-libraryGo/src/check.(*object).setErrorInfo(0xc00001cc30, {0xa95220, 0xc000094ed0})
-	D:/mod/libraryGo/src/check/ErrorCheck.go:258 +0xe6d
-libraryGo/src/check.(*object).Error(0xc0000e82a0, {0xa95220, 0xc000094ed0})
-	D:/mod/libraryGo/src/check/ErrorCheck.go:130 +0x2a
-libraryGo/src/check.Error(...)
-	D:/mod/libraryGo/src/check/ErrorCheck.go:12
+libraryGo/src/mycheck.(*object).setErrorInfo(0xc00001cc30, {0xa95220, 0xc000094ed0})
+	D:/mod/libraryGo/src/mycheck/ErrorCheck.go:258 +0xe6d
+libraryGo/src/mycheck.(*object).Error(0xc0000e82a0, {0xa95220, 0xc000094ed0})
+	D:/mod/libraryGo/src/mycheck/ErrorCheck.go:130 +0x2a
+libraryGo/src/mycheck.Error(...)
+	D:/mod/libraryGo/src/mycheck/ErrorCheck.go:12
 myencoding/internal/apiprotocol/singular.(*superRecovery4).MarshalSingular(0xa94aa0, {0x0, {0xb18060, 0x0}, {0x0, 0x0}})
 	D:/mod/myencoding/internal/apiprotocol/singular/singular.go:89 +0 x5ba
 myencoding/internal/apiprotocol/Struct.(*object).marshalStruct(0xc0000b0f00, {0xabc1c0, 0xc0000a6a40})

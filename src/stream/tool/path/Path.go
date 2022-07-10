@@ -1,7 +1,7 @@
 package path
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"os"
 	"path/filepath"
 	"strings"
@@ -52,7 +52,7 @@ func (o *object) GetUNCPath(fileName string) (ok bool) {
 func (o *object) CreatDirectory(path string) bool {
 	_, err := os.Stat(path)
 	if err != nil {
-		return check.Error(os.MkdirAll(path, os.ModePerm))
+		return mycheck.Error(os.MkdirAll(path, os.ModePerm))
 	}
 	return true
 }
@@ -62,7 +62,7 @@ func (o *object) CurrentRunningPath() string { return o.currentRunningPath }
 
 func (o *object) GetCurrentRunningPath() (ok bool) {
 	dir, err := os.Executable()
-	if !check.Error2(dir, err) {
+	if !mycheck.Error2(dir, err) {
 		return
 	}
 	o.currentRunningPath = filepath.Dir(dir)
@@ -71,7 +71,7 @@ func (o *object) GetCurrentRunningPath() (ok bool) {
 
 func (o *object) GetCurrentDirectory() (ok bool) {
 	o.currentDirectory, o.err = os.Getwd()
-	return check.Error(o.err)
+	return mycheck.Error(o.err)
 }
 
 func (o *object) Filepath() string {
@@ -92,7 +92,7 @@ func (o *object) GetFilename(Filepath string) string {
 }
 func (o *object) GetAbsolutePath(Filepath string) (ok bool) {
 	o.absolutePath, o.err = filepath.Abs(Filepath)
-	return check.Error(o.err)
+	return mycheck.Error(o.err)
 }
 func (o *object) GetExtensionPath(Filepath string) string {
 	return filepath.Ext(Filepath)

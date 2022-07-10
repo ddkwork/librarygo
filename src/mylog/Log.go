@@ -17,7 +17,7 @@ const (
 	tagStruct  = `[ struct]`
 	tagInfo    = `[   info]`
 	tagTrace   = `[  trace]`
-	//tagError   = `[error]` //moved to check pkg
+	//tagError   = `[error]` //moved to mycheck pkg
 	tagWarning = `[warning]`
 	tagSuccess = `[success]`
 )
@@ -111,7 +111,7 @@ func (o *object) Struct(msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) do() bool { //no check return
+func (o *object) do() bool { //no mycheck return
 	if platform.New().IsAndroid() {
 		return false
 	}

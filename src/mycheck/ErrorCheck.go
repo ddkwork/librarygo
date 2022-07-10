@@ -1,12 +1,12 @@
-package check
+package mycheck
 
 import (
 	"bufio"
 	"bytes"
 	"errors"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check/internal/cyclicimport"
-	"github.com/ddkwork/librarygo/src/check/internal/table"
+	"github.com/ddkwork/librarygo/src/mycheck/internal/cyclicimport"
+	"github.com/ddkwork/librarygo/src/mycheck/internal/table"
 	"github.com/stretchr/testify/assert"
 	"html/template"
 	"io"

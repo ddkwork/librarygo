@@ -2,7 +2,7 @@ package client
 
 import (
 	"encoding/json"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/net/clientAndServer/internal/packet"
 	"github.com/ddkwork/librarygo/src/stream"
@@ -22,7 +22,7 @@ type (
 		//MarshalIndent(objectPtr interface{}) *stream.Buffer
 	}
 	object struct {
-		check   check.Interface
+		check   mycheck.Interface
 		conn    net.Conn
 		data    packet.Interface
 		err     error
@@ -61,7 +61,7 @@ func (o *object) SendWithHead(head, body *stream.Buffer) (ok bool) {
 }
 
 func (o *object) stickyBag() bool {
-	if !check.Error(o.conn.Close()) {
+	if !mycheck.Error(o.conn.Close()) {
 		return false
 	}
 	return o.Connect(o.address)
@@ -107,7 +107,7 @@ func (o *object) Send(s *stream.Buffer) (ok bool) {
 
 func New() Interface {
 	return &object{
-		check: check.Default,
+		check: mycheck.Default,
 		conn:  nil,
 		data:  packet.New(),
 		err:   nil,

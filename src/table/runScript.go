@@ -2,7 +2,7 @@ package table
 
 import (
 	"bytes"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/traefik/yaegi/interp"
 	"github.com/traefik/yaegi/stdlib"
 )
@@ -13,7 +13,7 @@ func PrintStructFieldsInfoTable(fields []FieldInfo) {
 	interpreter := interp.New(interp.Options{})
 	interpreter.Use(stdlib.Symbols)
 	_, err := interpreter.Eval(script)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 }
@@ -22,7 +22,7 @@ func _RunGoCodes(code string) {
 	interpreter := interp.New(interp.Options{})
 	interpreter.Use(stdlib.Symbols)
 	_, err := interpreter.Eval(makeScript(code))
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 }

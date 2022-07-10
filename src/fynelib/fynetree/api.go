@@ -1,7 +1,7 @@
 package fynetree
 
 import (
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/drognisep/fynehelpers/generation"
 )
 
@@ -27,7 +27,7 @@ func (a *api) NewTree(modelRoots ...generation.TreeModel) *BranchTree {
 func (a *api) NewRoot(title string) *Object { return a.NewBranch(title) }
 func (a *api) RootAddChild(root *Object, title string) {
 	root.title = title
-	if !check.Error(root.AddChild(root)) {
+	if !mycheck.Error(root.AddChild(root)) {
 		return
 	}
 
@@ -40,14 +40,14 @@ func (a *api) NewBranch(title string) *Object {
 }
 func (a *api) BranchAddChild(branch *Object, title string) {
 	branch.title = title
-	if !check.Error(branch.AddChild(branch)) {
+	if !mycheck.Error(branch.AddChild(branch)) {
 		return
 	}
 }
 func (a *api) NewNode(title string) *Object { return a.NewBranch(title) }
 func (a *api) NodeAddChild(node *Object, title string) {
 	node.title = title
-	if !check.Error(node.AddChild(node)) {
+	if !mycheck.Error(node.AddChild(node)) {
 		return
 	}
 }

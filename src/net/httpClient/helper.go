@@ -2,7 +2,7 @@ package httpClient
 
 import (
 	"crypto/tls"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"net"
 	"net/http"
@@ -46,7 +46,7 @@ func (o *object) Client() *http.Client               { return o.client }
 func (o *object) CreatNewClient(client *http.Client) { o.client = client }
 func (o *object) hasCookieInJar(jar *cookiejar.Jar, cookieName, Host string) (ok bool) {
 	URL, err := url.Parse(Host)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return
 	}
 	for _, v := range jar.Cookies(URL) {
@@ -76,7 +76,7 @@ func (o *object) SetProxy(protocol, hostPort string) (ok bool) { //todo see x/pr
 		ObjTransport.dialFunc = SDial(protocol + "://" + hostPort + "?timeout=20s") //?
 	case ProtoName.Http(), ProtoName.Https():
 		URL, err := url.Parse(ProtoName.Http() + "://" + hostPort)
-		if !check.Error(err) {
+		if !mycheck.Error(err) {
 			return
 		}
 		ObjTransport.proxyURLFunc = http.ProxyURL(URL)

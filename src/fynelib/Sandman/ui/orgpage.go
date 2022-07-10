@@ -39,7 +39,7 @@ func (o *OrgCheckList) Update() {
 
 	arr := mytree.GetAllTrees()
 
-	//check if there is a tree named "orgdefault"
+	//mycheck if there is a tree named "orgdefault"
 
 	found := false
 

@@ -1,4 +1,4 @@
-package check
+package mycheck
 
 import "testing"
 

@@ -3,7 +3,7 @@ module github.com/ddkwork/librarygo
 go 1.18
 
 require (
-	fyne.io/fyne/v2 v2.2.2
+	fyne.io/fyne/v2 v2.2.3
 	github.com/ActiveState/termtest/conpty v0.5.0
 	github.com/creack/pty v1.1.11
 	github.com/dop251/goja v0.0.0-20220516123900-4418d4575a41

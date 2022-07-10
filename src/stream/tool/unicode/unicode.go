@@ -3,7 +3,7 @@ package unicode
 import (
 	"encoding/binary"
 	"fmt"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 	"unicode/utf16"
 )
 
@@ -62,7 +62,7 @@ func (o *object) Utf16() []uint16 {
 func (o *object) FromString(s string) (ok bool) {
 	for i := 0; i < len(s); i++ {
 		if s[i] == 0 {
-			return check.Error("unicode字符串不能包含0值字节，0只能是固定的拓展位，就是说返回的unicode不应该有0x0000这种宽字符集")
+			return mycheck.Error("unicode字符串不能包含0值字节，0只能是固定的拓展位，就是说返回的unicode不应该有0x0000这种宽字符集")
 		}
 	}
 	o.utf16 = utf16.Encode([]rune(s + "\x00")) //bug,这里会多了一组尾巴的0X0000，其实还可以了直接用类型拓展用，1字节转2字节即可

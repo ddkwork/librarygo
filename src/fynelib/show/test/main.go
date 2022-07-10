@@ -4,9 +4,9 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/widget"
-	"github.com/ddkwork/librarygo/src/check"
 	"github.com/ddkwork/librarygo/src/fynelib/fyneTheme"
 	"github.com/ddkwork/librarygo/src/fynelib/show"
+	"github.com/ddkwork/librarygo/src/mycheck"
 )
 
 func main() {
@@ -18,7 +18,7 @@ func main() {
 	w.SetMaster()
 	w.CenterOnScreen()
 	w.SetContent(widget.NewButton("测试中文", func() {
-		check.Error(111111111)
+		mycheck.Error(111111111)
 		show.Error()
 	}))
 	w.ShowAndRun()

@@ -10,7 +10,7 @@ type (
 		Left(src string) string
 		Right(src string) string
 		Json(src string) string
-		NewLine(src *bytes.Buffer) error //cyclicImport for not check error
+		NewLine(src *bytes.Buffer) error //cyclicImport for not mycheck error
 		MakeSpace(src string) string
 	}
 	object struct{}

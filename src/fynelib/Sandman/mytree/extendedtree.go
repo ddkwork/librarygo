@@ -152,7 +152,7 @@ func (m *Mytree) UpdateFromInstance() {
 		m.Bar.SetValue(ptr.ProgressBar)
 	}
 
-	//check if checklist is default and update latest default checklist
+	//mycheck if checklist is default and update latest default checklist
 	if m.TreeIdentifer == "default" {
 		arr := GetAllCheckLists()
 		var DefChecklist *CheckListOnly
@@ -416,11 +416,11 @@ func (m *Mytree) FindObject(name string) (*TreeObject, error) {
 	}
 
 	if len(branchmatch) > 0 {
-		tip := "this API is intended to only work with check list items not branches\n try refining it to checklist item"
+		tip := "this API is intended to only work with mycheck list items not branches\n try refining it to checklist item"
 		newer := fmt.Errorf("matched with following branches %v\n %v", branchmatch, tip)
 		return &TreeObject{}, newer
 	} else {
-		//check for checklist item match
+		//mycheck for checklist item match
 		itemmatch := []string{}
 		for k := range m.HashMap {
 			klower := strings.ToLower(k)
@@ -627,7 +627,7 @@ func NewMytree(identifier string) *Mytree {
 	}
 
 	t.IsBranch = func(uid widget.TreeNodeID) (ok bool) {
-		//check if it has a branch
+		//mycheck if it has a branch
 		children, ok := t.Nodes[uid]
 
 		// also if branch does not have any children
@@ -649,7 +649,7 @@ func NewMytree(identifier string) *Mytree {
 				w.SetText(uid)
 			}
 			if w, ok := v.(*widget.Check); ok {
-				//change check status and tap function
+				//change mycheck status and tap function
 				//chack if map has an object
 				if _, ok := t.CheckBoxes[uid]; !ok {
 					t.CheckBoxes[uid] = binding.NewBool()

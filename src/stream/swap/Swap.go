@@ -3,7 +3,7 @@ package swap
 import (
 	"bytes"
 	"encoding/hex"
-	"github.com/ddkwork/librarygo/src/check"
+	"github.com/ddkwork/librarygo/src/mycheck"
 )
 
 type (
@@ -35,7 +35,7 @@ func New() Interface { return &object{} }
 
 func (o *object) HexString(hexStr string) []byte {
 	decodeString, err := hex.DecodeString(hexStr)
-	if !check.Error(err) {
+	if !mycheck.Error(err) {
 		return nil
 	}
 	return o.Bytes(decodeString)
@@ -43,7 +43,7 @@ func (o *object) HexString(hexStr string) []byte {
 
 func (o *object) String(src []byte) (dst string) { return string(o.Bytes(src)) }
 func (o *object) Bytes(src []byte) (dst []byte) {
-	//binary.BigEndian.PutUint64()三次才行，10字节的话，如果是更多字节那就不通用
+	//mybinary.BigEndian.PutUint64()三次才行，10字节的话，如果是更多字节那就不通用
 	to := bytes.Buffer{}
 	for i := range src {
 		to.WriteByte(src[len(src)-i-1])
