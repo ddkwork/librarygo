@@ -5,6 +5,7 @@ go 1.18
 require (
 	fyne.io/fyne/v2 v2.2.3
 	github.com/ActiveState/termtest/conpty v0.5.0
+	github.com/PeterYangs/gcmd v0.0.4
 	github.com/creack/pty v1.1.11
 	github.com/dop251/goja v0.0.0-20220516123900-4418d4575a41
 	github.com/drognisep/fynehelpers v0.0.0-20220612030159-a59fafbc482d
@@ -37,6 +38,8 @@ require (
 require (
 	fyne.io/systray v1.10.1-0.20220621085403-9a2652634e93 // indirect
 	github.com/Azure/go-ansiterm v0.0.0-20170929234023-d6e3b3328b78 // indirect
+	github.com/PeterYangs/tools v0.2.31 // indirect
+	github.com/axgle/mahonia v0.0.0-20180208002826-3358181d7394 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/dlclark/regexp2 v1.4.1-0.20201116162257-a2a8dda75c91 // indirect
 	github.com/fredbi/uri v0.0.0-20181227131451-3dcfdacbaaf3 // indirect
@@ -54,6 +57,7 @@ require (
 	github.com/jsummers/gobmp v0.0.0-20151104160322-e2ba15ffa76e // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
+	github.com/satori/go.uuid v1.2.0 // indirect
 	github.com/srwiley/oksvg v0.0.0-20211120171407-1837d6608d8c // indirect
 	github.com/srwiley/rasterx v0.0.0-20210519020934-456a8d69b780 // indirect
 	github.com/tevino/abool v1.2.0 // indirect
@@ -62,6 +66,8 @@ require (
 	golang.org/x/mobile v0.0.0-20211207041440-4e6c2922fdee // indirect
 	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
+	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
+	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	honnef.co/go/js/dom v0.0.0-20210725211120-f030747120f2 // indirect
 )

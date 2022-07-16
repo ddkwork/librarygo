@@ -3,7 +3,6 @@ package tool
 import (
 	"github.com/ddkwork/librarygo/src/stream/indent"
 	"github.com/ddkwork/librarygo/src/stream/swap"
-	"github.com/ddkwork/librarygo/src/stream/tool/cmd"
 	"github.com/ddkwork/librarygo/src/stream/tool/file"
 	"github.com/ddkwork/librarygo/src/stream/tool/flot"
 	"github.com/ddkwork/librarygo/src/stream/tool/gzip"
@@ -20,7 +19,6 @@ import (
 type (
 	Interface interface {
 		VerSion() version.Interface
-		Cmd() cmd.Interface
 		Path() path.Interface
 		File() file.Interface
 		Flot() flot.Interface
@@ -36,7 +34,6 @@ type (
 	}
 	object struct {
 		verSion       version.Interface
-		cmd           cmd.Interface
 		path          path.Interface
 		file          file.Interface
 		flot          flot.Interface
@@ -56,7 +53,6 @@ func (o *object) Unicode() unicode.Interface   { return o.unicodeString }
 func (o *object) Strconv() strconv.Interface   { return o.strconv }
 func (o *object) Regexp() regexp.Interface     { return o.regexp }
 func (o *object) VerSion() version.Interface   { return o.verSion }
-func (o *object) Cmd() cmd.Interface           { return o.cmd }
 func (o *object) Path() path.Interface         { return o.path }
 func (o *object) File() file.Interface         { return o.file }
 func (o *object) Flot() flot.Interface         { return o.flot }
@@ -69,7 +65,6 @@ func (o *object) Indent() indent.Interface     { return o.indent }
 func New() Interface {
 	return &object{
 		verSion:       version.New(),
-		cmd:           cmd.New(),
 		path:          path.New(),
 		file:          file.New(),
 		flot:          flot.New(),
@@ -91,7 +86,6 @@ func UnicodeString() unicode.Interface { return Default.Unicode() }
 func Strconv() strconv.Interface       { return Default.Strconv() }
 func Regexp() regexp.Interface         { return Default.Regexp() }
 func VerSion() version.Interface       { return Default.VerSion() }
-func Cmd() cmd.Interface               { return Default.Cmd() }
 func Path() path.Interface             { return Default.Path() }
 func File() file.Interface             { return Default.File() }
 func Flot() flot.Interface             { return Default.Flot() }
