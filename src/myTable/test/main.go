@@ -4,18 +4,18 @@ import (
 	"fmt"
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"github.com/ddkwork/librarygo/src/mylog"
-	"github.com/hujun-open/dvlist"
+	"fyne.io/fyne/v2/widget"
+	"github.com/ddkwork/hyperdbgui/myTable"
+	"github.com/ddkwork/librarygo/src/fynelib/fyneTheme"
 	"net/http"
 	"sort"
-	"strings"
 	"time"
 )
 
 type (
 	a interface {
-		dvlist.Data
-		Add(info PacketInfo)
+		myTable.Interface
+		AddRow(info PacketInfo)
 	}
 	DecodedInfo struct {
 		Head      string
@@ -48,6 +48,93 @@ type (
 	packets []*PacketInfo
 )
 
+func (p *packets) Append(data any) {
+	//TODO implement me
+	panic("implement me")
+}
+
+func main() {
+	a := app.NewWithID("com.rows.app")
+	a.SetIcon(nil)
+	fyneTheme.New().SetDarkTheme(a)
+	w := a.NewWindow("app")
+	w.Resize(fyne.NewSize(1040, 780))
+	w.SetMaster()
+	w.CenterOnScreen()
+	p := new(packets)
+	selectionHandler := myTable.WithSelectionHandler(func(id int, selected bool) {
+		println(id)
+		println(selected)
+	})
+	doubleClickHandler := myTable.WithDoubleClickHandler(func(id int) {
+		popUpMenu := widget.NewPopUpMenu(
+			fyne.NewMenu("pop",
+				fyne.NewMenuItem("copy", func() {
+					println("copy")
+				}),
+				fyne.NewMenuItem("cut", func() {
+					println("cut")
+				}),
+				fyne.NewMenuItem("no", func() {
+					println("no")
+				}),
+			),
+			nil,
+		)
+		popUpMenu.Show()
+	})
+	list, err := myTable.NewDVList(p, selectionHandler, doubleClickHandler)
+	if err != nil {
+		panic(err.Error())
+	}
+	go func() {
+		myTable.ColumnWidth = map[int]float32{
+			2: 300,
+		} //todo
+		ticker := time.NewTicker(1 * time.Second)
+		defer func() { ticker.Stop() }()
+		for i := 0; i < 10; i++ {
+			now := time.Now()
+			p.Add(&PacketInfo{
+				PacketIndex: i + 1,
+				Method:      http.MethodGet,
+				Host:        "www.baidu.com",
+				Path:        "/login",
+				ConnectType: "json",
+				Size:        246,
+				PadTime:     now.Sub(time.Now()),
+				StartTime:   now,
+				Status:      http.StatusText(http.StatusOK),
+				StatusCode:  http.StatusOK,
+				Note:        "good",
+				Req:         DecodedInfo{},
+				Resp:        DecodedInfo{},
+			})
+			p.Add(&PacketInfo{
+				PacketIndex: i + 2,
+				Method:      http.MethodPost,
+				Host:        "www.baidu.com",
+				Path:        "/login",
+				ConnectType: "json",
+				Size:        246,
+				PadTime:     now.Sub(time.Now()),
+				StartTime:   now,
+				Status:      http.StatusText(http.StatusOK),
+				StatusCode:  http.StatusOK,
+				Note:        "good",
+				Req:         DecodedInfo{},
+				Resp:        DecodedInfo{},
+			})
+			list.SetData(p)
+			p.Filter(http.MethodPost, 1)
+			<-ticker.C
+			list.Refresh()
+		}
+	}()
+	w.SetContent(list)
+	w.ShowAndRun()
+}
+
 func (p *packets) Add(info *PacketInfo) { *p = append(*p, info) }
 func (p *packets) Len() int             { return len(*p) }
 
@@ -69,7 +156,7 @@ func (FieldName) Note() string        { return "Note" }
 
 var fieldName FieldName
 
-func (p packets) Fields() []string {
+func (p packets) Header() []string {
 	return []string{
 		fieldName.PacketIndex(),
 		fieldName.Method(),
@@ -85,7 +172,7 @@ func (p packets) Fields() []string {
 	}
 }
 
-func (p packets) Item(id int) []string {
+func (p packets) Rows(id int) []string {
 	if id < 0 || id >= p.Len() {
 		return nil
 	}
@@ -105,7 +192,7 @@ func (p packets) Item(id int) []string {
 }
 
 func (p packets) Sort(field int, ascend bool) {
-	switch p.Fields()[field] {
+	switch p.Header()[field] {
 	case fieldName.PacketIndex():
 		sort.Slice(p, func(i, j int) bool {
 			return p[i].PacketIndex > p[j].PacketIndex
@@ -153,17 +240,11 @@ func (p packets) Sort(field int, ascend bool) {
 	}
 }
 func (p packets) Filter(kw string, i int) {
-	//要在全局数据里面搜索，i肯定是不行的
-	//index line
-	mylog.Info("find", kw)
-	mylog.Info("i", i)
-	for lineIndex, s := range p.Item(i) {
-		println(s)
-		if strings.Contains(kw, s) {
-			mylog.Info("p[i].PacketIndex", p[i].PacketIndex)
-			mylog.Info("lineIndex", lineIndex)
-		}
-	}
+	//for lineIndex, s := range p.Rows(i) {
+	//	println(s)
+	//	if strings.Contains(kw, s) {
+	//	}
+	//}
 	//tocdiag.list.ScrollTo(i)
 	//tocdiag.list.SetSelection(i, true
 	//save
@@ -171,62 +252,4 @@ func (p packets) Filter(kw string, i int) {
 	//update
 	//right meanu
 	//copy clomn
-}
-
-func main() {
-	a := app.NewWithID("com.rows.app")
-	a.SetIcon(nil)
-	//fyneTheme.New().SetDarkTheme(a)
-	w := a.NewWindow("app")
-	w.Resize(fyne.NewSize(1040, 780))
-	w.SetMaster()
-	w.CenterOnScreen()
-	p := new(packets)
-	list, err := dvlist.NewDVList(p)
-	if err != nil {
-		panic(err.Error())
-	}
-	go func() {
-		ticker := time.NewTicker(1 * time.Second)
-		defer func() { ticker.Stop() }()
-		for i := 0; i < 10; i++ {
-			now := time.Now()
-			p.Add(&PacketInfo{
-				PacketIndex: i + 1,
-				Method:      http.MethodGet,
-				Host:        "www.baidu.com",
-				Path:        "/login",
-				ConnectType: "json",
-				Size:        246,
-				PadTime:     now.Sub(time.Now()),
-				StartTime:   now,
-				Status:      http.StatusText(http.StatusOK),
-				StatusCode:  http.StatusOK,
-				Note:        "good",
-				Req:         DecodedInfo{},
-				Resp:        DecodedInfo{},
-			})
-			p.Add(&PacketInfo{
-				PacketIndex: i + 2,
-				Method:      http.MethodPost,
-				Host:        "www.baidu.com",
-				Path:        "/login",
-				ConnectType: "json",
-				Size:        246,
-				PadTime:     now.Sub(time.Now()),
-				StartTime:   now,
-				Status:      http.StatusText(http.StatusOK),
-				StatusCode:  http.StatusOK,
-				Note:        "good",
-				Req:         DecodedInfo{},
-				Resp:        DecodedInfo{},
-			})
-			list.SetData(p)
-			p.Filter(http.MethodPost, 1)
-			<-ticker.C
-			list.Refresh()
-		}
-	}()
-	w.SetContent(list)
-	w.ShowAndRun()
 }

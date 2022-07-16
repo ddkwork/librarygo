@@ -1,5 +1,7 @@
 package librarygo
 
+//git tag -d v1.0.7
+
 //import (
 //	"go.uber.org/goleak"
 //	"testing"
