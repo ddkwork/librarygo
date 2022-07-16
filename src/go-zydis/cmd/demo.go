@@ -7,8 +7,7 @@ package main
 import (
 	"encoding/hex"
 	"fmt"
-
-	"go.jpap.org/zydis"
+	"github.com/ddkwork/librarygo/src/go-zydis"
 )
 
 func main() {

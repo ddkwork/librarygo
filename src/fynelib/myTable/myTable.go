@@ -6,7 +6,7 @@ import (
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/widget"
-	"github.com/ddkwork/hyperdbgui/myTable/scrollbar"
+	"github.com/ddkwork/librarygo/src/fynelib/myTable/scrollbar"
 	"image/color"
 	"sync"
 	"sync/atomic"

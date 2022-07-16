@@ -6,33 +6,16 @@ require (
 	fyne.io/fyne/v2 v2.2.3
 	github.com/ActiveState/termtest/conpty v0.5.0
 	github.com/PeterYangs/gcmd v0.0.4
-	github.com/creack/pty v1.1.11
-	github.com/dop251/goja v0.0.0-20220516123900-4418d4575a41
+	github.com/creack/pty v1.1.18
+	github.com/dop251/goja v0.0.0-20220714114325-87952593a54c
 	github.com/drognisep/fynehelpers v0.0.0-20220612030159-a59fafbc482d
 	github.com/fpabl0/sparky-go v0.0.0-20220505200009-411aff1dbf3d
-	github.com/gorilla/mux v1.8.0
-	github.com/hjson/hjson-go v3.1.0+incompatible
-	github.com/hujun-open/dvlist v0.3.1
-	github.com/hujun-open/sbar v0.2.0
+	github.com/hjson/hjson-go v3.3.0+incompatible
 	github.com/mattn/go-sqlite3 v1.14.14
 	github.com/nicksnyder/go-i18n/v2 v2.2.0
 	github.com/stretchr/testify v1.8.0
-	github.com/tarunKoyalwar/sandman v1.0.0
 	github.com/traefik/yaegi v0.13.0
-	go.mongodb.org/mongo-driver v1.9.1
 	golang.org/x/text v0.3.7
-)
-
-require (
-	github.com/go-stack/stack v1.8.1 // indirect
-	github.com/golang/snappy v0.0.4 // indirect
-	github.com/klauspost/compress v1.13.6 // indirect
-	github.com/xdg-go/pbkdf2 v1.0.0 // indirect
-	github.com/xdg-go/scram v1.0.2 // indirect
-	github.com/xdg-go/stringprep v1.0.2 // indirect
-	github.com/youmark/pkcs8 v0.0.0-20201027041543-1326539a0a0a // indirect
-	golang.org/x/crypto v0.0.0-20211209193657-4570a0811e8b // indirect
-	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c // indirect
 )
 
 require (
@@ -58,13 +41,13 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
-	github.com/srwiley/oksvg v0.0.0-20211120171407-1837d6608d8c // indirect
-	github.com/srwiley/rasterx v0.0.0-20210519020934-456a8d69b780 // indirect
+	github.com/srwiley/oksvg v0.0.0-20200311192757-870daf9aa564 // indirect
+	github.com/srwiley/rasterx v0.0.0-20200120212402-85cb7272f5e9 // indirect
 	github.com/tevino/abool v1.2.0 // indirect
-	github.com/yuin/goldmark v1.4.4 // indirect
+	github.com/yuin/goldmark v1.4.0 // indirect
 	golang.org/x/image v0.0.0-20220601225756-64ec528b34cd // indirect
 	golang.org/x/mobile v0.0.0-20211207041440-4e6c2922fdee // indirect
-	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
+	golang.org/x/net v0.0.0-20210805182204-aaa1db679c0d // indirect
 	golang.org/x/sys v0.0.0-20220412211240-33da011f77ad // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
