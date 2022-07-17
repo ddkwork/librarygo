@@ -10,6 +10,7 @@ package librarygo
 //git push --delete origin v1.0.5
 //git push --delete origin v1.0.6
 //git push --delete origin v1.0.7
+//git push --delete origin v0.0.0
 
 //import (
 //	"go.uber.org/goleak"
