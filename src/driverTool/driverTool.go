@@ -73,7 +73,7 @@ func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
 		container.NewGridWithColumns(2, load, unload),
 	)
 	split := container.NewHSplit(form, logView)
-	split.Offset = 0.6
+	split.Offset = 0.4
 	return split
 }
 
