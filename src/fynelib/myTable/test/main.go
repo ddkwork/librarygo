@@ -83,7 +83,7 @@ func main() {
 		)
 		popUpMenu.Show()
 	})
-	list, err := myTable.NewDVList(p, selectionHandler, doubleClickHandler)
+	list, err := myTable.NewTable(p, selectionHandler, doubleClickHandler)
 	if err != nil {
 		panic(err.Error())
 	}

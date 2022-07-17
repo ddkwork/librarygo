@@ -90,8 +90,8 @@ func WithDoubleClickHandler(h DoubleClickHandler) Option {
 	}
 }
 
-// NewDVList return a new MyTable instance with the specified data
-func NewDVList(data Interface, options ...Option) (*MyTable, error) {
+// NewTable return a new MyTable instance with the specified data
+func NewTable(data Interface, options ...Option) (*MyTable, error) {
 	if len(data.Header()) > MaxFields {
 		return nil, fmt.Errorf("data has more fields (%d) than allowed (%d)", len(data.Header()), MaxFields)
 	}
@@ -167,7 +167,7 @@ func (t *MyTable) updateSelection(row int, selected bool) {
 }
 
 func (t *MyTable) onSelectRow(row int, selected bool) {
-	// log.Printf("dvlist row %d got selected %v", row, selected)
+	// log.Printf("Table row %d got selected %v", row, selected)
 	defer func() {
 		if t.selectionHandler != nil {
 			t.selectionHandler(row, selected)
@@ -215,7 +215,7 @@ func (t *MyTable) FirstSelected() int {
 }
 
 func (t *MyTable) onScroll(offset uint32) {
-	// log.Printf("dvlist scroll to offset %d", offset)
+	// log.Printf("Table scroll to offset %d", offset)
 	t.mux.RLock()
 	atomic.StoreUint32(t.curStartPoint,
 		uint32((int(offset)*t.data.Len())/scrollbar.OffsetResolution))
