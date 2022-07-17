@@ -11,10 +11,13 @@ require (
 	github.com/drognisep/fynehelpers v0.0.0-20220612030159-a59fafbc482d
 	github.com/fpabl0/sparky-go v0.0.0-20220505200009-411aff1dbf3d
 	github.com/hjson/hjson-go v3.3.0+incompatible
+	github.com/intel-go/cpuid v0.0.0-20220614022739-219e067757cb
 	github.com/mattn/go-sqlite3 v1.14.14
 	github.com/nicksnyder/go-i18n/v2 v2.2.0
+	github.com/spyre-project/spyre v1.2.5
 	github.com/stretchr/testify v1.8.0
 	github.com/traefik/yaegi v0.13.0
+	golang.org/x/sys v0.0.0-20220422013727-9388b58f7150
 	golang.org/x/text v0.3.7
 )
 
@@ -41,6 +44,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/satori/go.uuid v1.2.0 // indirect
+	github.com/spf13/afero v1.6.0 // indirect
+	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/srwiley/oksvg v0.0.0-20211120171407-1837d6608d8c // indirect
 	github.com/srwiley/rasterx v0.0.0-20210519020934-456a8d69b780 // indirect
 	github.com/tevino/abool v1.2.0 // indirect
@@ -48,7 +53,6 @@ require (
 	golang.org/x/image v0.0.0-20220601225756-64ec528b34cd // indirect
 	golang.org/x/mobile v0.0.0-20211207041440-4e6c2922fdee // indirect
 	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
-	golang.org/x/sys v0.0.0-20220422013727-9388b58f7150 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
