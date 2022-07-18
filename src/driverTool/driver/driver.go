@@ -15,7 +15,6 @@ import (
 
 type (
 	helper interface {
-		SetStatus(status uint32)
 		SetService() (ok bool)
 		SetManager() (ok bool)
 		StartService() (ok bool)
@@ -105,10 +104,7 @@ func (o *Object) Unload() (ok bool) {
 	}
 	return mycheck.Error(os.Remove(o.driverPath))
 }
-func (o *Object) SetStatus(status uint32) {
-	o.Status = status
-	mylog.Trace("status", o.Status)
-}
+
 func (o *Object) SetService() (ok bool) {
 	var err error
 	o.service, err = o.manager.OpenService(o.DeviceName)
@@ -136,7 +132,7 @@ func (o *Object) QueryService() (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
-	o.SetStatus(status.ServiceSpecificExitCode)
+	o.Status = status.ServiceSpecificExitCode
 	return true
 }
 func (o *Object) StopService() (ok bool) {

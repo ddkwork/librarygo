@@ -16,14 +16,20 @@ type (
 	Interface interface {
 		canvasobjectapi.Interface
 		Driver() *driver.Object
+		SetUnloadVmmTapped(unloadVmmTapped func())
+		SetLoadVmmTapped(loadVmmTapped func())
 	}
 	object struct {
-		drivers []string
-		driver  *driver.Object
+		drivers         []string
+		driver          *driver.Object
+		loadVmmTapped   func()
+		unloadVmmTapped func()
 	}
 )
 
-func (o *object) Driver() *driver.Object { return o.driver }
+func (o *object) SetUnloadVmmTapped(unloadVmmTapped func()) { o.unloadVmmTapped = unloadVmmTapped }
+func (o *object) SetLoadVmmTapped(loadVmmTapped func())     { o.loadVmmTapped = loadVmmTapped }
+func (o *object) Driver() *driver.Object                    { return o.driver }
 func New() Interface {
 	return &object{
 		drivers: make([]string, 0),
@@ -65,6 +71,30 @@ func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
 		}
 		logView.SetText("unload " + path.Selected() + " successful")
 	})
+
+	loadVmm := widget.NewButton("loadVmm", func() { //todo check vm status for pass bsod
+		if o.loadVmmTapped == nil {
+			return
+		}
+		o.loadVmmTapped()
+		if o.driver.Status == 0 {
+			logView.SetText("loadVmm " + path.Selected() + " successful")
+			return
+		}
+		logView.SetText("loadVmm " + path.Selected() + " bad") //todo show all info
+	})
+	unloadVmm := widget.NewButton("unloadVmm", func() { //todo check vm status for pass bsod
+		if o.unloadVmmTapped == nil {
+			return
+		}
+		o.unloadVmmTapped()
+		if o.driver.Status == 0 {
+			logView.SetText("unloadVmm " + path.Selected() + " successful")
+			return
+		}
+		logView.SetText("unloadVmm " + path.Selected() + " bad") //todo show all info
+	})
+
 	errCode := swid.NewTextFormField("errCode", "")
 	ntstatus := swid.NewTextFormField("ntstatus", "")
 	hresult := swid.NewTextFormField("hresult", "")
@@ -87,6 +117,7 @@ func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
 		hresult,
 		winerror,
 		container.NewGridWithColumns(2, load, unload),
+		container.NewGridWithColumns(2, loadVmm, unloadVmm),
 	)
 	split := container.NewHSplit(form, logView)
 	split.Offset = 0.4
