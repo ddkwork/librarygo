@@ -13,14 +13,26 @@ import (
 )
 
 type (
-	Interface interface{ canvasobjectapi.Interface }
-	object    struct{ drivers []string }
+	Interface interface {
+		canvasobjectapi.Interface
+		Driver() *driver.Object
+	}
+	object struct {
+		drivers []string
+		driver  *driver.Object
+	}
 )
 
-func New() Interface { return &object{drivers: make([]string, 0)} }
+func (o *object) Driver() *driver.Object { return o.driver }
+func New() Interface {
+	return &object{
+		drivers: make([]string, 0),
+		driver:  driver.NewObject(),
+	}
+}
 
 func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
-	o.WalkAllDriverPath("D:\\codespace\\workspace\\src\\cppkit\\driverTool")
+	o.WalkAllDriverPath("")
 
 	logView := widget.NewMultiLineEntry()
 	logView.PlaceHolder = "log ..."
@@ -28,22 +40,26 @@ func (o *object) CanvasObject(window fyne.Window) fyne.CanvasObject {
 	path := swid.NewSelectFormField("path", "", o.drivers)
 	link := swid.NewTextFormField("link", "")
 	path.OnChanged = func(s string) {
-		ext := filepath.Ext(s)
-		base := filepath.Base(s)
-		base = base[:len(base)-len(ext)]
-		link.SetText(base)
+		if o.driver.DeviceName == "" {
+			ext := filepath.Ext(s)
+			base := filepath.Base(s)
+			base = base[:len(base)-len(ext)]
+			link.SetText(base)
+			o.driver.DeviceName = base
+		} else {
+			link.SetText(o.driver.DeviceName)
+		}
 	}
 	ioCode := swid.NewTextFormField("ioCode", "")
-	d := driver.New()
 	load := widget.NewButton("load", func() {
-		if !d.Load(path.Selected()) {
+		if !o.driver.Load(path.Selected()) {
 			logView.SetText(mycheck.Body())
 			return
 		}
 		logView.SetText("load " + path.Selected() + " successful")
 	})
 	unload := widget.NewButton("unload", func() {
-		if !d.Unload() {
+		if !o.driver.Unload() {
 			logView.SetText(mycheck.Body())
 			return
 		}
