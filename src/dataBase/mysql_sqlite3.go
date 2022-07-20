@@ -12,9 +12,9 @@ type (
 		Init(driverName, dataSourceName string) bool
 		CreatTables(DDL string) bool
 		Query(query string) (ok bool)
-		QueryResult() interface{}
-		Update(query string, args ...interface{}) bool
-		Insert(query string, args ...interface{}) bool
+		QueryResult() any
+		Update(query string, args ...any) bool
+		Insert(query string, args ...any) bool
 	}
 	object struct {
 		//Client *redis.Client //写到另外的文件，移除工程的爬虫工程的全局变量
@@ -22,7 +22,7 @@ type (
 		stmt        *sql.Stmt
 		rows        *sql.Rows
 		result      sql.Result
-		queryResult interface{}
+		queryResult any
 		err         error
 	}
 )
@@ -43,7 +43,7 @@ func (o *object) Init(driverName, dataSourceName string) bool {
 	return mycheck.Error(o.db.Ping())
 }
 func (o *object) CreatTables(DDL string) bool { return mycheck.Error2(o.db.Exec(DDL)) }
-func (o *object) QueryResult() interface{}    { return o.queryResult }
+func (o *object) QueryResult() any            { return o.queryResult }
 func (o *object) Query(query string) (ok bool) {
 	o.rows, o.err = o.db.Query(query)
 	if !mycheck.Error(o.err) {
@@ -64,9 +64,9 @@ func (o *object) Query(query string) (ok bool) {
 	return true
 }
 
-func (o *object) Update(query string, args ...interface{}) bool { return o.stmtExec(query, args) }
-func (o *object) Insert(query string, args ...interface{}) bool { return o.stmtExec(query, args) }
-func (o *object) stmtExec(query string, args ...interface{}) bool {
+func (o *object) Update(query string, args ...any) bool { return o.stmtExec(query, args) }
+func (o *object) Insert(query string, args ...any) bool { return o.stmtExec(query, args) }
+func (o *object) stmtExec(query string, args ...any) bool {
 	o.stmt, o.err = o.db.Prepare(query)
 	if !mycheck.Error(o.err) {
 		return false

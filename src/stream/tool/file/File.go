@@ -119,7 +119,7 @@ func (o *object) ToLines(data any) (lines []string, ok bool) {
 	}
 }
 func (o *object) WriteJson(name string, Obj any) (ok bool) {
-	var oo interface{}
+	var oo any
 	switch reflect.TypeOf(Obj).Kind() {
 	case reflect.Struct:
 		oo = &Obj

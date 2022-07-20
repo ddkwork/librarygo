@@ -9,11 +9,9 @@ func TestName(t *testing.T) {
 	println(Wrap("111111111111111111122111111111111111111112211111111111111111111221", 10))
 }
 
+func same(a, b any) bool { return reflect.DeepEqual(a, b) }
 
-
-func same(a, b interface{}) bool { return reflect.DeepEqual(a, b) }
-
-func equals(t *testing.T, a, b interface{}) {
+func equals(t *testing.T, a, b any) {
 	t.Helper()
 	if !same(a, b) {
 		t.Errorf("\nexpected: %v\n  actual: %v\nto be equal", a, b)

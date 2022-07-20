@@ -6,12 +6,12 @@ import (
 	"reflect"
 )
 
-func (o *object) Write(obj interface{}) bool {
+func (o *object) Write(obj any) bool {
 	o.Buffer = &bytes.Buffer{}
 	return o.WriteValue(obj, 0)
 }
 
-func (o *object) WriteValue(obj interface{}, depth int) (ok bool) {
+func (o *object) WriteValue(obj any, depth int) (ok bool) {
 	v := reflect.ValueOf(obj)
 	switch v.Kind() {
 	case reflect.Interface:

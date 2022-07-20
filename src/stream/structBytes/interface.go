@@ -11,8 +11,8 @@ var c = mycheck.Default
 type (
 	Interface interface {
 		StructBytes() []byte
-		StructToBytes(obj interface{}) bool
-		BytesToStruct(StructBytes []byte, obj interface{}) bool
+		StructToBytes(obj any) bool
+		BytesToStruct(StructBytes []byte, obj any) bool
 		goBinary.Interface
 	}
 	object struct {
@@ -28,10 +28,10 @@ func New() Interface {
 	}
 }
 
-func (o *object) StructBytes() []byte                { return o.Bytes() }
-func (o *object) StructToBytes(obj interface{}) bool { return o.Write(obj) }
-func (o *object) BytesToStruct(StructBytes []byte, obj interface{}) bool {
+func (o *object) StructBytes() []byte        { return o.Bytes() }
+func (o *object) StructToBytes(obj any) bool { return o.Write(obj) }
+func (o *object) BytesToStruct(StructBytes []byte, obj any) bool {
 	return o.Read(StructBytes, obj)
 }
-func (o *object) Encode(obj interface{}) bool             { return o.goBinary.Encode(obj) }
-func (o *object) Decode(buf []byte, obj interface{}) bool { return o.goBinary.Decode(buf, obj) }
+func (o *object) Encode(obj any) bool             { return o.goBinary.Encode(obj) }
+func (o *object) Decode(buf []byte, obj any) bool { return o.goBinary.Decode(buf, obj) }

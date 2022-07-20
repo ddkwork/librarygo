@@ -70,7 +70,7 @@ const (
 
 type rowAct struct {
 	act rowActType
-	val interface{}
+	val any
 }
 
 const (
@@ -280,7 +280,7 @@ func (row *tableRow) reLayout(refresh bool) {
 	}
 }
 
-func (row *tableRow) dragHandler(metadata interface{}, evt *fyne.DragEvent) {
+func (row *tableRow) dragHandler(metadata any, evt *fyne.DragEvent) {
 	id := metadata.(listCord).Column
 	err := row.SetColumnWidth(id, evt.Dragged.DX)
 	if err == nil {
@@ -293,12 +293,12 @@ func (row *tableRow) dragHandler(metadata interface{}, evt *fyne.DragEvent) {
 	}
 }
 
-func (row *tableRow) doubleTapHandler(metadata interface{}, evt *fyne.PointEvent) {
+func (row *tableRow) doubleTapHandler(metadata any, evt *fyne.PointEvent) {
 	if row.doubleClickHandler != nil {
 		row.doubleClickHandler(metadata.(listCord).Row)
 	}
 }
-func (row *tableRow) tapHandler(metadata interface{}, evt *fyne.PointEvent) {
+func (row *tableRow) tapHandler(metadata any, evt *fyne.PointEvent) {
 	// log.Printf("row %d clicked", row.rowID)
 	if !row.header {
 		//body

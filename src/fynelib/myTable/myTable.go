@@ -32,7 +32,7 @@ const (
 
 type listAct struct {
 	act listActType
-	arg interface{}
+	arg any
 }
 
 type listCord struct {

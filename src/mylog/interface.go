@@ -1,15 +1,21 @@
 package mylog
 
+import (
+	"encoding/json"
+	"github.com/ddkwork/librarygo/src/mycheck"
+)
+
 type (
 	Interface interface {
-		HexDump(title string, msg interface{})    //hex buf todo support fn return []byte
-		Hex(title string, msg interface{})        //hex value
-		Info(title string, msg ...interface{})    //info
-		Trace(title string, msg ...interface{})   //跟踪
-		Warning(title string, msg ...interface{}) //警告
-		Json(title string, msg ...interface{})    //pb json todo rename
-		Success(title string, msg ...interface{}) //成功
-		Struct(msg ...interface{})                //结构体 todo indent ,add title
+		HexDump(title string, msg any)     //hex buf todo support fn return []byte
+		Hex(title string, msg any)         //hex value
+		Info(title string, msg ...any)     //info
+		Trace(title string, msg ...any)    //跟踪
+		Warning(title string, msg ...any)  //警告
+		MarshalJson(title string, msg any) //pb json todo rename
+		Json(title string, msg ...any)     //pb json todo rename
+		Success(title string, msg ...any)  //成功
+		Struct(msg ...any)                 //结构体 todo indent ,add title
 		Body() string
 		Msg() string
 		SetDebug(debug bool)
@@ -23,6 +29,14 @@ type (
 		debug bool
 	}
 )
+
+func (o *object) MarshalJson(title string, msg any) {
+	indent, err := json.MarshalIndent(msg, "", " ")
+	if !mycheck.Error(err) {
+		return
+	}
+	o.Info(title, string(indent))
+}
 
 func (o *object) SetDebug(debug bool) { o.debug = debug }
 func (o *object) Msg() string         { return o.msg }
@@ -44,14 +58,15 @@ func init() {
 
 var Default = New()
 
-func HexDump(title string, msg interface{})    { Default.HexDump(title, msg) }
-func Hex(title string, msg interface{})        { Default.Hex(title, msg) }
-func Info(title string, msg ...interface{})    { Default.Info(title, msg) }
-func Trace(title string, msg ...interface{})   { Default.Trace(title, msg) }
-func Warning(title string, msg ...interface{}) { Default.Warning(title, msg) }
-func Json(title string, msg ...interface{})    { Default.Json(title, msg) }
-func Success(title string, msg ...interface{}) { Default.Success(title, msg) }
-func Struct(msg ...interface{})                { Default.Struct(msg) }
-func Body() string                             { return Default.Body() }
-func Msg() string                              { return Default.Msg() }
-func SetDebug(debug bool)                      { Default.SetDebug(debug) }
+func HexDump(title string, msg any)     { Default.HexDump(title, msg) }
+func Hex(title string, msg any)         { Default.Hex(title, msg) }
+func Info(title string, msg ...any)     { Default.Info(title, msg) }
+func Trace(title string, msg ...any)    { Default.Trace(title, msg) }
+func Warning(title string, msg ...any)  { Default.Warning(title, msg) }
+func MarshalJson(title string, msg any) { Default.MarshalJson(title, msg) }
+func Json(title string, msg ...any)     { Default.Json(title, msg) }
+func Success(title string, msg ...any)  { Default.Success(title, msg) }
+func Struct(msg ...any)                 { Default.Struct(msg) }
+func Body() string                      { return Default.Body() }
+func Msg() string                       { return Default.Msg() }
+func SetDebug(debug bool)               { Default.SetDebug(debug) }

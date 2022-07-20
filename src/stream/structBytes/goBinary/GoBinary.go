@@ -8,8 +8,8 @@ import (
 
 type (
 	Interface interface {
-		Encode(obj interface{}) bool
-		Decode(buf []byte, obj interface{}) bool
+		Encode(obj any) bool
+		Decode(buf []byte, obj any) bool
 	}
 	object struct {
 		bytes.Buffer
@@ -23,12 +23,12 @@ func New() Interface {
 	return &object{}
 }
 
-func (o *object) Encode(obj interface{}) bool {
+func (o *object) Encode(obj any) bool {
 	enc := gob.NewEncoder(&o.Buffer)
 	return c.Error(enc.Encode(obj))
 }
 
-func (o *object) Decode(buf []byte, obj interface{}) bool {
+func (o *object) Decode(buf []byte, obj any) bool {
 	if !c.Error2(o.Write(buf)) {
 		return false
 	}

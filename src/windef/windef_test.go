@@ -4,6 +4,7 @@ import "testing"
 
 func TestName(t *testing.T) {
 	s := `
+ 
 typedef struct _IDINFO {
   USHORT wGenConfig;
   USHORT wNumCyls;
@@ -112,7 +113,6 @@ typedef struct _IDINFO {
   } wUltraDMA;
   USHORT wReserved89[167];
 } IDINFO, *PIDINFO;
-
 typedef struct _DRIVERSTATUS {
   BYTE bDriverError;
   BYTE bIDEError;
@@ -123,7 +123,6 @@ typedef struct _SENDCMDOUTPARAMS {
   DWORD cBufferSize;
   DRIVERSTATUS DriverStatus;
   BYTE bBuffer[1];
-
 } SENDCMDOUTPARAMS, *PSENDCMDOUTPARAMS, *LPSENDCMDOUTPARAMS;
 typedef struct _GETVERSIONINPARAMS {
   BYTE bVersion;
@@ -143,6 +142,14 @@ typedef struct _IDEREGS {
   BYTE bCommandReg;
   BYTE bReserved;
 } IDEREGS, *PIDEREGS, *LPIDEREGS;
+typedef struct _SENDCMDINPARAMS {
+        DWORD cBufferSize;
+        IDEREGS irDriveRegs;
+        BYTE bDriveNumber;
+        BYTE bReserved[3];
+        DWORD dwReserved[4];
+        BYTE bBuffer[1];
+} SENDCMDINPARAMS, *PSENDCMDINPARAMS, *LPSENDCMDINPARAMS;
 `
 	Creat(s)
 }

@@ -22,7 +22,7 @@ const (
 	tagSuccess = `[success]`
 )
 
-func (o *object) HexDump(title string, msg interface{}) {
+func (o *object) HexDump(title string, msg any) {
 	*o = object{
 		tag:   tagHexDump,
 		title: title,
@@ -34,7 +34,7 @@ func (o *object) HexDump(title string, msg interface{}) {
 	o.do()
 }
 
-func (o *object) Hex(title string, msg interface{}) {
+func (o *object) Hex(title string, msg any) {
 	*o = object{
 		tag:   tagHex,
 		title: title,
@@ -45,7 +45,7 @@ func (o *object) Hex(title string, msg interface{}) {
 	o.do()
 }
 
-func (o *object) Info(title string, msg ...interface{}) {
+func (o *object) Info(title string, msg ...any) {
 	*o = object{
 		tag:   tagInfo,
 		title: title,
@@ -56,7 +56,7 @@ func (o *object) Info(title string, msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) Trace(title string, msg ...interface{}) {
+func (o *object) Trace(title string, msg ...any) {
 	*o = object{
 		tag:   tagTrace,
 		title: title,
@@ -67,7 +67,7 @@ func (o *object) Trace(title string, msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) Warning(title string, msg ...interface{}) {
+func (o *object) Warning(title string, msg ...any) {
 	*o = object{
 		tag:   tagWarning,
 		title: title,
@@ -78,7 +78,7 @@ func (o *object) Warning(title string, msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) Json(title string, msg ...interface{}) {
+func (o *object) Json(title string, msg ...any) {
 	*o = object{
 		tag:   tagJson,
 		title: title,
@@ -89,7 +89,7 @@ func (o *object) Json(title string, msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) Success(title string, msg ...interface{}) {
+func (o *object) Success(title string, msg ...any) {
 	*o = object{
 		tag:   tagSuccess,
 		title: title,
@@ -100,7 +100,7 @@ func (o *object) Success(title string, msg ...interface{}) {
 	o.do()
 }
 
-func (o *object) Struct(msg ...interface{}) {
+func (o *object) Struct(msg ...any) {
 	*o = object{
 		tag:   tagStruct,
 		title: "",

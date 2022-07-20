@@ -79,19 +79,19 @@ type resizableLabel struct {
 	partialDisplay   *uint32 // 1 if only part of text is showed, 0 otherwise
 	style            *StyleObj
 	actChan          chan labelAct
-	metaData         interface{}
+	metaData         any
 	dragging         *uint32
 	draggingHandler  LabelDraggingHandler
 	tapHandler       LabelTapHandler
 	doubleTapHandler LabelTapHandler
 }
 
-type LabelDraggingHandler func(d interface{}, evt *fyne.DragEvent)
-type LabelTapHandler func(d interface{}, evt *fyne.PointEvent)
+type LabelDraggingHandler func(d any, evt *fyne.DragEvent)
+type LabelTapHandler func(d any, evt *fyne.PointEvent)
 
 type ResizableLabelOption func(label *resizableLabel)
 
-func WithMetaData(d interface{}) ResizableLabelOption {
+func WithMetaData(d any) ResizableLabelOption {
 	return func(label *resizableLabel) {
 		label.metaData = d
 	}

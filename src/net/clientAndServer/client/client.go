@@ -14,12 +14,12 @@ var receive = make(chan *stream.Buffer) //todo sync
 type (
 	Interface interface { //stickyBag() //by short connection way
 		Connect(address string) bool
-		SendJson(objectPtr interface{}) (ok bool)                      //call send
-		SendJsonWithHead(head string, objectPtr interface{}) (ok bool) //call send
-		SendWithHead(head, body *stream.Buffer) (ok bool)              //call send
+		SendJson(objectPtr any) (ok bool)                      //call send
+		SendJsonWithHead(head string, objectPtr any) (ok bool) //call send
+		SendWithHead(head, body *stream.Buffer) (ok bool)      //call send
 		Send(s *stream.Buffer) (ok bool)
 		Receive() *stream.Buffer
-		//MarshalIndent(objectPtr interface{}) *stream.Buffer
+		//MarshalIndent(objectPtr any) *stream.Buffer
 	}
 	object struct {
 		check   mycheck.Interface
@@ -31,13 +31,13 @@ type (
 	}
 )
 
-func (o *object) MarshalIndent(objectPtr interface{}) *stream.Buffer {
+func (o *object) MarshalIndent(objectPtr any) *stream.Buffer {
 	send, err := json.MarshalIndent(objectPtr, " ", " ")
 	o.ok = o.check.Error(err)
 	return stream.NewBytes(send)
 }
 
-func (o *object) SendJsonWithHead(head string, objectPtr interface{}) (ok bool) {
+func (o *object) SendJsonWithHead(head string, objectPtr any) (ok bool) {
 	s := stream.NewString(head)
 	marshalIndent := o.MarshalIndent(objectPtr)
 	if !o.ok {
@@ -46,7 +46,7 @@ func (o *object) SendJsonWithHead(head string, objectPtr interface{}) (ok bool) 
 	return o.SendWithHead(s, marshalIndent)
 }
 
-func (o *object) SendJson(objectPtr interface{}) (ok bool) {
+func (o *object) SendJson(objectPtr any) (ok bool) {
 	marshalIndent := o.MarshalIndent(objectPtr)
 	if !o.ok {
 		return

@@ -14,7 +14,7 @@ type (
 		LogError(body string) (ok bool)
 		WriteAppend(filePath, buf string) (ok bool)
 		CheckError(err error) bool
-		CheckError2(_ interface{}, err error) bool
+		CheckError2(_ any, err error) bool
 		IsAndroid() bool
 		GetTimeNowString() string
 	}
@@ -59,7 +59,7 @@ func (o *object) WriteAppend(filePath, buf string) (ok bool) {
 	return o.CheckError2(file.WriteString(buf))
 }
 
-func (o *object) CheckError2(_ interface{}, err error) bool { return o.CheckError(err) }
+func (o *object) CheckError2(_ any, err error) bool { return o.CheckError(err) }
 
 func (o *object) CheckError(err error) bool {
 	if err != nil {

@@ -6,7 +6,7 @@ import (
 	"reflect"
 )
 
-func (o *object) Read(StructBytes []byte, obj interface{}) bool {
+func (o *object) Read(StructBytes []byte, obj any) bool {
 	o.Buffer = bytes.NewBuffer(StructBytes)
 	return o.ReadValue(reflect.ValueOf(obj), 0)
 }

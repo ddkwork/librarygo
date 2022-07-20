@@ -16,19 +16,19 @@ import (
 	"testing"
 )
 
-func Assert(t *testing.T) *assert.Assertions         { return assert.New(t) }
-func Error(err interface{}) bool                     { return Default.Error(err) }
-func Bool2(retCtx interface{}, ok bool) bool         { return Default.Bool2(retCtx, ok) }
-func Error2(retCtx interface{}, err error) (ok bool) { return Default.Error2(retCtx, err) }
-func Body() string                                   { return Default.Body() }
-func List() []_ErrorList                             { return Default.List() }
-func Object() error                                  { return Default.Object() }
+func Assert(t *testing.T) *assert.Assertions { return assert.New(t) }
+func Error(err any) bool                     { return Default.Error(err) }
+func Bool2(retCtx any, ok bool) bool         { return Default.Bool2(retCtx, ok) }
+func Error2(retCtx any, err error) (ok bool) { return Default.Error2(retCtx, err) }
+func Body() string                           { return Default.Body() }
+func List() []_ErrorList                     { return Default.List() }
+func Object() error                          { return Default.Object() }
 
 type (
 	Interface interface {
-		Error(err interface{}) bool
-		Bool2(retCtx interface{}, ok bool) bool
-		Error2(retCtx interface{}, err error) (ok bool)
+		Error(err any) bool
+		Bool2(retCtx any, ok bool) bool
+		Error2(retCtx any, err error) (ok bool)
 		Body() string
 		List() []_ErrorList //todo filter list
 		Object() error
@@ -61,28 +61,28 @@ func New() Interface {
 }
 
 func (o *object) Body() string { return o.body }
-func (o *object) Error(err interface{}) bool {
+func (o *object) Error(err any) bool {
 	if err == nil {
 		return true
 	}
 	return o.setErrorInfo(err)
 }
 
-func (o *object) Error2(retCtx interface{}, err error) (ok bool) {
+func (o *object) Error2(retCtx any, err error) (ok bool) {
 	if err == nil {
 		return o.checkArg(retCtx)
 	}
 	return o.setErrorInfo(err) //干掉层层返回，一出错就能卡到代码了
 }
 
-func (o *object) Bool2(retCtx interface{}, ok bool) bool {
+func (o *object) Bool2(retCtx any, ok bool) bool {
 	if ok {
 		return o.checkArg(retCtx)
 	}
 	return ok
 }
 
-func (o *object) checkArg(retCtx interface{}) bool {
+func (o *object) checkArg(retCtx any) bool {
 	switch retCtx.(type) {
 	case string:
 		if retCtx == "" {
@@ -112,7 +112,7 @@ func (o *object) checkArg(retCtx interface{}) bool {
 	}
 	return true
 }
-func (o *object) FileToLines(src interface{}) (lines []string, ok bool) {
+func (o *object) FileToLines(src any) (lines []string, ok bool) {
 	NewSrc := make([]byte, 0)
 	switch src.(type) {
 	case string:
@@ -135,7 +135,7 @@ func (o *object) FileToLines(src interface{}) (lines []string, ok bool) {
 		lines = append(lines, string(line))
 	}
 }
-func (o *object) setErrorInfo(errorObject interface{}) (ok bool) {
+func (o *object) setErrorInfo(errorObject any) (ok bool) {
 	info := ""
 	fnMakeLine := func(k, v string) string { return k + "\t" + v + "\n" }
 	reason := ""

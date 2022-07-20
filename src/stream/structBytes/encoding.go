@@ -30,7 +30,7 @@ import (
 //泛型的话，实现的形参就写死了类型，那么传递结构体的时候需要把每个字段对应的类型编解码函数传递，根本不能一次性传递一个完整的填充好成员数据的结构体
 //总的来说泛型避免了业务实现case类型却不能一次性操作所有类型:interface
 
-func info(depth int, format string, a ...interface{}) {
+func info(depth int, format string, a ...any) {
 	fmt.Print(strings.Repeat("  ", depth))
 	fmt.Printf(format, a...)
 }

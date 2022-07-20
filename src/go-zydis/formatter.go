@@ -133,7 +133,7 @@ import (
 // Formatter translates decoded instructions into human-readable text.
 type Formatter struct {
 	zfmtr       *C.ZydisFormatter
-	hookForType map[FormatterFunction]interface{} // FormatterFunc, FormatterRegisterFunc, FormatterDecoratorFunc
+	hookForType map[FormatterFunction]any // FormatterFunc, FormatterRegisterFunc, FormatterDecoratorFunc
 }
 
 // FormatterStyle is an enum that determines the formatting style.
@@ -159,7 +159,7 @@ func NewFormatter(style FormatterStyle) (*Formatter, error) {
 	}
 	return &Formatter{
 		zfmtr:       &zfmtr,
-		hookForType: make(map[FormatterFunction]interface{}),
+		hookForType: make(map[FormatterFunction]any),
 	}, nil
 }
 
@@ -372,7 +372,7 @@ const (
 )
 
 // SetProperty changes the value of the specified formatter property.
-func (fmtr *Formatter) SetProperty(property FormatterProperty, value interface{}) error {
+func (fmtr *Formatter) SetProperty(property FormatterProperty, value any) error {
 	var zvalue C.ZyanUPointer
 	v := reflect.ValueOf(value)
 	switch v.Type().Kind() {
@@ -426,30 +426,30 @@ type FormatterBuffer struct {
 }
 
 // FormatterXFunc is a callback used with keys:
-//   * FormatterFunctionPreInstruction
-//   * FormatterFunctionPostInstruction
-//   * FormatterFunctionFormatInstruction
-//   * FormatterFunctionFormatPreOperand †
-//   * FormatterFunctionFormatPostOperand †
-//   * FormatterFunctionFormatFormatOperandRegister †
-//   * FormatterFunctionFormatFormatOperandMemory †
-//   * FormatterFunctionFormatFormatOperandPointer †
-//   * FormatterFunctionFormatFormatOperandImmediate †
-//   * FormatterFunctionPrintMnemonic
-//   * FormatterFunctionPrintAddressAbsolute
-//   * FormatterFunctionPrintAddressRelative
-//   * FormatterFunctionPrintAddressDisplacement
-//   * FormatterFunctionPrintAddressImmediate
-//   * FormatterFunctionPrintTypecast
-//   * FormatterFunctionPrintSegment
-//   * FormatterFunctionPrintPrefixes
+//   - FormatterFunctionPreInstruction
+//   - FormatterFunctionPostInstruction
+//   - FormatterFunctionFormatInstruction
+//   - FormatterFunctionFormatPreOperand †
+//   - FormatterFunctionFormatPostOperand †
+//   - FormatterFunctionFormatFormatOperandRegister †
+//   - FormatterFunctionFormatFormatOperandMemory †
+//   - FormatterFunctionFormatFormatOperandPointer †
+//   - FormatterFunctionFormatFormatOperandImmediate †
+//   - FormatterFunctionPrintMnemonic
+//   - FormatterFunctionPrintAddressAbsolute
+//   - FormatterFunctionPrintAddressRelative
+//   - FormatterFunctionPrintAddressDisplacement
+//   - FormatterFunctionPrintAddressImmediate
+//   - FormatterFunctionPrintTypecast
+//   - FormatterFunctionPrintSegment
+//   - FormatterFunctionPrintPrefixes
 //
 // For keys marked with †, returning true will instruct the formatter to omit
 // the whole operand.
 type FormatterXFunc func(fmtr *Formatter, fbuf *FormatterBuffer, context FormatterContext) (skipOperand bool, err error)
 
 // FormatterRegisterFunc is a callback used with keys:
-//   * FormatterFunctionPrintRegister
+//   - FormatterFunctionPrintRegister
 type FormatterRegisterFunc func(fmtr *Formatter, fbuf *FormatterBuffer, context FormatterContext, reg Register) error
 
 // Decorator is an enum that describes a decorator.
@@ -475,7 +475,7 @@ const (
 )
 
 // FormatterDecoratorFunc is a callback used with keys:
-//  * FormatterFunctionPrintDecorator
+//   - FormatterFunctionPrintDecorator
 type FormatterDecoratorFunc func(fmtr *Formatter, fbuf *FormatterBuffer, context FormatterContext, decorator Decorator) error
 
 // FormatterFunction is an enum of formatter function types.

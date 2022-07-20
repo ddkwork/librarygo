@@ -26,9 +26,15 @@ func Creat(structBody string) (ok bool) {
 }
 
 var defBody = `
- //#include <minwindef.h>
-#define CONST const
 typedef unsigned long DWORD;
+typedef int BOOL;
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef float FLOAT;
+typedef FLOAT *PFLOAT;
+typedef int INT;
+typedef unsigned int UINT;
+typedef unsigned int *PUINT;
 typedef int BOOL;
 typedef unsigned char BYTE;
 typedef unsigned short WORD;
@@ -46,7 +52,7 @@ typedef long *LPLONG;
 typedef DWORD *PDWORD;
 typedef DWORD *LPDWORD;
 typedef void *LPVOID;
-typedef CONST void *LPCVOID;
+typedef const void *LPCVOID;
 typedef int INT;
 typedef unsigned int UINT;
 typedef unsigned int *PUINT;
@@ -56,7 +62,6 @@ typedef unsigned short USHORT;
 typedef USHORT *PUSHORT;
 typedef unsigned char UCHAR;
 typedef UCHAR *PUCHAR;
-#define VOID void
 typedef char CHAR;
 typedef short SHORT;
 typedef long LONG;
