@@ -11,7 +11,7 @@ import (
 	"github.com/ddkwork/librarygo/src/stream/tool"
 )
 
-//todo gen sudo sh file
+// todo gen sudo sh file
 type (
 	Interface interface {
 		UserHomeDir() string         //账户目录
@@ -37,6 +37,7 @@ func main() {
 }
 
 func (o *object) UserHomeDir() string {
+	return filepath.Join("/home", "ddk") //todo
 	s, err := os.UserHomeDir()
 	if !mycheck.Error(err) {
 		return ""
