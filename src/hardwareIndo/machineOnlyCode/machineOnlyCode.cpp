@@ -1,4 +1,4 @@
-#include <cstdio>
+#include <stdio.h>
 #include <windows.h>
 
 typedef struct _IDINFO {
@@ -120,6 +120,7 @@ typedef struct _IDINFO {
 	USHORT wReserved89[167]; // WORD 89-255
 } IDINFO, * PIDINFO;
 
+
 static void hexdump(const char* title, const void* pdata, int len) {
 	printf("%s\n", title);
 	int i, j, k, l;
@@ -194,6 +195,3 @@ int main()
 	CloseHandle(hDevice);
 	return 0;
 }
-
-
-
