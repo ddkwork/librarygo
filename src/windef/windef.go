@@ -5,15 +5,24 @@ import (
 	"github.com/ddkwork/librarygo/src/stream/tool"
 )
 
+func CTL_CODE(deviceType, function, method, access uint32) uint32 {
+	return ((deviceType) << 16) | ((access) << 14) | ((function) << 2) | (method)
+}
+
+var (
+	SMART_GET_VERSION    uint32 = CTL_CODE(IOCTL_DISK_BASE, 0x0020, METHOD_BUFFERED, FILE_READ_ACCESS)
+	SMART_RCV_DRIVE_DATA uint32 = CTL_CODE(IOCTL_DISK_BASE, 0x0022, METHOD_BUFFERED, FILE_READ_ACCESS|FILE_WRITE_ACCESS)
+)
+
 func Creat(structBody string) (ok bool) {
 	s := stream.New()
 	s.WriteStringLn(defBody)
 	s.WriteStringLn(structBody)
 	s.WriteStringLn(`int main() { return 0; }`)
-	if !tool.File().WriteTruncate("windef.c", s.Bytes()) {
+	if !tool.File().WriteTruncate("./windefTest/windef.c", s.Bytes()) {
 		return
 	}
-	return tool.File().WriteTruncate("windef.cmd", "c2go -v windef windef.c")
+	return tool.File().WriteTruncate("./windefTest/windef.cmd", "c2go -v windef windef.c")
 }
 
 var defBody = `

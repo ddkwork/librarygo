@@ -5,7 +5,7 @@ import (
 	"github.com/ddkwork/librarygo/src/mylog"
 	"golang.org/x/sys/windows"
 	"golang.org/x/sys/windows/svc"
-	"golang.org/x/sys/windows/svc/mgr"
+	"golang.org/x/sys/windows/svc/mgr" //todo if build on linux,it need change to cmd
 	"io/ioutil"
 	"os"
 	"path/filepath"

@@ -63,7 +63,7 @@ func (o *object) Copy(source, destination string) (ok bool) {
 	}))
 }
 
-func (o *object) buffer(data any) *bytes.Buffer {
+func (o *object) buffer(data any) *bytes.Buffer { //todo replaced as stream pkg
 	switch data.(type) {
 	case string:
 		return bytes.NewBufferString(data.(string))
@@ -74,17 +74,18 @@ func (o *object) buffer(data any) *bytes.Buffer {
 }
 
 func (o *object) WriteTruncate(name string, data any) (ok bool) {
-	if !mycheck.Error(os.Truncate(name, 0)) {
-		return
+	if err := os.Truncate(name, 0); err != nil {
+		return o.WriteAppend(name, data)
 	}
 	return o.WriteAppend(name, data)
 }
 func (o *object) WriteAppend(name string, data any) (ok bool) {
 	f, err := os.OpenFile(name, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0666)
-	if !mycheck.Error(err) {
+	if err != nil {
 		if !mypath.New().CreatDirectory(name) {
-			return o.WriteAppend(name, data)
+			return
 		}
+		return o.WriteAppend(name, data)
 	}
 	if !mycheck.Error2(f.Write(o.buffer(data).Bytes())) {
 		return
@@ -99,18 +100,9 @@ func (o *object) WriteGoCode(name string, data any) (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
-	return o.WriteAppend(name, b)
+	return o.WriteTruncate(name, b)
 }
-func (o *object) WriteBinary(name string, data any) (ok bool) {
-	file, err := os.Create(name)
-	if !mycheck.Error(err) {
-		return
-	}
-	if !mycheck.Error2(file.Write(o.buffer(data).Bytes())) {
-		return
-	}
-	return mycheck.Error(file.Close())
-}
+func (o *object) WriteBinary(name string, data any) (ok bool) { return o.WriteTruncate(name, data) }
 func (o *object) ToLines(data any) (lines []string, ok bool) {
 	newReader := bufio.NewReader(o.buffer(data))
 	for {
@@ -138,7 +130,7 @@ func (o *object) WriteJson(name string, Obj any) (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
-	return o.WriteAppend(name, data)
+	return o.WriteTruncate(name, data)
 }
 func (o *object) WriteHjson(name string, Obj any) (ok bool) {
 	data, err := hjson.MarshalWithOptions(Obj, hjson.EncoderOptions{
@@ -153,7 +145,7 @@ func (o *object) WriteHjson(name string, Obj any) (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
-	return o.WriteAppend(name, data)
+	return o.WriteTruncate(name, data)
 }
 func (o *object) GoCode() string { return o.goCode }
 func New() Interface {

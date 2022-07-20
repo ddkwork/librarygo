@@ -19,7 +19,7 @@ func main() {
 	w.ShowAndRun()
 }
 
-func main1() {
+func test() {
 	h := hardwareIndo.New()
 	if !h.SsdInfo.Get() { //todo bug cpu pkg init
 		return

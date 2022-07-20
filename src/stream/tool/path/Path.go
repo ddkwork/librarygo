@@ -52,7 +52,9 @@ func (o *object) GetUNCPath(fileName string) (ok bool) {
 func (o *object) CreatDirectory(path string) bool {
 	_, err := os.Stat(path)
 	if err != nil {
-		return mycheck.Error(os.MkdirAll(path, os.ModePerm))
+		if os.MkdirAll(filepath.Dir(path), os.ModePerm) == nil {
+			return mycheck.Error2(os.Create(path))
+		}
 	}
 	return true
 }
