@@ -11,6 +11,7 @@ import (
 	"github.com/ddkwork/librarygo/src/stream"
 	"github.com/ddkwork/librarygo/src/stream/tool"
 	"github.com/ddkwork/librarygo/src/windef"
+	"reflect"
 	"strconv"
 	"syscall"
 	"unsafe"
@@ -72,7 +73,7 @@ func (s *ssdInfo) Get() (ok bool) {
 	}
 	getVersionInParam := (*struct__GETVERSIONINPARAMS)(unsafe.Pointer(&outBuffer[0]))
 	mylog.MarshalJson("getVersionInParam", *getVersionInParam)
-	if getVersionInParam.BIDEDeviceMap == 1 { //?
+	if getVersionInParam.BIDEDeviceMap == 1 { //? <=0
 	}
 	var BytesReturned uint32
 	sendcmdinparams := struct__SENDCMDINPARAMS{
@@ -99,14 +100,24 @@ func (s *ssdInfo) Get() (ok bool) {
 	mylog.HexDump("sendcmdinparams", marshal)
 	mylog.Info("unsafe.Sizeof(sendcmdinparams)", unsafe.Sizeof(sendcmdinparams))
 	mylog.Info("len(sendcmdinparams)", len(marshal))
-	input := *(*[]byte)(unsafe.Pointer(&sendcmdinparams))
-	mylog.HexDump("input", input)
+
+	fnStructToBytes := func() (b []byte) { //more than big one c memory,because memory align
+		header := reflect.SliceHeader{
+			Data: uintptr(unsafe.Pointer(&sendcmdinparams)),
+			Len:  int(unsafe.Sizeof(sendcmdinparams)),
+			Cap:  int(unsafe.Sizeof(sendcmdinparams)),
+		}
+		return *(*[]byte)(unsafe.Pointer(&header))
+	}
+	mylog.HexDump("input", fnStructToBytes())
+
 	mylog.Hex("ioControlCode", windef.SMART_RCV_DRIVE_DATA)
 	mylog.HexDump("marshal", marshal)
 	if !mycheck.Error(syscall.DeviceIoControl(
 		handle,
 		windef.SMART_RCV_DRIVE_DATA,
-		&marshal[0],
+		(*byte)(unsafe.Pointer(&sendcmdinparams)),
+		//&marshal[0],
 		32,
 		&outBuffer[0],
 		528,
@@ -118,6 +129,7 @@ func (s *ssdInfo) Get() (ok bool) {
 	outParams_ := (*struct__SENDCMDOUTPARAMS)(unsafe.Pointer(&outBuffer[0]))
 	b := outParams_.BBuffer[:]
 	mylog.HexDump("index 0 address", b)
+
 	info := (*struct__IDINFO)(unsafe.Pointer(&b[0]))
 	sSerialNumber := stream.NewBytes(info.sSerialNumber[:])
 	serialNumber := tool.New().Swap().SerialNumber(sSerialNumber.String())
