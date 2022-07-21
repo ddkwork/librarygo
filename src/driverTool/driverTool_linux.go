@@ -1,6 +1,9 @@
 package driverTool
 
-import "fyne.io/fyne/v2/widget"
+import (
+	"fyne.io/fyne/v2/widget"
+	"github.com/ddkwork/librarygo/src/fynelib/canvasobjectapi"
+)
 
 type (
 	Interface interface {
