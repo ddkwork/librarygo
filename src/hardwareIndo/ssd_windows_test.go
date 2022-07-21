@@ -7,7 +7,7 @@ import (
 
 func TestName(t *testing.T) {
 	s := `
-#pragma pack (1).
+#pragma pack (1)
 typedef struct _IDINFO {
   USHORT wGenConfig;
   USHORT wNumCyls;
