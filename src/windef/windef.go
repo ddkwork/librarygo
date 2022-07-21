@@ -14,9 +14,11 @@ var (
 	SMART_RCV_DRIVE_DATA uint32 = CTL_CODE(IOCTL_DISK_BASE, 0x0022, METHOD_BUFFERED, FILE_READ_ACCESS|FILE_WRITE_ACCESS)
 )
 
-func Creat(structBody string) (ok bool) {
+func Creat(structBody string, isWriteType bool) (ok bool) {
 	s := stream.New()
-	s.WriteStringLn(defBody)
+	if isWriteType {
+		s.WriteStringLn(defBody)
+	}
 	s.WriteStringLn(structBody)
 	s.WriteStringLn(`int main() { return 0; }`)
 	if !tool.File().WriteTruncate("./windefTest/windef.c", s.Bytes()) {

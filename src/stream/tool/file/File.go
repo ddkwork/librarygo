@@ -27,11 +27,25 @@ type (
 		WriteJson(name string, Obj any) (ok bool)
 		WriteHjson(name string, Obj any) (ok bool)
 		ToLines(data any) (lines []string, ok bool)
+		RaedToLines(path string) (lines []string, ok bool)
 		GoCode() string
 		Copy(source, destination string) (ok bool)
 	}
 	object struct{ goCode string }
 )
+
+func New() Interface {
+	return &object{
+		goCode: "",
+	}
+}
+func (o *object) RaedToLines(path string) (lines []string, ok bool) {
+	b, err := os.ReadFile(path)
+	if !mycheck.Error(err) {
+		return
+	}
+	return o.ToLines(b)
+}
 
 func (o *object) Copy(source, destination string) (ok bool) {
 	base := filepath.Base(source)
@@ -148,8 +162,3 @@ func (o *object) WriteHjson(name string, Obj any) (ok bool) {
 	return o.WriteTruncate(name, data)
 }
 func (o *object) GoCode() string { return o.goCode }
-func New() Interface {
-	return &object{
-		goCode: "",
-	}
-}
