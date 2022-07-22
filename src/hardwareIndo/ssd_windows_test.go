@@ -154,5 +154,5 @@ typedef struct _SENDCMDINPARAMS {
         BYTE bBuffer[1];
 } SENDCMDINPARAMS, *PSENDCMDINPARAMS, *LPSENDCMDINPARAMS;
 `
-	windef.Creat(s)
+	windef.Creat(s, true)
 }
