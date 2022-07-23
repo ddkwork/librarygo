@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func Start(path string) {
+func Run(path string) {
 	abs, err := filepath.Abs(path)
 	if !mycheck.Error(err) {
 		return

@@ -8,7 +8,7 @@ import (
 
 func TestName(t *testing.T) {
 	f := "./windefTest/windef.c"
-	myc2go.Start(f)
+	myc2go.Run(f)
 	return
 	s := `
 #pragma pack (1)
