@@ -16,8 +16,8 @@ func TestName(t *testing.T) {
 	println(s.HexString())
 	println(hex.Dump(s.Bytes()))
 
-	bytes := stream.New()
+	buffer := stream.New()
 	b1 := []byte{1, 2, 3}
 	b2 := []byte{4, 5, 6}
-	assert.Equal(t, []byte{1, 2, 3, 4, 5, 6}, bytes.Merge(b1, b2).Bytes())
+	assert.Equal(t, []byte{1, 2, 3, 4, 5, 6}, buffer.Merge(b1, b2).Bytes())
 }

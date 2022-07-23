@@ -5,34 +5,34 @@ import (
 	"strings"
 )
 
-func (b *Buffer) WriteXMakeBody(key string, values ...string) {
+func (b2 *Buffer) WriteXMakeBody(key string, values ...string) {
 	isNewLineKey := len(values) > 1
 	if strings.HasPrefix(values[0], "wdk") {
 		isNewLineKey = false
 	}
-	b.WriteString(key)
-	b.WriteString("(")
+	b2.WriteString(key)
+	b2.WriteString("(")
 	if isNewLineKey {
-		b.NewLine()
+		b2.NewLine()
 	}
 	for i, value := range values {
 		if isNewLineKey {
-			b.WriteString("\t")
+			b2.WriteString("\t")
 		}
-		b.WriteString(strconv.Quote(value))
+		b2.WriteString(strconv.Quote(value))
 		if key == "add_includedirs" {
-			b.WriteString(",{public=true}") //for deps add
+			b2.WriteString(",{public=true}") //for deps add
 		}
 		if i+1 < len(values) {
-			b.WriteString(",")
+			b2.WriteString(",")
 			if isNewLineKey {
-				b.NewLine()
+				b2.NewLine()
 			}
 		}
 	}
 	if isNewLineKey {
-		b.NewLine()
+		b2.NewLine()
 	}
-	b.WriteString(")")
-	b.NewLine()
+	b2.WriteString(")")
+	b2.NewLine()
 }

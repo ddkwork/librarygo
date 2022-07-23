@@ -28,18 +28,32 @@ type (
 		WriteXMakeBody(key string, values ...string)
 		SizeCheck() bool
 		ErrorInfo() string
-		CutWithIndex(x, y int)                                              //todo 截取指定偏移区域的buffer，用于数据回复软件
-		BigNumXorWithAlign(arg1, arg2 []byte, align int) (xorStream []byte) //大数异或
-		Merge(Bytes ...[]byte) *Buffer                                      //字节切片合并
+		CutWithIndex(x, y int)
+		BigNumXorWithAlign(arg1, arg2 []byte, align int) (xorStream []byte)
+		Merge(Bytes ...[]byte) *Buffer
 		InsertString(splitSize int, separate string) (s string)
-		SplitBytes(splitSize int) (blocks [][]byte)             // 将数组arr按指定大小进行分隔
-		RemoveRepeatedElement(arr []string) (newArr []string)   //数组去重1
-		RemoveRepeatedElementV2(arr []string) (newArr []string) //数组去重2
+		SplitBytes(size int) (blocks [][]byte)
+		SplitString(size int) (blocks []string)
+		RemoveHexDumpNewLine(dump string) (newDump string)
 	}
 	Buffer struct{ *bytes.Buffer }
 )
 
-func (b *Buffer) CutWithIndex(x, y int) {
+func (b2 *Buffer) RemoveHexDumpNewLine(dump string) (newDump string) {
+	//strings.TrimSuffix()
+	panic("implement me")
+}
+
+func (b2 *Buffer) SplitString(size int) (blocks []string) {
+	blocks = make([]string, 0)
+	splitBytes := b2.SplitBytes(size)
+	for _, splitByte := range splitBytes {
+		blocks = append(blocks, string(splitByte))
+	}
+	return
+}
+
+func (b2 *Buffer) CutWithIndex(x, y int) {
 	//TODO implement me
 	panic("implement me")
 }
