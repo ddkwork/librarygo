@@ -1,10 +1,10 @@
-# 1 "windef.c"
+# 1 "D:\\codespace\\workspace\\src\\librarygo\\src\\hardwareIndo\\windefTest\\windef.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 326 "<built-in>" 3
 # 1 "<command line>" 1
 # 1 "<built-in>" 2
-# 1 "windef.c" 2
+# 1 "D:\\codespace\\workspace\\src\\librarygo\\src\\hardwareIndo\\windefTest\\windef.c" 2
 
 typedef unsigned long DWORD;
 typedef int BOOL;

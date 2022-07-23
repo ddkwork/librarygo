@@ -1,4 +1,4 @@
-package windef
+package main
 
 import (
 	os "os"

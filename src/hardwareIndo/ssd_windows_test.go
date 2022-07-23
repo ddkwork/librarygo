@@ -1,11 +1,15 @@
 package hardwareIndo
 
 import (
+	"github.com/ddkwork/librarygo/src/myc2go"
 	"github.com/ddkwork/librarygo/src/windef"
 	"testing"
 )
 
 func TestName(t *testing.T) {
+	f := "D:\\codespace\\workspace\\src\\librarygo\\src\\hardwareIndo\\windefTest\\windef.c"
+	myc2go.Start(f)
+	return
 	s := `
 #pragma pack (1)
 typedef struct _IDINFO {
