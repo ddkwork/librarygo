@@ -5,7 +5,7 @@ import (
 	unsafe "unsafe"
 )
 
-type DWORD = uint64
+type DWORD = uint32
 type BOOL = int32
 type BYTE = uint8
 type WORD = uint16
@@ -22,20 +22,20 @@ type PINT = *int32
 type LPINT = *int32
 type PWORD = *uint16
 type LPWORD = *uint16
-type LPLONG = *int64
-type PDWORD = *uint64
-type LPDWORD = *uint64
+type LPLONG = *int32
+type PDWORD = *uint32
+type LPDWORD = *uint32
 type LPVOID = unsafe.Pointer
 type LPCVOID = unsafe.Pointer
-type ULONG = uint64
-type PULONG = *uint64
+type ULONG = uint32
+type PULONG = *uint32
 type USHORT = uint16
 type PUSHORT = *uint16
 type UCHAR = uint8
 type PUCHAR = *uint8
 type CHAR = int8
 type SHORT = int16
-type LONG = int64
+type LONG = int32
 type _cgoa_1_windef struct {
 	Xbf_0 uint16
 }
@@ -85,7 +85,7 @@ type struct__IDINFO struct {
 	wCurSectorsLow         uint16
 	wCurSectorsHigh        uint16
 	wMultSectorStuff       _cgoa_3_windef
-	dwTotalSectors         uint64
+	dwTotalSectors         uint32
 	wSingleWordDMA         uint16
 	wMultiWordDMA          _cgoa_4_windef
 	wPIOCapacity           _cgoa_5_windef
@@ -106,13 +106,13 @@ type struct__DRIVERSTATUS struct {
 	bDriverError uint8
 	bIDEError    uint8
 	bReserved    [2]uint8
-	dwReserved   [2]uint64
+	dwReserved   [2]uint32
 }
 type DRIVERSTATUS = struct__DRIVERSTATUS
 type PDRIVERSTATUS = *struct__DRIVERSTATUS
 type LPDRIVERSTATUS = *struct__DRIVERSTATUS
 type struct__SENDCMDOUTPARAMS struct {
-	cBufferSize  uint64
+	cBufferSize  uint32
 	DriverStatus struct__DRIVERSTATUS
 	bBuffer      [1]uint8
 }
@@ -124,8 +124,8 @@ type struct__GETVERSIONINPARAMS struct {
 	bRevision     uint8
 	bReserved     uint8
 	bIDEDeviceMap uint8
-	fCapabilities uint64
-	dwReserved    [4]uint64
+	fCapabilities uint32
+	dwReserved    [4]uint32
 }
 type GETVERSIONINPARAMS = struct__GETVERSIONINPARAMS
 type PGETVERSIONINPARAMS = *struct__GETVERSIONINPARAMS
@@ -144,11 +144,11 @@ type IDEREGS = struct__IDEREGS
 type PIDEREGS = *struct__IDEREGS
 type LPIDEREGS = *struct__IDEREGS
 type struct__SENDCMDINPARAMS struct {
-	cBufferSize  uint64
+	cBufferSize  uint32
 	irDriveRegs  struct__IDEREGS
 	bDriveNumber uint8
 	bReserved    [3]uint8
-	dwReserved   [4]uint64
+	dwReserved   [4]uint32
 	bBuffer      [1]uint8
 }
 type SENDCMDINPARAMS = struct__SENDCMDINPARAMS
