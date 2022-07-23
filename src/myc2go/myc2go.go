@@ -2,16 +2,13 @@ package myc2go
 
 import (
 	"github.com/ddkwork/librarygo/src/mycheck"
-	"github.com/goplus/c2go"
-	"github.com/goplus/c2go/cl"
-	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
 	"path/filepath"
 )
 
 /*
 bug fix on windows
-D:\codespace\workspace\src\cppkit\c2go\clang\types\types.go
+librarygo/src/c2go/clang/types/types.go
 	//Long    = types.Typ[uintptr(types.Int32)+unsafe.Sizeof(0)>>3]  // int32/int64
 	Long = types.Typ[uintptr(types.Int32)] // int32/int64
 	//Ulong   = types.Typ[uintptr(types.Uint32)+unsafe.Sizeof(0)>>3] // uint32/uint64

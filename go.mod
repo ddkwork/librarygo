@@ -2,6 +2,8 @@ module github.com/ddkwork/librarygo
 
 go 1.18
 
+replace github.com/goplus/c2go => ./src/c2go
+
 require (
 	fyne.io/fyne/v2 v2.2.3
 	github.com/ActiveState/termtest/conpty v0.5.0
@@ -12,6 +14,7 @@ require (
 	github.com/fpabl0/sparky-go v0.0.0-20220505200009-411aff1dbf3d
 	github.com/gogo/protobuf v1.3.2
 	github.com/golang/protobuf v1.5.2
+	github.com/goplus/gox v1.11.18
 	github.com/hjson/hjson-go v3.3.0+incompatible
 	github.com/intel-go/cpuid v0.0.0-20220614022739-219e067757cb
 	github.com/mattn/go-sqlite3 v1.14.14
@@ -55,6 +58,7 @@ require (
 	golang.org/x/image v0.0.0-20220601225756-64ec528b34cd // indirect
 	golang.org/x/mobile v0.0.0-20211207041440-4e6c2922fdee // indirect
 	golang.org/x/net v0.0.0-20211209124913-491a49abca63 // indirect
+	golang.org/x/tools v0.1.11 // indirect
 	google.golang.org/protobuf v1.26.0 // indirect
 	gopkg.in/alexcesaro/quotedprintable.v3 v3.0.0-20150716171945-2caba252f4dc // indirect
 	gopkg.in/gomail.v2 v2.0.0-20160411212932-81ebce5c23df // indirect
