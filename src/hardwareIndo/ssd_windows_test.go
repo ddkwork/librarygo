@@ -7,7 +7,7 @@ import (
 )
 
 func TestName(t *testing.T) {
-	f := "D:\\codespace\\workspace\\src\\librarygo\\src\\hardwareIndo\\windefTest\\windef.c"
+	f := "./windefTest/windef.c"
 	myc2go.Start(f)
 	return
 	s := `

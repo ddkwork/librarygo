@@ -1,5 +1,5 @@
 {
-  "id": "0x206f0626a18",
+  "id": "0x18c07d548f8",
   "kind": "TranslationUnitDecl",
   "loc": {},
   "range": {
@@ -8,7 +8,7 @@
   },
   "inner": [
     {
-      "id": "0x206f06272c8",
+      "id": "0x18c07d551a8",
       "kind": "RecordDecl",
       "loc": {},
       "range": {
@@ -20,7 +20,7 @@
       "tagUsed": "struct",
       "inner": [
         {
-          "id": "0x206f0627370",
+          "id": "0x18c07d55250",
           "kind": "TypeVisibilityAttr",
           "range": {
             "begin": {},
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "id": "0x206f06273e8",
+      "id": "0x18c07d552c8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -45,7 +45,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626fc0",
+          "id": "0x18c07d54ea0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "__int128"
@@ -54,7 +54,7 @@
       ]
     },
     {
-      "id": "0x206f0627458",
+      "id": "0x18c07d55338",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -68,7 +68,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626fe0",
+          "id": "0x18c07d54ec0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned __int128"
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "id": "0x206f0627778",
+      "id": "0x18c07d55658",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -91,13 +91,13 @@
       },
       "inner": [
         {
-          "id": "0x206f0627530",
+          "id": "0x18c07d55410",
           "kind": "RecordType",
           "type": {
             "qualType": "struct __NSConstantString_tag"
           },
           "decl": {
-            "id": "0x206f06274b0",
+            "id": "0x18c07d55390",
             "kind": "RecordDecl",
             "name": "__NSConstantString_tag"
           }
@@ -105,7 +105,7 @@
       ]
     },
     {
-      "id": "0x206f06277e8",
+      "id": "0x18c07d556c8",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -119,7 +119,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626c00",
+          "id": "0x18c07d54ae0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned long long"
@@ -128,7 +128,7 @@
       ]
     },
     {
-      "id": "0x206f0627880",
+      "id": "0x18c07d55760",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -142,14 +142,14 @@
       },
       "inner": [
         {
-          "id": "0x206f0627840",
+          "id": "0x18c07d55720",
           "kind": "PointerType",
           "type": {
             "qualType": "char *"
           },
           "inner": [
             {
-              "id": "0x206f0626ac0",
+              "id": "0x18c07d549a0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "char"
@@ -160,7 +160,7 @@
       ]
     },
     {
-      "id": "0x206f06278f0",
+      "id": "0x18c07d557d0",
       "kind": "TypedefDecl",
       "loc": {},
       "range": {
@@ -174,14 +174,14 @@
       },
       "inner": [
         {
-          "id": "0x206f0627840",
+          "id": "0x18c07d55720",
           "kind": "PointerType",
           "type": {
             "qualType": "char *"
           },
           "inner": [
             {
-              "id": "0x206f0626ac0",
+              "id": "0x18c07d549a0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "char"
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "id": "0x206f0627960",
+      "id": "0x18c07d55840",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 302,
@@ -222,7 +222,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626be0",
+          "id": "0x18c07d54ac0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned long"
@@ -231,7 +231,7 @@
       ]
     },
     {
-      "id": "0x206f1f41e60",
+      "id": "0x18c0977f0c0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 321,
@@ -258,7 +258,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b20",
+          "id": "0x18c07d54a00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "int"
@@ -267,7 +267,7 @@
       ]
     },
     {
-      "id": "0x206f1f41ed0",
+      "id": "0x18c0977f130",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 349,
@@ -294,7 +294,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b80",
+          "id": "0x18c07d54a60",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned char"
@@ -303,7 +303,7 @@
       ]
     },
     {
-      "id": "0x206f1f41f40",
+      "id": "0x18c0977f1a0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 378,
@@ -330,7 +330,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626ba0",
+          "id": "0x18c07d54a80",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned short"
@@ -339,7 +339,7 @@
       ]
     },
     {
-      "id": "0x206f1f41fb0",
+      "id": "0x18c0977f210",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 398,
@@ -367,7 +367,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626c20",
+          "id": "0x18c07d54b00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "float"
@@ -376,7 +376,7 @@
       ]
     },
     {
-      "id": "0x206f1f42098",
+      "id": "0x18c0977f2f8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 420,
@@ -403,26 +403,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42060",
+          "id": "0x18c0977f2c0",
           "kind": "PointerType",
           "type": {
             "qualType": "FLOAT *"
           },
           "inner": [
             {
-              "id": "0x206f1f42010",
+              "id": "0x18c0977f270",
               "kind": "TypedefType",
               "type": {
                 "qualType": "FLOAT"
               },
               "decl": {
-                "id": "0x206f1f41fb0",
+                "id": "0x18c0977f210",
                 "kind": "TypedefDecl",
                 "name": "FLOAT"
               },
               "inner": [
                 {
-                  "id": "0x206f0626c20",
+                  "id": "0x18c07d54b00",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "float"
@@ -435,7 +435,7 @@
       ]
     },
     {
-      "id": "0x206f1f42108",
+      "id": "0x18c0977f368",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 440,
@@ -462,7 +462,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b20",
+          "id": "0x18c07d54a00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "int"
@@ -471,7 +471,7 @@
       ]
     },
     {
-      "id": "0x206f1f42178",
+      "id": "0x18c0977f3d8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 466,
@@ -498,7 +498,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626bc0",
+          "id": "0x18c07d54aa0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned int"
@@ -507,7 +507,7 @@
       ]
     },
     {
-      "id": "0x206f1f42210",
+      "id": "0x18c0977f470",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 494,
@@ -534,14 +534,14 @@
       },
       "inner": [
         {
-          "id": "0x206f1f421d0",
+          "id": "0x18c0977f430",
           "kind": "PointerType",
           "type": {
             "qualType": "unsigned int *"
           },
           "inner": [
             {
-              "id": "0x206f0626bc0",
+              "id": "0x18c07d54aa0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "unsigned int"
@@ -552,7 +552,7 @@
       ]
     },
     {
-      "id": "0x206f1f42280",
+      "id": "0x18c0977f4e0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 513,
@@ -574,14 +574,14 @@
         }
       },
       "isReferenced": true,
-      "previousDecl": "0x206f1f41e60",
+      "previousDecl": "0x18c0977f0c0",
       "name": "BOOL",
       "type": {
         "qualType": "int"
       },
       "inner": [
         {
-          "id": "0x206f0626b20",
+          "id": "0x18c07d54a00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "int"
@@ -590,7 +590,7 @@
       ]
     },
     {
-      "id": "0x206f1f422f0",
+      "id": "0x18c0977f550",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 541,
@@ -612,14 +612,14 @@
         }
       },
       "isReferenced": true,
-      "previousDecl": "0x206f1f41ed0",
+      "previousDecl": "0x18c0977f130",
       "name": "BYTE",
       "type": {
         "qualType": "unsigned char"
       },
       "inner": [
         {
-          "id": "0x206f0626b80",
+          "id": "0x18c07d54a60",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned char"
@@ -628,7 +628,7 @@
       ]
     },
     {
-      "id": "0x206f1f42360",
+      "id": "0x18c0977f5c0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 570,
@@ -650,14 +650,14 @@
         }
       },
       "isReferenced": true,
-      "previousDecl": "0x206f1f41f40",
+      "previousDecl": "0x18c0977f1a0",
       "name": "WORD",
       "type": {
         "qualType": "unsigned short"
       },
       "inner": [
         {
-          "id": "0x206f0626ba0",
+          "id": "0x18c07d54a80",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned short"
@@ -666,7 +666,7 @@
       ]
     },
     {
-      "id": "0x206f1f423d0",
+      "id": "0x18c0977f630",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 590,
@@ -688,14 +688,14 @@
         }
       },
       "isReferenced": true,
-      "previousDecl": "0x206f1f41fb0",
+      "previousDecl": "0x18c0977f210",
       "name": "FLOAT",
       "type": {
         "qualType": "float"
       },
       "inner": [
         {
-          "id": "0x206f0626c20",
+          "id": "0x18c07d54b00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "float"
@@ -704,7 +704,7 @@
       ]
     },
     {
-      "id": "0x206f1f42488",
+      "id": "0x18c0977f6e8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 612,
@@ -725,33 +725,33 @@
           "tokLen": 6
         }
       },
-      "previousDecl": "0x206f1f42098",
+      "previousDecl": "0x18c0977f2f8",
       "name": "PFLOAT",
       "type": {
         "qualType": "FLOAT *"
       },
       "inner": [
         {
-          "id": "0x206f1f42450",
+          "id": "0x18c0977f6b0",
           "kind": "PointerType",
           "type": {
             "qualType": "FLOAT *"
           },
           "inner": [
             {
-              "id": "0x206f1f42430",
+              "id": "0x18c0977f690",
               "kind": "TypedefType",
               "type": {
                 "qualType": "FLOAT"
               },
               "decl": {
-                "id": "0x206f1f423d0",
+                "id": "0x18c0977f630",
                 "kind": "TypedefDecl",
                 "name": "FLOAT"
               },
               "inner": [
                 {
-                  "id": "0x206f0626c20",
+                  "id": "0x18c07d54b00",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "float"
@@ -764,7 +764,7 @@
       ]
     },
     {
-      "id": "0x206f1f42568",
+      "id": "0x18c0977f7c8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 634,
@@ -791,26 +791,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42530",
+          "id": "0x18c0977f790",
           "kind": "PointerType",
           "type": {
             "qualType": "BOOL *"
           },
           "inner": [
             {
-              "id": "0x206f1f424e0",
+              "id": "0x18c0977f740",
               "kind": "TypedefType",
               "type": {
                 "qualType": "BOOL"
               },
               "decl": {
-                "id": "0x206f1f42280",
+                "id": "0x18c0977f4e0",
                 "kind": "TypedefDecl",
                 "name": "BOOL"
               },
               "inner": [
                 {
-                  "id": "0x206f0626b20",
+                  "id": "0x18c07d54a00",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "int"
@@ -823,7 +823,7 @@
       ]
     },
     {
-      "id": "0x206f1f425d0",
+      "id": "0x18c0977f830",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 655,
@@ -850,26 +850,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42530",
+          "id": "0x18c0977f790",
           "kind": "PointerType",
           "type": {
             "qualType": "BOOL *"
           },
           "inner": [
             {
-              "id": "0x206f1f424e0",
+              "id": "0x18c0977f740",
               "kind": "TypedefType",
               "type": {
                 "qualType": "BOOL"
               },
               "decl": {
-                "id": "0x206f1f42280",
+                "id": "0x18c0977f4e0",
                 "kind": "TypedefDecl",
                 "name": "BOOL"
               },
               "inner": [
                 {
-                  "id": "0x206f0626b20",
+                  "id": "0x18c07d54a00",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "int"
@@ -882,7 +882,7 @@
       ]
     },
     {
-      "id": "0x206f1f426b8",
+      "id": "0x18c0977f918",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 677,
@@ -909,26 +909,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42680",
+          "id": "0x18c0977f8e0",
           "kind": "PointerType",
           "type": {
             "qualType": "BYTE *"
           },
           "inner": [
             {
-              "id": "0x206f1f42630",
+              "id": "0x18c0977f890",
               "kind": "TypedefType",
               "type": {
                 "qualType": "BYTE"
               },
               "decl": {
-                "id": "0x206f1f422f0",
+                "id": "0x18c0977f550",
                 "kind": "TypedefDecl",
                 "name": "BYTE"
               },
               "inner": [
                 {
-                  "id": "0x206f0626b80",
+                  "id": "0x18c07d54a60",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned char"
@@ -941,7 +941,7 @@
       ]
     },
     {
-      "id": "0x206f1f42720",
+      "id": "0x18c0977f980",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 698,
@@ -968,26 +968,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42680",
+          "id": "0x18c0977f8e0",
           "kind": "PointerType",
           "type": {
             "qualType": "BYTE *"
           },
           "inner": [
             {
-              "id": "0x206f1f42630",
+              "id": "0x18c0977f890",
               "kind": "TypedefType",
               "type": {
                 "qualType": "BYTE"
               },
               "decl": {
-                "id": "0x206f1f422f0",
+                "id": "0x18c0977f550",
                 "kind": "TypedefDecl",
                 "name": "BYTE"
               },
               "inner": [
                 {
-                  "id": "0x206f0626b80",
+                  "id": "0x18c07d54a60",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned char"
@@ -1000,7 +1000,7 @@
       ]
     },
     {
-      "id": "0x206f1f42790",
+      "id": "0x18c0977f9f0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 719,
@@ -1027,14 +1027,14 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42500",
+          "id": "0x18c0977f760",
           "kind": "PointerType",
           "type": {
             "qualType": "int *"
           },
           "inner": [
             {
-              "id": "0x206f0626b20",
+              "id": "0x18c07d54a00",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "int"
@@ -1045,7 +1045,7 @@
       ]
     },
     {
-      "id": "0x206f1f42800",
+      "id": "0x18c0977fa60",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 738,
@@ -1072,14 +1072,14 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42500",
+          "id": "0x18c0977f760",
           "kind": "PointerType",
           "type": {
             "qualType": "int *"
           },
           "inner": [
             {
-              "id": "0x206f0626b20",
+              "id": "0x18c07d54a00",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "int"
@@ -1090,7 +1090,7 @@
       ]
     },
     {
-      "id": "0x206f1f428e8",
+      "id": "0x18c0977fb48",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 759,
@@ -1117,26 +1117,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f428b0",
+          "id": "0x18c0977fb10",
           "kind": "PointerType",
           "type": {
             "qualType": "WORD *"
           },
           "inner": [
             {
-              "id": "0x206f1f42860",
+              "id": "0x18c0977fac0",
               "kind": "TypedefType",
               "type": {
                 "qualType": "WORD"
               },
               "decl": {
-                "id": "0x206f1f42360",
+                "id": "0x18c0977f5c0",
                 "kind": "TypedefDecl",
                 "name": "WORD"
               },
               "inner": [
                 {
-                  "id": "0x206f0626ba0",
+                  "id": "0x18c07d54a80",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned short"
@@ -1149,7 +1149,7 @@
       ]
     },
     {
-      "id": "0x206f1f42950",
+      "id": "0x18c0977fbb0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 780,
@@ -1176,26 +1176,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f428b0",
+          "id": "0x18c0977fb10",
           "kind": "PointerType",
           "type": {
             "qualType": "WORD *"
           },
           "inner": [
             {
-              "id": "0x206f1f42860",
+              "id": "0x18c0977fac0",
               "kind": "TypedefType",
               "type": {
                 "qualType": "WORD"
               },
               "decl": {
-                "id": "0x206f1f42360",
+                "id": "0x18c0977f5c0",
                 "kind": "TypedefDecl",
                 "name": "WORD"
               },
               "inner": [
                 {
-                  "id": "0x206f0626ba0",
+                  "id": "0x18c07d54a80",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned short"
@@ -1208,7 +1208,7 @@
       ]
     },
     {
-      "id": "0x206f1f429f0",
+      "id": "0x18c0977fc50",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 802,
@@ -1235,14 +1235,14 @@
       },
       "inner": [
         {
-          "id": "0x206f1f429b0",
+          "id": "0x18c0977fc10",
           "kind": "PointerType",
           "type": {
             "qualType": "long *"
           },
           "inner": [
             {
-              "id": "0x206f0626b40",
+              "id": "0x18c07d54a20",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "long"
@@ -1253,7 +1253,7 @@
       ]
     },
     {
-      "id": "0x206f1f42ad8",
+      "id": "0x18c0977fd38",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 825,
@@ -1280,26 +1280,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42aa0",
+          "id": "0x18c0977fd00",
           "kind": "PointerType",
           "type": {
             "qualType": "DWORD *"
           },
           "inner": [
             {
-              "id": "0x206f1f42a50",
+              "id": "0x18c0977fcb0",
               "kind": "TypedefType",
               "type": {
                 "qualType": "DWORD"
               },
               "decl": {
-                "id": "0x206f0627960",
+                "id": "0x18c07d55840",
                 "kind": "TypedefDecl",
                 "name": "DWORD"
               },
               "inner": [
                 {
-                  "id": "0x206f0626be0",
+                  "id": "0x18c07d54ac0",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned long"
@@ -1312,7 +1312,7 @@
       ]
     },
     {
-      "id": "0x206f1f42b40",
+      "id": "0x18c0977fda0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 848,
@@ -1339,26 +1339,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42aa0",
+          "id": "0x18c0977fd00",
           "kind": "PointerType",
           "type": {
             "qualType": "DWORD *"
           },
           "inner": [
             {
-              "id": "0x206f1f42a50",
+              "id": "0x18c0977fcb0",
               "kind": "TypedefType",
               "type": {
                 "qualType": "DWORD"
               },
               "decl": {
-                "id": "0x206f0627960",
+                "id": "0x18c07d55840",
                 "kind": "TypedefDecl",
                 "name": "DWORD"
               },
               "inner": [
                 {
-                  "id": "0x206f0626be0",
+                  "id": "0x18c07d54ac0",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned long"
@@ -1371,7 +1371,7 @@
       ]
     },
     {
-      "id": "0x206f1f42bb0",
+      "id": "0x18c0977fe10",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 871,
@@ -1398,14 +1398,14 @@
       },
       "inner": [
         {
-          "id": "0x206f0627240",
+          "id": "0x18c07d55120",
           "kind": "PointerType",
           "type": {
             "qualType": "void *"
           },
           "inner": [
             {
-              "id": "0x206f0626a80",
+              "id": "0x18c07d54960",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "void"
@@ -1416,7 +1416,7 @@
       ]
     },
     {
-      "id": "0x206f1f42c50",
+      "id": "0x18c0977feb0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 899,
@@ -1443,14 +1443,14 @@
       },
       "inner": [
         {
-          "id": "0x206f1f42c10",
+          "id": "0x18c0977fe70",
           "kind": "PointerType",
           "type": {
             "qualType": "const void *"
           },
           "inner": [
             {
-              "id": "0x206f0626a81",
+              "id": "0x18c07d54961",
               "kind": "QualType",
               "type": {
                 "qualType": "const void"
@@ -1458,7 +1458,7 @@
               "qualifiers": "const",
               "inner": [
                 {
-                  "id": "0x206f0626a80",
+                  "id": "0x18c07d54960",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "void"
@@ -1471,7 +1471,7 @@
       ]
     },
     {
-      "id": "0x206f1f42cc0",
+      "id": "0x18c0977ff20",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 920,
@@ -1492,14 +1492,14 @@
           "tokLen": 3
         }
       },
-      "previousDecl": "0x206f1f42108",
+      "previousDecl": "0x18c0977f368",
       "name": "INT",
       "type": {
         "qualType": "int"
       },
       "inner": [
         {
-          "id": "0x206f0626b20",
+          "id": "0x18c07d54a00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "int"
@@ -1508,7 +1508,7 @@
       ]
     },
     {
-      "id": "0x206f1f42d30",
+      "id": "0x18c0977ff90",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 946,
@@ -1529,14 +1529,14 @@
           "tokLen": 4
         }
       },
-      "previousDecl": "0x206f1f42178",
+      "previousDecl": "0x18c0977f3d8",
       "name": "UINT",
       "type": {
         "qualType": "unsigned int"
       },
       "inner": [
         {
-          "id": "0x206f0626bc0",
+          "id": "0x18c07d54aa0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned int"
@@ -1545,7 +1545,7 @@
       ]
     },
     {
-      "id": "0x206f1f42da0",
+      "id": "0x18c09780000",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 974,
@@ -1566,21 +1566,21 @@
           "tokLen": 5
         }
       },
-      "previousDecl": "0x206f1f42210",
+      "previousDecl": "0x18c0977f470",
       "name": "PUINT",
       "type": {
         "qualType": "unsigned int *"
       },
       "inner": [
         {
-          "id": "0x206f1f421d0",
+          "id": "0x18c0977f430",
           "kind": "PointerType",
           "type": {
             "qualType": "unsigned int *"
           },
           "inner": [
             {
-              "id": "0x206f0626bc0",
+              "id": "0x18c07d54aa0",
               "kind": "BuiltinType",
               "type": {
                 "qualType": "unsigned int"
@@ -1591,7 +1591,7 @@
       ]
     },
     {
-      "id": "0x206f1f3de20",
+      "id": "0x18c097810e0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1003,
@@ -1619,7 +1619,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626be0",
+          "id": "0x18c07d54ac0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned long"
@@ -1628,7 +1628,7 @@
       ]
     },
     {
-      "id": "0x206f1f3ded8",
+      "id": "0x18c09781198",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1025,
@@ -1655,26 +1655,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f3dea0",
+          "id": "0x18c09781160",
           "kind": "PointerType",
           "type": {
             "qualType": "ULONG *"
           },
           "inner": [
             {
-              "id": "0x206f1f3de80",
+              "id": "0x18c09781140",
               "kind": "TypedefType",
               "type": {
                 "qualType": "ULONG"
               },
               "decl": {
-                "id": "0x206f1f3de20",
+                "id": "0x18c097810e0",
                 "kind": "TypedefDecl",
                 "name": "ULONG"
               },
               "inner": [
                 {
-                  "id": "0x206f0626be0",
+                  "id": "0x18c07d54ac0",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned long"
@@ -1687,7 +1687,7 @@
       ]
     },
     {
-      "id": "0x206f1f3df48",
+      "id": "0x18c09781208",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1056,
@@ -1715,7 +1715,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626ba0",
+          "id": "0x18c07d54a80",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned short"
@@ -1724,7 +1724,7 @@
       ]
     },
     {
-      "id": "0x206f1f3dff8",
+      "id": "0x18c097812b8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1080,
@@ -1751,26 +1751,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f3dfc0",
+          "id": "0x18c09781280",
           "kind": "PointerType",
           "type": {
             "qualType": "USHORT *"
           },
           "inner": [
             {
-              "id": "0x206f1f3dfa0",
+              "id": "0x18c09781260",
               "kind": "TypedefType",
               "type": {
                 "qualType": "USHORT"
               },
               "decl": {
-                "id": "0x206f1f3df48",
+                "id": "0x18c09781208",
                 "kind": "TypedefDecl",
                 "name": "USHORT"
               },
               "inner": [
                 {
-                  "id": "0x206f0626ba0",
+                  "id": "0x18c07d54a80",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned short"
@@ -1783,7 +1783,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e068",
+      "id": "0x18c09781328",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1111,
@@ -1811,7 +1811,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b80",
+          "id": "0x18c07d54a60",
           "kind": "BuiltinType",
           "type": {
             "qualType": "unsigned char"
@@ -1820,7 +1820,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e118",
+      "id": "0x18c097813d8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1133,
@@ -1847,26 +1847,26 @@
       },
       "inner": [
         {
-          "id": "0x206f1f3e0e0",
+          "id": "0x18c097813a0",
           "kind": "PointerType",
           "type": {
             "qualType": "UCHAR *"
           },
           "inner": [
             {
-              "id": "0x206f1f3e0c0",
+              "id": "0x18c09781380",
               "kind": "TypedefType",
               "type": {
                 "qualType": "UCHAR"
               },
               "decl": {
-                "id": "0x206f1f3e068",
+                "id": "0x18c09781328",
                 "kind": "TypedefDecl",
                 "name": "UCHAR"
               },
               "inner": [
                 {
-                  "id": "0x206f0626b80",
+                  "id": "0x18c07d54a60",
                   "kind": "BuiltinType",
                   "type": {
                     "qualType": "unsigned char"
@@ -1879,7 +1879,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e180",
+      "id": "0x18c09781440",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1154,
@@ -1907,7 +1907,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626ac0",
+          "id": "0x18c07d549a0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "char"
@@ -1916,7 +1916,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e1f0",
+      "id": "0x18c097814b0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1174,
@@ -1943,7 +1943,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b00",
+          "id": "0x18c07d549e0",
           "kind": "BuiltinType",
           "type": {
             "qualType": "short"
@@ -1952,7 +1952,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e260",
+      "id": "0x18c09781520",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1194,
@@ -1979,7 +1979,7 @@
       },
       "inner": [
         {
-          "id": "0x206f0626b40",
+          "id": "0x18c07d54a20",
           "kind": "BuiltinType",
           "type": {
             "qualType": "long"
@@ -1988,7 +1988,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e2d0",
+      "id": "0x18c09781590",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 1212,
@@ -2009,14 +2009,14 @@
           "tokLen": 3
         }
       },
-      "previousDecl": "0x206f1f42cc0",
+      "previousDecl": "0x18c0977ff20",
       "name": "INT",
       "type": {
         "qualType": "int"
       },
       "inner": [
         {
-          "id": "0x206f0626b20",
+          "id": "0x18c07d54a00",
           "kind": "BuiltinType",
           "type": {
             "qualType": "int"
@@ -2025,7 +2025,7 @@
       ]
     },
     {
-      "id": "0x206f1f3e350",
+      "id": "0x18c09781610",
       "kind": "RecordDecl",
       "loc": {
         "offset": 1251,
@@ -2053,7 +2053,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f3e3f0",
+          "id": "0x18c097816b0",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -2062,7 +2062,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f3e460",
+          "id": "0x18c09781720",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1270,
@@ -2087,11 +2087,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e4c8",
+          "id": "0x18c09781788",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1291,
@@ -2116,11 +2116,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e530",
+          "id": "0x18c097817f0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1310,
@@ -2145,11 +2145,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e598",
+          "id": "0x18c09781858",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1331,
@@ -2174,11 +2174,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e600",
+          "id": "0x18c097818c0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1351,
@@ -2203,11 +2203,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e668",
+          "id": "0x18c09781928",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1372,
@@ -2232,11 +2232,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e6d0",
+          "id": "0x18c09781990",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1393,
@@ -2261,11 +2261,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3e808",
+          "id": "0x18c09781ac8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1423,
@@ -2292,7 +2292,7 @@
           }
         },
         {
-          "id": "0x206f1f3e968",
+          "id": "0x18c09781c28",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1448,
@@ -2319,7 +2319,7 @@
           }
         },
         {
-          "id": "0x206f1f3e9d0",
+          "id": "0x18c09781c90",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1476,
@@ -2344,11 +2344,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ea38",
+          "id": "0x18c09781cf8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1498,
@@ -2373,11 +2373,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3eaa0",
+          "id": "0x18c09781d60",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1520,
@@ -2402,11 +2402,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ebd8",
+          "id": "0x18c09781e98",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1537,
@@ -2433,7 +2433,7 @@
           }
         },
         {
-          "id": "0x206f1f3ed18",
+          "id": "0x18c09781fd8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1561,
@@ -2460,7 +2460,7 @@
           }
         },
         {
-          "id": "0x206f1f3ed80",
+          "id": "0x18c09782040",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1588,
@@ -2485,11 +2485,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ce10",
+          "id": "0x18c0977b080",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1616,
@@ -2514,11 +2514,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ce68",
+          "id": "0x18c0977b0d8",
           "kind": "RecordDecl",
           "loc": {
             "offset": 1631,
@@ -2545,7 +2545,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3cf10",
+              "id": "0x18c0977b180",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -2554,7 +2554,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3cfc8",
+              "id": "0x18c0977b238",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1651,
@@ -2579,12 +2579,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3cfa8",
+                  "id": "0x18c0977b218",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2605,7 +2605,7 @@
                   "value": "8",
                   "inner": [
                     {
-                      "id": "0x206f1f3cf70",
+                      "id": "0x18c0977b1e0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2630,7 +2630,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d078",
+              "id": "0x18c0977b2e8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1677,
@@ -2655,12 +2655,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d058",
+                  "id": "0x18c0977b2c8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2681,7 +2681,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d020",
+                      "id": "0x18c0977b290",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2706,7 +2706,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d128",
+              "id": "0x18c0977b398",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1697,
@@ -2731,12 +2731,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d108",
+                  "id": "0x18c0977b378",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2757,7 +2757,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d0d0",
+                      "id": "0x18c0977b340",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2782,7 +2782,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d1d8",
+              "id": "0x18c0977b448",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1717,
@@ -2807,12 +2807,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d1b8",
+                  "id": "0x18c0977b428",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2833,7 +2833,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d180",
+                      "id": "0x18c0977b3f0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2858,7 +2858,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d288",
+              "id": "0x18c0977b4f8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1742,
@@ -2883,12 +2883,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d268",
+                  "id": "0x18c0977b4d8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2909,7 +2909,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d230",
+                      "id": "0x18c0977b4a0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -2934,7 +2934,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d338",
+              "id": "0x18c0977b5a8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1764,
@@ -2959,12 +2959,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d318",
+                  "id": "0x18c0977b588",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -2985,7 +2985,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d2e0",
+                      "id": "0x18c0977b550",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3010,7 +3010,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d3e8",
+              "id": "0x18c0977b658",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1790,
@@ -3035,12 +3035,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d3c8",
+                  "id": "0x18c0977b638",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3061,7 +3061,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d390",
+                      "id": "0x18c0977b600",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3086,7 +3086,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d498",
+              "id": "0x18c0977b708",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1814,
@@ -3111,12 +3111,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d478",
+                  "id": "0x18c0977b6e8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3137,7 +3137,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d440",
+                      "id": "0x18c0977b6b0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3162,7 +3162,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d548",
+              "id": "0x18c0977b7b8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1836,
@@ -3187,12 +3187,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d528",
+                  "id": "0x18c0977b798",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3213,7 +3213,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d4f0",
+                      "id": "0x18c0977b760",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3240,7 +3240,7 @@
           ]
         },
         {
-          "id": "0x206f1f3d5f8",
+          "id": "0x18c0977b868",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1852,
@@ -3272,7 +3272,7 @@
           }
         },
         {
-          "id": "0x206f1f3d660",
+          "id": "0x18c0977b8d0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1876,
@@ -3297,11 +3297,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3d6c8",
+          "id": "0x18c0977b938",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1897,
@@ -3326,11 +3326,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3d730",
+          "id": "0x18c0977b9a0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 1918,
@@ -3355,11 +3355,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3d788",
+          "id": "0x18c0977b9f8",
           "kind": "RecordDecl",
           "loc": {
             "offset": 1932,
@@ -3386,7 +3386,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3d830",
+              "id": "0x18c0977baa0",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -3395,7 +3395,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3d8e8",
+              "id": "0x18c0977bb58",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1952,
@@ -3420,12 +3420,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d8c8",
+                  "id": "0x18c0977bb38",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3446,7 +3446,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d890",
+                      "id": "0x18c0977bb00",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3471,7 +3471,7 @@
               ]
             },
             {
-              "id": "0x206f1f3d998",
+              "id": "0x18c0977bc08",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 1978,
@@ -3496,12 +3496,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3d978",
+                  "id": "0x18c0977bbe8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3522,7 +3522,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d940",
+                      "id": "0x18c0977bbb0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3547,7 +3547,7 @@
               ]
             },
             {
-              "id": "0x206f1f3da48",
+              "id": "0x18c0977bcb8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2006,
@@ -3572,12 +3572,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3da28",
+                  "id": "0x18c0977bc98",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3598,7 +3598,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3d9f0",
+                      "id": "0x18c0977bc60",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3623,7 +3623,7 @@
               ]
             },
             {
-              "id": "0x206f1f3daf8",
+              "id": "0x18c0977bd68",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2032,
@@ -3648,12 +3648,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3dad8",
+                  "id": "0x18c0977bd48",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3674,7 +3674,7 @@
                   "value": "13",
                   "inner": [
                     {
-                      "id": "0x206f1f3daa0",
+                      "id": "0x18c0977bd10",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3701,7 +3701,7 @@
           ]
         },
         {
-          "id": "0x206f1f3dba8",
+          "id": "0x18c0977be18",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2051,
@@ -3733,7 +3733,7 @@
           }
         },
         {
-          "id": "0x206f1f3dc10",
+          "id": "0x18c0977be80",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2076,
@@ -3758,11 +3758,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3dc78",
+          "id": "0x18c0977bee8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2098,
@@ -3787,11 +3787,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3dce0",
+          "id": "0x18c0977bf50",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2121,
@@ -3816,11 +3816,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3dd48",
+          "id": "0x18c0977bfb8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2154,
@@ -3845,11 +3845,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ddb0",
+          "id": "0x18c0977c020",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2179,
@@ -3874,11 +3874,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3ee30",
+          "id": "0x18c0977d0a0",
           "kind": "RecordDecl",
           "loc": {
             "offset": 2198,
@@ -3905,7 +3905,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3eed0",
+              "id": "0x18c0977d140",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -3914,7 +3914,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3ef88",
+              "id": "0x18c0977d1f8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2218,
@@ -3939,12 +3939,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3ef68",
+                  "id": "0x18c0977d1d8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -3965,7 +3965,7 @@
                   "value": "8",
                   "inner": [
                     {
-                      "id": "0x206f1f3ef30",
+                      "id": "0x18c0977d1a0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -3990,7 +3990,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f038",
+              "id": "0x18c0977d2a8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2244,
@@ -4015,12 +4015,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f018",
+                  "id": "0x18c0977d288",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4041,7 +4041,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3efe0",
+                      "id": "0x18c0977d250",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4066,7 +4066,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f0e8",
+              "id": "0x18c0977d358",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2266,
@@ -4091,12 +4091,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f0c8",
+                  "id": "0x18c0977d338",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4117,7 +4117,7 @@
                   "value": "7",
                   "inner": [
                     {
-                      "id": "0x206f1f3f090",
+                      "id": "0x18c0977d300",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4144,7 +4144,7 @@
           ]
         },
         {
-          "id": "0x206f1f3f198",
+          "id": "0x18c0977d408",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2285,
@@ -4176,7 +4176,7 @@
           }
         },
         {
-          "id": "0x206f1f3f200",
+          "id": "0x18c0977d470",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2311,
@@ -4201,11 +4201,11 @@
           "type": {
             "desugaredQualType": "unsigned long",
             "qualType": "ULONG",
-            "typeAliasDeclId": "0x206f1f3de20"
+            "typeAliasDeclId": "0x18c097810e0"
           }
         },
         {
-          "id": "0x206f1f3f268",
+          "id": "0x18c0977d4d8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2336,
@@ -4230,11 +4230,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3f2c0",
+          "id": "0x18c0977d530",
           "kind": "RecordDecl",
           "loc": {
             "offset": 2354,
@@ -4261,7 +4261,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3f360",
+              "id": "0x18c0977d5d0",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -4270,7 +4270,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3f418",
+              "id": "0x18c0977d688",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2374,
@@ -4295,12 +4295,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f3f8",
+                  "id": "0x18c0977d668",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4321,7 +4321,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f3c0",
+                      "id": "0x18c0977d630",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4346,7 +4346,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f4c8",
+              "id": "0x18c0977d738",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2396,
@@ -4371,12 +4371,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f4a8",
+                  "id": "0x18c0977d718",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4397,7 +4397,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f470",
+                      "id": "0x18c0977d6e0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4422,7 +4422,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f578",
+              "id": "0x18c0977d7e8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2418,
@@ -4447,12 +4447,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f558",
+                  "id": "0x18c0977d7c8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4473,7 +4473,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f520",
+                      "id": "0x18c0977d790",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4498,7 +4498,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f628",
+              "id": "0x18c0977d898",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2440,
@@ -4523,12 +4523,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f608",
+                  "id": "0x18c0977d878",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4549,7 +4549,7 @@
                   "value": "5",
                   "inner": [
                     {
-                      "id": "0x206f1f3f5d0",
+                      "id": "0x18c0977d840",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4574,7 +4574,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f6d8",
+              "id": "0x18c0977d948",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2466,
@@ -4599,12 +4599,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f6b8",
+                  "id": "0x18c0977d928",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4625,7 +4625,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f680",
+                      "id": "0x18c0977d8f0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4650,7 +4650,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f788",
+              "id": "0x18c0977d9f8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2491,
@@ -4675,12 +4675,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f768",
+                  "id": "0x18c0977d9d8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4701,7 +4701,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f730",
+                      "id": "0x18c0977d9a0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4726,7 +4726,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f838",
+              "id": "0x18c0977daa8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2516,
@@ -4751,12 +4751,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f818",
+                  "id": "0x18c0977da88",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4777,7 +4777,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3f7e0",
+                      "id": "0x18c0977da50",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4802,7 +4802,7 @@
               ]
             },
             {
-              "id": "0x206f1f3f8e8",
+              "id": "0x18c0977db58",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2541,
@@ -4827,12 +4827,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3f8c8",
+                  "id": "0x18c0977db38",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4853,7 +4853,7 @@
                   "value": "5",
                   "inner": [
                     {
-                      "id": "0x206f1f3f890",
+                      "id": "0x18c0977db00",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -4880,7 +4880,7 @@
           ]
         },
         {
-          "id": "0x206f1f3f998",
+          "id": "0x18c0977dc08",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2560,
@@ -4912,7 +4912,7 @@
           }
         },
         {
-          "id": "0x206f1f3f9f0",
+          "id": "0x18c0977dc60",
           "kind": "RecordDecl",
           "loc": {
             "offset": 2577,
@@ -4939,7 +4939,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3fa90",
+              "id": "0x18c0977dd00",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -4948,7 +4948,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3fb48",
+              "id": "0x18c0977ddb8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2597,
@@ -4973,12 +4973,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3fb28",
+                  "id": "0x18c0977dd98",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -4999,7 +4999,7 @@
                   "value": "8",
                   "inner": [
                     {
-                      "id": "0x206f1f3faf0",
+                      "id": "0x18c0977dd60",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5024,7 +5024,7 @@
               ]
             },
             {
-              "id": "0x206f1f3fbf8",
+              "id": "0x18c0977de68",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2625,
@@ -5049,12 +5049,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3fbd8",
+                  "id": "0x18c0977de48",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5075,7 +5075,7 @@
                   "value": "8",
                   "inner": [
                     {
-                      "id": "0x206f1f3fba0",
+                      "id": "0x18c0977de10",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5102,7 +5102,7 @@
           ]
         },
         {
-          "id": "0x206f1f3fca8",
+          "id": "0x18c0977df18",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2643,
@@ -5134,7 +5134,7 @@
           }
         },
         {
-          "id": "0x206f1f3fd10",
+          "id": "0x18c0977df80",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2666,
@@ -5159,11 +5159,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3fd78",
+          "id": "0x18c0977dfe8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2698,
@@ -5188,11 +5188,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3be00",
+          "id": "0x18c097820f0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2730,
@@ -5217,11 +5217,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3be68",
+          "id": "0x18c09782158",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2759,
@@ -5246,11 +5246,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f3bfa8",
+          "id": "0x18c09782298",
           "kind": "FieldDecl",
           "loc": {
             "offset": 2786,
@@ -5277,7 +5277,7 @@
           }
         },
         {
-          "id": "0x206f1f3c000",
+          "id": "0x18c097822f0",
           "kind": "RecordDecl",
           "loc": {
             "offset": 2805,
@@ -5304,7 +5304,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f3c0a0",
+              "id": "0x18c09782390",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -5313,7 +5313,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f3c158",
+              "id": "0x18c09782448",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2825,
@@ -5338,12 +5338,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c138",
+                  "id": "0x18c09782428",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5364,7 +5364,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c100",
+                      "id": "0x18c097823f0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5389,7 +5389,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c208",
+              "id": "0x18c097824f8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2851,
@@ -5414,12 +5414,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c1e8",
+                  "id": "0x18c097824d8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5440,7 +5440,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c1b0",
+                      "id": "0x18c097824a0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5465,7 +5465,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c2b8",
+              "id": "0x18c097825a8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2872,
@@ -5490,12 +5490,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c298",
+                  "id": "0x18c09782588",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5516,7 +5516,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c260",
+                      "id": "0x18c09782550",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5541,7 +5541,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c368",
+              "id": "0x18c09782658",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2893,
@@ -5566,12 +5566,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c348",
+                  "id": "0x18c09782638",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5592,7 +5592,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c310",
+                      "id": "0x18c09782600",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5617,7 +5617,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c418",
+              "id": "0x18c09782708",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2914,
@@ -5642,12 +5642,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c3f8",
+                  "id": "0x18c097826e8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5668,7 +5668,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c3c0",
+                      "id": "0x18c097826b0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5693,7 +5693,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c4c8",
+              "id": "0x18c097827b8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2935,
@@ -5718,12 +5718,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c4a8",
+                  "id": "0x18c09782798",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5744,7 +5744,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c470",
+                      "id": "0x18c09782760",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5769,7 +5769,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c578",
+              "id": "0x18c09782868",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2956,
@@ -5794,12 +5794,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c558",
+                  "id": "0x18c09782848",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5820,7 +5820,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c520",
+                      "id": "0x18c09782810",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5845,7 +5845,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c628",
+              "id": "0x18c09782918",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2977,
@@ -5870,12 +5870,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c608",
+                  "id": "0x18c097828f8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5896,7 +5896,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c5d0",
+                      "id": "0x18c097828c0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5921,7 +5921,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c6d8",
+              "id": "0x18c097829c8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 2998,
@@ -5946,12 +5946,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c6b8",
+                  "id": "0x18c097829a8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -5972,7 +5972,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c680",
+                      "id": "0x18c09782970",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -5997,7 +5997,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c788",
+              "id": "0x18c09782a78",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3019,
@@ -6022,12 +6022,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c768",
+                  "id": "0x18c09782a58",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6048,7 +6048,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c730",
+                      "id": "0x18c09782a20",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6073,7 +6073,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c838",
+              "id": "0x18c09782b28",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3040,
@@ -6098,12 +6098,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c818",
+                  "id": "0x18c09782b08",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6124,7 +6124,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c7e0",
+                      "id": "0x18c09782ad0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6149,7 +6149,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c8e8",
+              "id": "0x18c09782bd8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3062,
@@ -6174,12 +6174,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c8c8",
+                  "id": "0x18c09782bb8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6200,7 +6200,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c890",
+                      "id": "0x18c09782b80",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6225,7 +6225,7 @@
               ]
             },
             {
-              "id": "0x206f1f3c998",
+              "id": "0x18c09782c88",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3084,
@@ -6250,12 +6250,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3c978",
+                  "id": "0x18c09782c68",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6276,7 +6276,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c940",
+                      "id": "0x18c09782c30",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6301,7 +6301,7 @@
               ]
             },
             {
-              "id": "0x206f1f3ca48",
+              "id": "0x18c09782d38",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3106,
@@ -6326,12 +6326,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3ca28",
+                  "id": "0x18c09782d18",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6352,7 +6352,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3c9f0",
+                      "id": "0x18c09782ce0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6377,7 +6377,7 @@
               ]
             },
             {
-              "id": "0x206f1f3caf8",
+              "id": "0x18c09782de8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3128,
@@ -6402,12 +6402,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3cad8",
+                  "id": "0x18c09782dc8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6428,7 +6428,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3caa0",
+                      "id": "0x18c09782d90",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6453,7 +6453,7 @@
               ]
             },
             {
-              "id": "0x206f1f3cba8",
+              "id": "0x18c09782e98",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3150,
@@ -6478,12 +6478,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f3cb88",
+                  "id": "0x18c09782e78",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6504,7 +6504,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f3cb50",
+                      "id": "0x18c09782e40",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6531,7 +6531,7 @@
           ]
         },
         {
-          "id": "0x206f1f3cc58",
+          "id": "0x18c09782f48",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3169,
@@ -6563,7 +6563,7 @@
           }
         },
         {
-          "id": "0x206f1f3ccc0",
+          "id": "0x18c09782fb0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3193,
@@ -6588,11 +6588,11 @@
           "type": {
             "desugaredQualType": "unsigned short",
             "qualType": "USHORT",
-            "typeAliasDeclId": "0x206f1f3df48"
+            "typeAliasDeclId": "0x18c09781208"
           }
         },
         {
-          "id": "0x206f1f4acf0",
+          "id": "0x18c09787d80",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3217,
@@ -6619,7 +6619,7 @@
           }
         },
         {
-          "id": "0x206f1f4ad48",
+          "id": "0x18c09787dd8",
           "kind": "RecordDecl",
           "loc": {
             "offset": 3235,
@@ -6646,7 +6646,7 @@
           "completeDefinition": true,
           "inner": [
             {
-              "id": "0x206f1f4adf0",
+              "id": "0x18c09787e80",
               "kind": "MaxFieldAlignmentAttr",
               "range": {
                 "begin": {},
@@ -6655,7 +6655,7 @@
               "implicit": true
             },
             {
-              "id": "0x206f1f4aea8",
+              "id": "0x18c09787f38",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3255,
@@ -6680,12 +6680,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4ae88",
+                  "id": "0x18c09787f18",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6706,7 +6706,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4ae50",
+                      "id": "0x18c09787ee0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6731,7 +6731,7 @@
               ]
             },
             {
-              "id": "0x206f1f4af58",
+              "id": "0x18c09787fe8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3277,
@@ -6756,12 +6756,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4af38",
+                  "id": "0x18c09787fc8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6782,7 +6782,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4af00",
+                      "id": "0x18c09787f90",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6807,7 +6807,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b008",
+              "id": "0x18c09788098",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3299,
@@ -6832,12 +6832,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4afe8",
+                  "id": "0x18c09788078",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6858,7 +6858,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4afb0",
+                      "id": "0x18c09788040",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6883,7 +6883,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b0b8",
+              "id": "0x18c09788148",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3321,
@@ -6908,12 +6908,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b098",
+                  "id": "0x18c09788128",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -6934,7 +6934,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b060",
+                      "id": "0x18c097880f0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -6959,7 +6959,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b168",
+              "id": "0x18c097881f8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3343,
@@ -6984,12 +6984,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b148",
+                  "id": "0x18c097881d8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7010,7 +7010,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b110",
+                      "id": "0x18c097881a0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7035,7 +7035,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b218",
+              "id": "0x18c097882a8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3365,
@@ -7060,12 +7060,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b1f8",
+                  "id": "0x18c09788288",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7086,7 +7086,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b1c0",
+                      "id": "0x18c09788250",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7111,7 +7111,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b2c8",
+              "id": "0x18c09788358",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3387,
@@ -7136,12 +7136,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b2a8",
+                  "id": "0x18c09788338",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7162,7 +7162,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b270",
+                      "id": "0x18c09788300",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7187,7 +7187,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b378",
+              "id": "0x18c09788408",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3409,
@@ -7212,12 +7212,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b358",
+                  "id": "0x18c097883e8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7238,7 +7238,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b320",
+                      "id": "0x18c097883b0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7263,7 +7263,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b428",
+              "id": "0x18c097884b8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3431,
@@ -7288,12 +7288,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b408",
+                  "id": "0x18c09788498",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7314,7 +7314,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b3d0",
+                      "id": "0x18c09788460",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7339,7 +7339,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b4d8",
+              "id": "0x18c09788568",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3456,
@@ -7364,12 +7364,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b4b8",
+                  "id": "0x18c09788548",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7390,7 +7390,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b480",
+                      "id": "0x18c09788510",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7415,7 +7415,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b588",
+              "id": "0x18c09788618",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3481,
@@ -7440,12 +7440,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b568",
+                  "id": "0x18c097885f8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7466,7 +7466,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b530",
+                      "id": "0x18c097885c0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7491,7 +7491,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b638",
+              "id": "0x18c097886c8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3506,
@@ -7516,12 +7516,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b618",
+                  "id": "0x18c097886a8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7542,7 +7542,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b5e0",
+                      "id": "0x18c09788670",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7567,7 +7567,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b6e8",
+              "id": "0x18c09788778",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3531,
@@ -7592,12 +7592,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b6c8",
+                  "id": "0x18c09788758",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7618,7 +7618,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b690",
+                      "id": "0x18c09788720",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7643,7 +7643,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b798",
+              "id": "0x18c09788828",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3556,
@@ -7668,12 +7668,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b778",
+                  "id": "0x18c09788808",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7694,7 +7694,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b740",
+                      "id": "0x18c097887d0",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7719,7 +7719,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b848",
+              "id": "0x18c097888d8",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3581,
@@ -7744,12 +7744,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b828",
+                  "id": "0x18c097888b8",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7770,7 +7770,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b7f0",
+                      "id": "0x18c09788880",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7795,7 +7795,7 @@
               ]
             },
             {
-              "id": "0x206f1f4b8f8",
+              "id": "0x18c09788988",
               "kind": "FieldDecl",
               "loc": {
                 "offset": 3606,
@@ -7820,12 +7820,12 @@
               "type": {
                 "desugaredQualType": "unsigned short",
                 "qualType": "USHORT",
-                "typeAliasDeclId": "0x206f1f3df48"
+                "typeAliasDeclId": "0x18c09781208"
               },
               "isBitfield": true,
               "inner": [
                 {
-                  "id": "0x206f1f4b8d8",
+                  "id": "0x18c09788968",
                   "kind": "ConstantExpr",
                   "range": {
                     "begin": {
@@ -7846,7 +7846,7 @@
                   "value": "1",
                   "inner": [
                     {
-                      "id": "0x206f1f4b8a0",
+                      "id": "0x18c09788930",
                       "kind": "IntegerLiteral",
                       "range": {
                         "begin": {
@@ -7873,7 +7873,7 @@
           ]
         },
         {
-          "id": "0x206f1f4b9a8",
+          "id": "0x18c09788a38",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3624,
@@ -7905,7 +7905,7 @@
           }
         },
         {
-          "id": "0x206f1f4bae8",
+          "id": "0x18c09788b78",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3644,
@@ -7934,7 +7934,7 @@
       ]
     },
     {
-      "id": "0x206f1f4bb98",
+      "id": "0x18c09788c28",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3664,
@@ -7966,25 +7966,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4bb40",
+          "id": "0x18c09788bd0",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _IDINFO"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f3e350",
+            "id": "0x18c09781610",
             "kind": "RecordDecl",
             "name": "_IDINFO"
           },
           "inner": [
             {
-              "id": "0x206f1f3e3d0",
+              "id": "0x18c09781690",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _IDINFO"
               },
               "decl": {
-                "id": "0x206f1f3e350",
+                "id": "0x18c09781610",
                 "kind": "RecordDecl",
                 "name": "_IDINFO"
               }
@@ -7994,7 +7994,7 @@
       ]
     },
     {
-      "id": "0x206f1f4bc70",
+      "id": "0x18c09788d00",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3673,
@@ -8023,32 +8023,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4bc20",
+          "id": "0x18c09788cb0",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _IDINFO *"
           },
           "inner": [
             {
-              "id": "0x206f1f4bb40",
+              "id": "0x18c09788bd0",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _IDINFO"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f3e350",
+                "id": "0x18c09781610",
                 "kind": "RecordDecl",
                 "name": "_IDINFO"
               },
               "inner": [
                 {
-                  "id": "0x206f1f3e3d0",
+                  "id": "0x18c09781690",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _IDINFO"
                   },
                   "decl": {
-                    "id": "0x206f1f3e350",
+                    "id": "0x18c09781610",
                     "kind": "RecordDecl",
                     "name": "_IDINFO"
                   }
@@ -8060,7 +8060,7 @@
       ]
     },
     {
-      "id": "0x206f1f4cd10",
+      "id": "0x18c09788d90",
       "kind": "RecordDecl",
       "loc": {
         "offset": 3697,
@@ -8088,7 +8088,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f4cdb0",
+          "id": "0x18c09788e30",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -8097,7 +8097,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f4ce20",
+          "id": "0x18c09788ea0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3720,
@@ -8122,11 +8122,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4ce88",
+          "id": "0x18c09788f08",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3741,
@@ -8151,11 +8151,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4cfc8",
+          "id": "0x18c09789048",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3759,
@@ -8182,7 +8182,7 @@
           }
         },
         {
-          "id": "0x206f1f4d108",
+          "id": "0x18c09789188",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3781,
@@ -8211,7 +8211,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d1b8",
+      "id": "0x18c09789238",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3798,
@@ -8244,25 +8244,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d160",
+          "id": "0x18c097891e0",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _DRIVERSTATUS"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f4cd10",
+            "id": "0x18c09788d90",
             "kind": "RecordDecl",
             "name": "_DRIVERSTATUS"
           },
           "inner": [
             {
-              "id": "0x206f1f4cd90",
+              "id": "0x18c09788e10",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _DRIVERSTATUS"
               },
               "decl": {
-                "id": "0x206f1f4cd10",
+                "id": "0x18c09788d90",
                 "kind": "RecordDecl",
                 "name": "_DRIVERSTATUS"
               }
@@ -8272,7 +8272,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d290",
+      "id": "0x18c09789310",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3813,
@@ -8301,32 +8301,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d240",
+          "id": "0x18c097892c0",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _DRIVERSTATUS *"
           },
           "inner": [
             {
-              "id": "0x206f1f4d160",
+              "id": "0x18c097891e0",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _DRIVERSTATUS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4cd10",
+                "id": "0x18c09788d90",
                 "kind": "RecordDecl",
                 "name": "_DRIVERSTATUS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4cd90",
+                  "id": "0x18c09788e10",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _DRIVERSTATUS"
                   },
                   "decl": {
-                    "id": "0x206f1f4cd10",
+                    "id": "0x18c09788d90",
                     "kind": "RecordDecl",
                     "name": "_DRIVERSTATUS"
                   }
@@ -8338,7 +8338,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d310",
+      "id": "0x18c09789390",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3829,
@@ -8367,32 +8367,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d240",
+          "id": "0x18c097892c0",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _DRIVERSTATUS *"
           },
           "inner": [
             {
-              "id": "0x206f1f4d160",
+              "id": "0x18c097891e0",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _DRIVERSTATUS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4cd10",
+                "id": "0x18c09788d90",
                 "kind": "RecordDecl",
                 "name": "_DRIVERSTATUS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4cd90",
+                  "id": "0x18c09788e10",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _DRIVERSTATUS"
                   },
                   "decl": {
-                    "id": "0x206f1f4cd10",
+                    "id": "0x18c09788d90",
                     "kind": "RecordDecl",
                     "name": "_DRIVERSTATUS"
                   }
@@ -8404,7 +8404,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d390",
+      "id": "0x18c09789410",
       "kind": "RecordDecl",
       "loc": {
         "offset": 3860,
@@ -8432,7 +8432,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f4d430",
+          "id": "0x18c097894b0",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -8441,7 +8441,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f4d4a0",
+          "id": "0x18c09789520",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3888,
@@ -8466,11 +8466,11 @@
           "type": {
             "desugaredQualType": "unsigned long",
             "qualType": "DWORD",
-            "typeAliasDeclId": "0x206f0627960"
+            "typeAliasDeclId": "0x18c07d55840"
           }
         },
         {
-          "id": "0x206f1f4d530",
+          "id": "0x18c097895b0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3916,
@@ -8495,11 +8495,11 @@
           "type": {
             "desugaredQualType": "struct _DRIVERSTATUS",
             "qualType": "DRIVERSTATUS",
-            "typeAliasDeclId": "0x206f1f4d1b8"
+            "typeAliasDeclId": "0x18c09789238"
           }
         },
         {
-          "id": "0x206f1f4d668",
+          "id": "0x18c097896e8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 3937,
@@ -8528,7 +8528,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d718",
+      "id": "0x18c09789798",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3951,
@@ -8560,25 +8560,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d6c0",
+          "id": "0x18c09789740",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _SENDCMDOUTPARAMS"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f4d390",
+            "id": "0x18c09789410",
             "kind": "RecordDecl",
             "name": "_SENDCMDOUTPARAMS"
           },
           "inner": [
             {
-              "id": "0x206f1f4d410",
+              "id": "0x18c09789490",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _SENDCMDOUTPARAMS"
               },
               "decl": {
-                "id": "0x206f1f4d390",
+                "id": "0x18c09789410",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDOUTPARAMS"
               }
@@ -8588,7 +8588,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d7f0",
+      "id": "0x18c09789870",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3970,
@@ -8617,32 +8617,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d7a0",
+          "id": "0x18c09789820",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _SENDCMDOUTPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f4d6c0",
+              "id": "0x18c09789740",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _SENDCMDOUTPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4d390",
+                "id": "0x18c09789410",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDOUTPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4d410",
+                  "id": "0x18c09789490",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _SENDCMDOUTPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f4d390",
+                    "id": "0x18c09789410",
                     "kind": "RecordDecl",
                     "name": "_SENDCMDOUTPARAMS"
                   }
@@ -8654,7 +8654,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d870",
+      "id": "0x18c097898f0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 3990,
@@ -8683,32 +8683,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f4d7a0",
+          "id": "0x18c09789820",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _SENDCMDOUTPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f4d6c0",
+              "id": "0x18c09789740",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _SENDCMDOUTPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4d390",
+                "id": "0x18c09789410",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDOUTPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4d410",
+                  "id": "0x18c09789490",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _SENDCMDOUTPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f4d390",
+                    "id": "0x18c09789410",
                     "kind": "RecordDecl",
                     "name": "_SENDCMDOUTPARAMS"
                   }
@@ -8720,7 +8720,7 @@
       ]
     },
     {
-      "id": "0x206f1f4d8f0",
+      "id": "0x18c09789970",
       "kind": "RecordDecl",
       "loc": {
         "offset": 4025,
@@ -8748,7 +8748,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f4d990",
+          "id": "0x18c09789a10",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -8757,7 +8757,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f4da00",
+          "id": "0x18c09789a80",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4054,
@@ -8782,11 +8782,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4da68",
+          "id": "0x18c09789ae8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4071,
@@ -8811,11 +8811,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4dad0",
+          "id": "0x18c09789b50",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4089,
@@ -8840,11 +8840,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4db38",
+          "id": "0x18c09789bb8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4107,
@@ -8869,11 +8869,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f4dba0",
+          "id": "0x18c09789c20",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4130,
@@ -8898,11 +8898,11 @@
           "type": {
             "desugaredQualType": "unsigned long",
             "qualType": "DWORD",
-            "typeAliasDeclId": "0x206f0627960"
+            "typeAliasDeclId": "0x18c07d55840"
           }
         },
         {
-          "id": "0x206f1f46cb0",
+          "id": "0x18c09784d50",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4153,
@@ -8931,7 +8931,7 @@
       ]
     },
     {
-      "id": "0x206f1f46d68",
+      "id": "0x18c09784e08",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4170,
@@ -8963,25 +8963,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f46d10",
+          "id": "0x18c09784db0",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _GETVERSIONINPARAMS"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f4d8f0",
+            "id": "0x18c09789970",
             "kind": "RecordDecl",
             "name": "_GETVERSIONINPARAMS"
           },
           "inner": [
             {
-              "id": "0x206f1f4d970",
+              "id": "0x18c097899f0",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _GETVERSIONINPARAMS"
               },
               "decl": {
-                "id": "0x206f1f4d8f0",
+                "id": "0x18c09789970",
                 "kind": "RecordDecl",
                 "name": "_GETVERSIONINPARAMS"
               }
@@ -8991,7 +8991,7 @@
       ]
     },
     {
-      "id": "0x206f1f46e40",
+      "id": "0x18c09784ee0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4191,
@@ -9020,32 +9020,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f46df0",
+          "id": "0x18c09784e90",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _GETVERSIONINPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f46d10",
+              "id": "0x18c09784db0",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _GETVERSIONINPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4d8f0",
+                "id": "0x18c09789970",
                 "kind": "RecordDecl",
                 "name": "_GETVERSIONINPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4d970",
+                  "id": "0x18c097899f0",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _GETVERSIONINPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f4d8f0",
+                    "id": "0x18c09789970",
                     "kind": "RecordDecl",
                     "name": "_GETVERSIONINPARAMS"
                   }
@@ -9057,7 +9057,7 @@
       ]
     },
     {
-      "id": "0x206f1f46ec0",
+      "id": "0x18c09784f60",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4213,
@@ -9086,32 +9086,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f46df0",
+          "id": "0x18c09784e90",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _GETVERSIONINPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f46d10",
+              "id": "0x18c09784db0",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _GETVERSIONINPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f4d8f0",
+                "id": "0x18c09789970",
                 "kind": "RecordDecl",
                 "name": "_GETVERSIONINPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f4d970",
+                  "id": "0x18c097899f0",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _GETVERSIONINPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f4d8f0",
+                    "id": "0x18c09789970",
                     "kind": "RecordDecl",
                     "name": "_GETVERSIONINPARAMS"
                   }
@@ -9123,7 +9123,7 @@
       ]
     },
     {
-      "id": "0x206f1f46f40",
+      "id": "0x18c09784fe0",
       "kind": "RecordDecl",
       "loc": {
         "offset": 4250,
@@ -9151,7 +9151,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f46fe0",
+          "id": "0x18c09785080",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -9160,7 +9160,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f47050",
+          "id": "0x18c097850f0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4268,
@@ -9185,11 +9185,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f470b8",
+          "id": "0x18c09785158",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4289,
@@ -9214,11 +9214,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f47120",
+          "id": "0x18c097851c0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4313,
@@ -9243,11 +9243,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f47188",
+          "id": "0x18c09785228",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4338,
@@ -9272,11 +9272,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f471f0",
+          "id": "0x18c09785290",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4357,
@@ -9301,11 +9301,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f47258",
+          "id": "0x18c097852f8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4377,
@@ -9330,11 +9330,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f472c0",
+          "id": "0x18c09785360",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4399,
@@ -9359,11 +9359,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f47328",
+          "id": "0x18c097853c8",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4419,
@@ -9388,13 +9388,13 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         }
       ]
     },
     {
-      "id": "0x206f1f473d8",
+      "id": "0x18c09785478",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4432,
@@ -9427,25 +9427,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47380",
+          "id": "0x18c09785420",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _IDEREGS"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f46f40",
+            "id": "0x18c09784fe0",
             "kind": "RecordDecl",
             "name": "_IDEREGS"
           },
           "inner": [
             {
-              "id": "0x206f1f46fc0",
+              "id": "0x18c09785060",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _IDEREGS"
               },
               "decl": {
-                "id": "0x206f1f46f40",
+                "id": "0x18c09784fe0",
                 "kind": "RecordDecl",
                 "name": "_IDEREGS"
               }
@@ -9455,7 +9455,7 @@
       ]
     },
     {
-      "id": "0x206f1f474b0",
+      "id": "0x18c09785550",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4442,
@@ -9484,32 +9484,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47460",
+          "id": "0x18c09785500",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _IDEREGS *"
           },
           "inner": [
             {
-              "id": "0x206f1f47380",
+              "id": "0x18c09785420",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _IDEREGS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f46f40",
+                "id": "0x18c09784fe0",
                 "kind": "RecordDecl",
                 "name": "_IDEREGS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f46fc0",
+                  "id": "0x18c09785060",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _IDEREGS"
                   },
                   "decl": {
-                    "id": "0x206f1f46f40",
+                    "id": "0x18c09784fe0",
                     "kind": "RecordDecl",
                     "name": "_IDEREGS"
                   }
@@ -9521,7 +9521,7 @@
       ]
     },
     {
-      "id": "0x206f1f47530",
+      "id": "0x18c097855d0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4453,
@@ -9550,32 +9550,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47460",
+          "id": "0x18c09785500",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _IDEREGS *"
           },
           "inner": [
             {
-              "id": "0x206f1f47380",
+              "id": "0x18c09785420",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _IDEREGS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f46f40",
+                "id": "0x18c09784fe0",
                 "kind": "RecordDecl",
                 "name": "_IDEREGS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f46fc0",
+                  "id": "0x18c09785060",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _IDEREGS"
                   },
                   "decl": {
-                    "id": "0x206f1f46f40",
+                    "id": "0x18c09784fe0",
                     "kind": "RecordDecl",
                     "name": "_IDEREGS"
                   }
@@ -9587,7 +9587,7 @@
       ]
     },
     {
-      "id": "0x206f1f475b0",
+      "id": "0x18c09785650",
       "kind": "RecordDecl",
       "loc": {
         "offset": 4479,
@@ -9615,7 +9615,7 @@
       "completeDefinition": true,
       "inner": [
         {
-          "id": "0x206f1f47650",
+          "id": "0x18c097856f0",
           "kind": "MaxFieldAlignmentAttr",
           "range": {
             "begin": {},
@@ -9624,7 +9624,7 @@
           "implicit": true
         },
         {
-          "id": "0x206f1f476c0",
+          "id": "0x18c09785760",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4512,
@@ -9649,11 +9649,11 @@
           "type": {
             "desugaredQualType": "unsigned long",
             "qualType": "DWORD",
-            "typeAliasDeclId": "0x206f0627960"
+            "typeAliasDeclId": "0x18c07d55840"
           }
         },
         {
-          "id": "0x206f1f47750",
+          "id": "0x18c097857f0",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4541,
@@ -9678,11 +9678,11 @@
           "type": {
             "desugaredQualType": "struct _IDEREGS",
             "qualType": "IDEREGS",
-            "typeAliasDeclId": "0x206f1f473d8"
+            "typeAliasDeclId": "0x18c09785478"
           }
         },
         {
-          "id": "0x206f1f477b8",
+          "id": "0x18c09785858",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4567,
@@ -9707,11 +9707,11 @@
           "type": {
             "desugaredQualType": "unsigned char",
             "qualType": "BYTE",
-            "typeAliasDeclId": "0x206f1f422f0"
+            "typeAliasDeclId": "0x18c0977f550"
           }
         },
         {
-          "id": "0x206f1f478f8",
+          "id": "0x18c09785998",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4594,
@@ -9738,7 +9738,7 @@
           }
         },
         {
-          "id": "0x206f1f479b8",
+          "id": "0x18c09785a58",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4622,
@@ -9765,7 +9765,7 @@
           }
         },
         {
-          "id": "0x206f1f47a78",
+          "id": "0x18c09785b18",
           "kind": "FieldDecl",
           "loc": {
             "offset": 4650,
@@ -9794,7 +9794,7 @@
       ]
     },
     {
-      "id": "0x206f1f47b28",
+      "id": "0x18c09785bc8",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4664,
@@ -9826,25 +9826,25 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47ad0",
+          "id": "0x18c09785b70",
           "kind": "ElaboratedType",
           "type": {
             "qualType": "struct _SENDCMDINPARAMS"
           },
           "ownedTagDecl": {
-            "id": "0x206f1f475b0",
+            "id": "0x18c09785650",
             "kind": "RecordDecl",
             "name": "_SENDCMDINPARAMS"
           },
           "inner": [
             {
-              "id": "0x206f1f47630",
+              "id": "0x18c097856d0",
               "kind": "RecordType",
               "type": {
                 "qualType": "struct _SENDCMDINPARAMS"
               },
               "decl": {
-                "id": "0x206f1f475b0",
+                "id": "0x18c09785650",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDINPARAMS"
               }
@@ -9854,7 +9854,7 @@
       ]
     },
     {
-      "id": "0x206f1f47c00",
+      "id": "0x18c09785ca0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4682,
@@ -9883,32 +9883,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47bb0",
+          "id": "0x18c09785c50",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _SENDCMDINPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f47ad0",
+              "id": "0x18c09785b70",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _SENDCMDINPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f475b0",
+                "id": "0x18c09785650",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDINPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f47630",
+                  "id": "0x18c097856d0",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _SENDCMDINPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f475b0",
+                    "id": "0x18c09785650",
                     "kind": "RecordDecl",
                     "name": "_SENDCMDINPARAMS"
                   }
@@ -9920,7 +9920,7 @@
       ]
     },
     {
-      "id": "0x206f1f48cd0",
+      "id": "0x18c0978adb0",
       "kind": "TypedefDecl",
       "loc": {
         "offset": 4701,
@@ -9949,32 +9949,32 @@
       },
       "inner": [
         {
-          "id": "0x206f1f47bb0",
+          "id": "0x18c09785c50",
           "kind": "PointerType",
           "type": {
             "qualType": "struct _SENDCMDINPARAMS *"
           },
           "inner": [
             {
-              "id": "0x206f1f47ad0",
+              "id": "0x18c09785b70",
               "kind": "ElaboratedType",
               "type": {
                 "qualType": "struct _SENDCMDINPARAMS"
               },
               "ownedTagDecl": {
-                "id": "0x206f1f475b0",
+                "id": "0x18c09785650",
                 "kind": "RecordDecl",
                 "name": "_SENDCMDINPARAMS"
               },
               "inner": [
                 {
-                  "id": "0x206f1f47630",
+                  "id": "0x18c097856d0",
                   "kind": "RecordType",
                   "type": {
                     "qualType": "struct _SENDCMDINPARAMS"
                   },
                   "decl": {
-                    "id": "0x206f1f475b0",
+                    "id": "0x18c09785650",
                     "kind": "RecordDecl",
                     "name": "_SENDCMDINPARAMS"
                   }
@@ -9986,7 +9986,7 @@
       ]
     },
     {
-      "id": "0x206f1f48da0",
+      "id": "0x18c0978ae80",
       "kind": "FunctionDecl",
       "loc": {
         "offset": 4725,
@@ -10014,7 +10014,7 @@
       },
       "inner": [
         {
-          "id": "0x206f1f48ec0",
+          "id": "0x18c0978afa0",
           "kind": "CompoundStmt",
           "range": {
             "begin": {
@@ -10030,7 +10030,7 @@
           },
           "inner": [
             {
-              "id": "0x206f1f48eb0",
+              "id": "0x18c0978af90",
               "kind": "ReturnStmt",
               "range": {
                 "begin": {
@@ -10046,7 +10046,7 @@
               },
               "inner": [
                 {
-                  "id": "0x206f1f48e88",
+                  "id": "0x18c0978af68",
                   "kind": "IntegerLiteral",
                   "range": {
                     "begin": {
