@@ -2,6 +2,9 @@ package myc2go
 
 import (
 	"github.com/ddkwork/librarygo/src/mycheck"
+	"github.com/goplus/c2go"
+	"github.com/goplus/c2go/cl"
+	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
 	"path/filepath"
 )
