@@ -14,63 +14,63 @@ type (
 	_Interface interface { //todo  合并tool包
 		NewLine()
 		Quote() //手动Quote字符串避免造成换行失效
-		QuoteWith(s string)
+		QuoteWith(ss string)
 		ObjectBegin()
 		ObjectEnd()
 		SliceBegin()
 		SliceEnd()
 		Indent(deep int) string
 		WriteBytesLn(p []byte)
-		WriteStringLn(s string)
+		WriteStringLn(ss string)
 		HexString() string
 		HexStringUpper() string
-		Append(buffer ...*Buffer)
+		Append(buffer ...*Stream)
 		WriteXMakeBody(key string, values ...string)
 		SizeCheck() bool
 		ErrorInfo() string
 		CutWithIndex(x, y int)
 		BigNumXorWithAlign(arg1, arg2 []byte, align int) (xorStream []byte)
-		Merge(Bytes ...[]byte) *Buffer
-		InsertString(splitSize int, separate string) (s string)
+		Merge(Bytes ...[]byte) *Stream
+		InsertString(size int, separate string) (ss string)
 		SplitBytes(size int) (blocks [][]byte)
 		SplitString(size int) (blocks []string)
 		RemoveHexDumpNewLine(dump string) (newDump string)
 	}
-	Buffer struct{ *bytes.Buffer }
+	Stream struct{ *bytes.Buffer }
 )
 
-func (b2 *Buffer) RemoveHexDumpNewLine(dump string) (newDump string) {
+func (s *Stream) RemoveHexDumpNewLine(dump string) (newDump string) {
 	//strings.TrimSuffix()
 	panic("implement me")
 }
 
-func (b2 *Buffer) SplitString(size int) (blocks []string) {
+func (s *Stream) SplitString(size int) (blocks []string) {
 	blocks = make([]string, 0)
-	splitBytes := b2.SplitBytes(size)
+	splitBytes := s.SplitBytes(size)
 	for _, splitByte := range splitBytes {
 		blocks = append(blocks, string(splitByte))
 	}
 	return
 }
 
-func (b2 *Buffer) CutWithIndex(x, y int) {
+func (s *Stream) CutWithIndex(x, y int) {
 	//TODO implement me
 	panic("implement me")
 }
 
 var Default = New()
 
-func New() *Buffer {
-	return &Buffer{
+func New() *Stream {
+	return &Stream{
 		Buffer: &bytes.Buffer{},
 	}
 }
-func NewBytes(b []byte) *Buffer           { return &Buffer{bytes.NewBuffer(b)} }
-func NewBuffer(buf *bytes.Buffer) *Buffer { return &Buffer{buf} }
-func NewString(s string) *Buffer          { return &Buffer{Buffer: bytes.NewBufferString(s)} }
-func NewHexString(s string) (b *Buffer) {
+func NewBytes(b []byte) *Stream           { return &Stream{bytes.NewBuffer(b)} }
+func NewBuffer(buf *bytes.Buffer) *Stream { return &Stream{buf} }
+func NewString(ss string) *Stream         { return &Stream{Buffer: bytes.NewBufferString(ss)} }
+func NewHexString(ss string) (b *Stream) {
 	b = New()
-	decodeString, err := hex.DecodeString(s)
+	decodeString, err := hex.DecodeString(ss)
 	if !mycheck.Error(err) {
 		b.WriteString(err.Error())
 		return
@@ -78,7 +78,7 @@ func NewHexString(s string) (b *Buffer) {
 	b.Write(decodeString)
 	return
 }
-func NewHexStringOrBytes(data any) (b *Buffer) {
+func NewHexStringOrBytes(data any) (b *Stream) {
 	switch data.(type) {
 	case string:
 		return NewHexString(data.(string))
@@ -87,10 +87,10 @@ func NewHexStringOrBytes(data any) (b *Buffer) {
 	}
 	return NewErrorInfo(fmt.Sprintf("%t\t", data))
 }
-func NewNil() *Buffer                 { return New() }
-func NewErrorInfo(err string) *Buffer { return NewString(err) }
+func NewNil() *Stream                 { return New() }
+func NewErrorInfo(err string) *Stream { return NewString(err) }
 func newInterface() _Interface {
-	return &Buffer{
+	return &Stream{
 		Buffer: &bytes.Buffer{},
 	}
 }

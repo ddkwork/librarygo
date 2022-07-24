@@ -8,12 +8,12 @@ import (
 	"net"
 )
 
-var receive = make(chan *stream.Buffer)
+var receive = make(chan *stream.Stream)
 
 type (
 	Interface interface {
 		ListenAndServer(address string) bool
-		Receive() *stream.Buffer
+		Receive() *stream.Stream
 		Replay(data string) bool
 	}
 	object struct {
@@ -29,7 +29,7 @@ func (o *object) Replay(data string) bool {
 	return o.check.Error2(o.conn.Write([]byte(data)))
 }
 
-func (o *object) Receive() *stream.Buffer { return <-receive }
+func (o *object) Receive() *stream.Stream { return <-receive }
 
 func (o *object) ListenAndServer(address string) bool {
 	if !o.Listen(address) {

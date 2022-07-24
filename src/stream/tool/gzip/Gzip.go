@@ -10,14 +10,14 @@ import (
 
 type (
 	Interface interface {
-		Decode(in []byte) *stream.Buffer
+		Decode(in []byte) *stream.Stream
 	}
-	object struct{ s *stream.Buffer }
+	object struct{ s *stream.Stream }
 )
 
 func New() Interface { return &object{s: stream.NewNil()} }
 
-func (o *object) Decode(in []byte) *stream.Buffer {
+func (o *object) Decode(in []byte) *stream.Stream {
 	c := mycheck.Default
 	reader, err := gzip.NewReader(bytes.NewReader(in))
 	if !(c.Error(err)) {

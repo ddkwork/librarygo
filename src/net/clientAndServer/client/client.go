@@ -9,17 +9,17 @@ import (
 	"net"
 )
 
-var receive = make(chan *stream.Buffer) //todo sync
+var receive = make(chan *stream.Stream) //todo sync
 
 type (
 	Interface interface { //stickyBag() //by short connection way
 		Connect(address string) bool
 		SendJson(objectPtr any) (ok bool)                      //call send
 		SendJsonWithHead(head string, objectPtr any) (ok bool) //call send
-		SendWithHead(head, body *stream.Buffer) (ok bool)      //call send
-		Send(s *stream.Buffer) (ok bool)
-		Receive() *stream.Buffer
-		//MarshalIndent(objectPtr any) *stream.Buffer
+		SendWithHead(head, body *stream.Stream) (ok bool)      //call send
+		Send(s *stream.Stream) (ok bool)
+		Receive() *stream.Stream
+		//MarshalIndent(objectPtr any) *stream.Stream
 	}
 	object struct {
 		check   mycheck.Interface
@@ -31,7 +31,7 @@ type (
 	}
 )
 
-func (o *object) MarshalIndent(objectPtr any) *stream.Buffer {
+func (o *object) MarshalIndent(objectPtr any) *stream.Stream {
 	send, err := json.MarshalIndent(objectPtr, " ", " ")
 	o.ok = o.check.Error(err)
 	return stream.NewBytes(send)
@@ -54,7 +54,7 @@ func (o *object) SendJson(objectPtr any) (ok bool) {
 	return o.Send(marshalIndent)
 }
 
-func (o *object) SendWithHead(head, body *stream.Buffer) (ok bool) {
+func (o *object) SendWithHead(head, body *stream.Stream) (ok bool) {
 	buffer := stream.NewNil()
 	buffer.Append(head, body)
 	return o.Send(buffer)
@@ -77,11 +77,11 @@ func (o *object) Connect(address string) bool {
 	return true
 }
 
-func (o *object) Receive() *stream.Buffer {
+func (o *object) Receive() *stream.Stream {
 	return <-receive
 }
 
-func (o *object) Send(s *stream.Buffer) (ok bool) {
+func (o *object) Send(s *stream.Stream) (ok bool) {
 	if !o.check.Error2(o.conn.Write(s.Bytes())) {
 		return false
 	}
