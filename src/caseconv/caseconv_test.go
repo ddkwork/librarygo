@@ -6,7 +6,7 @@ import (
 
 func TestName(t *testing.T) {
 	for _, s := range name {
-		println(ToCamelUpper(s))
+		println(ToCamelUpper(s, true))
 	}
 }
 
