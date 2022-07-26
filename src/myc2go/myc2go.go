@@ -1,6 +1,7 @@
 package myc2go
 
 import (
+	"github.com/ddkwork/librarygo/src/caseconv"
 	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/stream"
 	"github.com/ddkwork/librarygo/src/stream/tool"
@@ -12,6 +13,8 @@ import (
 	"io/fs"
 	"os"
 	"path/filepath"
+	"strconv"
+	"strings"
 )
 
 type (
@@ -42,8 +45,9 @@ type (
 		defines     []string
 		apis        []string
 		replaces    map[string]string
-		files       []string
+		files       map[string]string
 		skip        string
+		stream      *stream.Stream
 	}
 )
 
@@ -56,16 +60,85 @@ func NewSetup(setup Setup) Interface {
 		defines:     nil,
 		apis:        nil,
 		replaces:    nil,
-		files:       nil,
+		files:       nil, //goFilePath goFileBody
 		skip:        setup.SetSkip(),
+		stream:      stream.New(),
 	}
 }
 
+func (o *object) Embed(path, objectName string) (ok bool) {
+	abs, err := filepath.Abs(path)
+	if !mycheck.Error(err) {
+		return
+	}
+	o.stream.WriteStringLn(`//go:embed ` + strconv.Quote(abs))
+	o.stream.WriteStringLn(`var ` + objectName + `Buf string`)
+	return true
+}
+func (o *object) PkgName(path string) (pkgName string) {
+	pkgName = filepath.Base(filepath.Dir(path))
+	if strings.Contains(pkgName, "-") {
+		pkgName = strings.ReplaceAll(pkgName, "-", "")
+	}
+	if strings.Contains(pkgName, "~") {
+		pkgName = strings.ReplaceAll(pkgName, "~", "unknown")
+	}
+	return
+}
+func (o *object) ObjectName(path string) (objectName, ext string) {
+	ext = filepath.Ext(path)
+	objectName = filepath.Base(path)
+	objectName = objectName[:len(objectName)-len(ext)]
+	if strings.Contains(objectName, `~`) {
+		objectName = strings.ReplaceAll(objectName, `~`, `unknown`)
+	}
+	if strings.Contains(objectName, `-`) {
+		objectName = strings.ReplaceAll(objectName, `-`, `_`)
+	}
+	if strings.Contains(objectName, `switch`) {
+		objectName = strings.ReplaceAll(objectName, `switch`, `switchA`)
+	}
+	objectName = caseconv.ToCamel(objectName, false)
+	objectName = strings.TrimRight(objectName, " ")
+	return
+}
 func (o *object) ConvertAll() (ok bool) {
-	s := stream.New()
 	for _, p := range o.root {
 		if !mycheck.Error(filepath.Walk(p, func(path string, info fs.FileInfo, err error) error {
-
+			for _, contain := range o.contains {
+				if strings.Contains(path, contain) {
+					for _, s2 := range o.containsNot {
+						if !strings.Contains(path, s2) {
+							objectName, ext := o.ObjectName(path)
+							for _, e := range o.ext {
+								if e == ext {
+									o.stream.Reset()
+									pkgName := o.PkgName(path)
+									o.stream.WriteStringLn("package " + pkgName)
+									o.stream.WriteStringLn(`import (_ "embed")`)
+									if !o.Embed(path, objectName) {
+										return err
+									}
+									o.stream.WriteStringLn(`type (`)
+									o.stream.WriteStringLn(caseconv.ToCamelUpper(objectName, false) + ` interface {`)
+									o.stream.WriteStringLn(`		//Fn() (ok bool)`)
+									//todo insert api
+									o.stream.WriteStringLn(`	}`)
+									o.stream.WriteStringLn(caseconv.ToCamel(objectName, false) + `  struct{}`)
+									o.stream.WriteStringLn(`)`)
+									o.stream.WriteStringLn(`func New` + caseconv.ToCamel(objectName, false) + `() ` +
+										caseconv.ToCamelUpper(objectName, false) + ` { return & ` + caseconv.ToCamel(objectName, false) + `{} }`)
+									//todo insert all enum struct in here (last)
+									//buffer.WriteStringLn(``)
+									//println(buffer.String())
+									goFilePath := filepath.Join("go", filepath.Dir(path), objectName+".go")
+									o.files[goFilePath] = o.stream.String()
+								}
+							}
+						}
+					}
+				}
+			}
 			return err
 		})) {
 			return
@@ -82,6 +155,9 @@ func (o *object) C2go() (ok bool) {
 }
 
 func (o *object) Format() (ok bool) {
+	//for s, goPath := range o.files {
+	//
+	//}
 	for _, file := range o.files {
 		readFile, err := os.ReadFile(file)
 		if !mycheck.Error(err) {
@@ -104,7 +180,20 @@ func (o *object) SetContainsNot(containsNot []string)    { o.containsNot = conta
 func (o *object) SetContains(contains []string)          { o.contains = contains }
 func (o *object) SetReplaces(replaces map[string]string) { o.replaces = replaces }
 
-func New() Interface { return &object{} }
+func New() Interface {
+	return &object{
+		contains:    nil,
+		containsNot: nil,
+		root:        nil,
+		ext:         nil,
+		defines:     nil,
+		apis:        nil,
+		replaces:    nil,
+		files:       make(map[string]string),
+		skip:        "",
+		stream:      stream.New(),
+	}
+}
 
 func Run(path string) {
 	abs, err := filepath.Abs(path)
