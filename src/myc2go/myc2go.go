@@ -128,7 +128,37 @@ func (o *object) HandleDefines(path string) (ok bool) {
 	return true
 }
 func (o *object) HandleApis(path string) (ok bool) {
-	//{} for get api Name
+	Constants, err := os.ReadFile(path)
+	if !mycheck.Error(err) {
+		return
+	}
+	apis, ok := tool.File().ToLines(Constants)
+	if !ok {
+		return
+	}
+	ss := make([]string, 0)
+	for i, line := range apis {
+		if strings.Contains(line, "funcs") { //todo
+			ss = apis[i+1:]
+			break
+		}
+	}
+	lines := make([]string, 0)
+	lines, b := tool.File().ToLines(o.stream.String())
+	if !b {
+		return
+	}
+	s := stream.New()
+	for _, line := range lines {
+		s.WriteStringLn(line)
+		if strings.Contains(line, apiStart) {
+			for _, api := range apis {
+				s.WriteStringLn(api + `()(ok bool)`) //todo add // origname
+			}
+		}
+	}
+	o.stream.Reset()
+	o.stream.Write(s.Bytes())
 	return true
 }
 func (o *object) Embed(path, objectName string) (ok bool) {
@@ -150,6 +180,11 @@ func (o *object) PkgName(path string) (pkgName string) {
 	}
 	return
 }
+
+const (
+	apiStart = `		//Fn() (ok bool)`
+)
+
 func (o *object) ObjectName(path string) (objectName, ext string) {
 	ext = filepath.Ext(path)
 	objectName = filepath.Base(path)
@@ -186,22 +221,22 @@ func (o *object) ConvertAll() (ok bool) {
 									}
 									o.stream.WriteStringLn(`type (`)
 									o.stream.WriteStringLn(caseconv.ToCamelUpper(objectName, false) + ` interface {`)
-									o.stream.WriteStringLn(`		//Fn() (ok bool)`)
-									if !o.HandleApis(path) {
-										return err
-									}
+									o.stream.WriteStringLn(apiStart)
 									o.stream.WriteStringLn(`	}`)
 									o.stream.WriteStringLn(caseconv.ToCamel(objectName, false) + `  struct{}`)
 									o.stream.WriteStringLn(`)`)
 									o.stream.WriteStringLn(`func New` + caseconv.ToCamel(objectName, false) + `() ` +
 										caseconv.ToCamelUpper(objectName, false) + ` { return & ` + caseconv.ToCamel(objectName, false) + `{} }`)
-									if !o.HandleDefines(path) {
-										return err
-									}
 									//buffer.WriteStringLn(``)
 									//println(buffer.String())
 									goFilePath := filepath.Join("go", filepath.Dir(path), objectName+".go")
 									o.files[goFilePath] = o.stream.String()
+									if !o.HandleApis(path) {
+										return err
+									}
+									if !o.HandleDefines(path) {
+										return err
+									}
 								}
 							}
 						}
