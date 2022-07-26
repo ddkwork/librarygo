@@ -6,11 +6,11 @@ package hardwareIndo
 import (
 	"fmt"
 	"github.com/ddkwork/librarygo/src/cstruct"
+	"github.com/ddkwork/librarygo/src/myc2go/windef"
 	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/stream"
 	"github.com/ddkwork/librarygo/src/stream/tool"
-	"github.com/ddkwork/librarygo/src/windef"
 	"reflect"
 	"strconv"
 	"syscall"
