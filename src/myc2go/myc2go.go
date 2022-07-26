@@ -2,12 +2,14 @@ package myc2go
 
 import (
 	"github.com/ddkwork/librarygo/src/mycheck"
+	"github.com/ddkwork/librarygo/src/stream"
 	"github.com/ddkwork/librarygo/src/stream/tool"
 	"github.com/goplus/c2go"
 	"github.com/goplus/c2go/cl"
 	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
 	"go/format"
+	"io/fs"
 	"os"
 	"path/filepath"
 )
@@ -60,8 +62,15 @@ func NewSetup(setup Setup) Interface {
 }
 
 func (o *object) ConvertAll() (ok bool) {
-	//TODO implement me
-	panic("implement me")
+	s := stream.New()
+	for _, p := range o.root {
+		if !mycheck.Error(filepath.Walk(p, func(path string, info fs.FileInfo, err error) error {
+
+			return err
+		})) {
+			return
+		}
+	}
 	return o.Format()
 }
 
