@@ -248,6 +248,7 @@ func (o *object) ConvertAll() (ok bool) {
 									if !o.HandleDefines(path) {
 										return err
 									}
+									o.files[goFilePath] = o.stream.String()
 								}
 							}
 						}
@@ -261,14 +262,12 @@ func (o *object) ConvertAll() (ok bool) {
 	}
 	return o.Format()
 }
-
 func (o *object) C2go() (ok bool) {
 	for _, file := range o.files {
 		Run(file)
 	}
 	return o.Format()
 }
-
 func (o *object) Format() (ok bool) {
 	for path, body := range o.files {
 		if !tool.File().WriteTruncate(path, body) {
@@ -284,6 +283,7 @@ func (o *object) Format() (ok bool) {
 		if !mycheck.Error(err) {
 			return
 		}
+		//todo add rename const's
 		if !tool.File().WriteTruncate(path, source) {
 			return
 		}
