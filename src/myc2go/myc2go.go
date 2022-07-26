@@ -70,7 +70,7 @@ func NewSetup(setup Setup) Interface {
 		root:        setup.SetRoot(),
 		ext:         setup.SetExt(),
 		apis:        nil,
-		replaces:    nil,
+		replaces:    setup.SetReplaces(),
 		files:       make(map[string]string), //goFilePath goFileBody
 		skip:        setup.SetSkip(),
 		stream:      stream.New(),
@@ -88,7 +88,7 @@ func (o *object) HandleDefines(path string) (ok bool) {
 	}
 	ss := make([]string, 0)
 	for i, line := range lines {
-		if strings.Contains(line, "SCRIPT_ENGINE_KERNEL_MODE") {
+		if strings.Contains(line, o.skip) {
 			ss = lines[i+1:]
 			break
 		}
@@ -122,11 +122,10 @@ func (o *object) HandleDefines(path string) (ok bool) {
 	}
 	o.stream.WriteStringLn("const(")
 	for _, define := range consts {
-		if strings.Contains(define, "sizeof(UINT32)") {
-			define = strings.ReplaceAll(define, "sizeof(UINT32)", "4") //todo
-		}
-		if strings.Contains(define, "sizeof(DEBUGGER_REMOTE_PACKET)") {
-			define = strings.ReplaceAll(define, "sizeof(DEBUGGER_REMOTE_PACKET)", "11") //todo
+		for orig, replace := range o.replaces {
+			if strings.Contains(define, orig) {
+				define = strings.ReplaceAll(define, orig, replace)
+			}
 		}
 		//println(define)
 		all := strings.ReplaceAll(define, "#define", "")
