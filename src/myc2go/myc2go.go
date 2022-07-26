@@ -42,7 +42,6 @@ type (
 		containsNot []string
 		root        []string
 		ext         []string
-		defines     []string
 		apis        []string
 		replaces    map[string]string
 		files       map[string]string
@@ -57,7 +56,6 @@ func NewSetup(setup Setup) Interface {
 		containsNot: setup.SetContainsNot(),
 		root:        setup.SetRoot(),
 		ext:         setup.SetExt(),
-		defines:     nil,
 		apis:        nil,
 		replaces:    nil,
 		files:       nil, //goFilePath goFileBody
@@ -66,6 +64,73 @@ func NewSetup(setup Setup) Interface {
 	}
 }
 
+func (o *object) HandleDefines(path string) (ok bool) {
+	Constants, err := os.ReadFile(path)
+	if !mycheck.Error(err) {
+		return
+	}
+	lines, ok := tool.File().ToLines(Constants)
+	if !ok {
+		return
+	}
+	ss := make([]string, 0)
+	for i, line := range lines {
+		if strings.Contains(line, "SCRIPT_ENGINE_KERNEL_MODE") {
+			ss = lines[i+1:]
+			break
+		}
+	}
+	consts := make([]string, 0)
+	define := ""
+	for i := 0; i < len(ss); i++ {
+		switch {
+		case strings.Contains(ss[i], "#define") && strings.Contains(ss[i], `\`):
+			defineEnd := 0
+			define = ss[i+defineEnd]
+			for {
+				defineEnd++
+				define += ss[i+defineEnd]
+				define = strings.ReplaceAll(define, `\`, ``)
+				define = strings.Trim(define, " ")
+				if define != "" {
+					consts = append(consts, define)
+				}
+				if strings.Contains(ss[i+defineEnd], "#define") {
+					i += defineEnd - 1
+					break
+				}
+			}
+		case strings.Contains(ss[i], "#define") && !strings.Contains(ss[i], `\`):
+			define = ss[i]
+			if define != "" {
+				consts = append(consts, define)
+			}
+		}
+	}
+	o.stream.WriteStringLn("const(")
+	for _, define := range consts {
+		if strings.Contains(define, "sizeof(UINT32)") {
+			define = strings.ReplaceAll(define, "sizeof(UINT32)", "4") //todo
+		}
+		if strings.Contains(define, "sizeof(DEBUGGER_REMOTE_PACKET)") {
+			define = strings.ReplaceAll(define, "sizeof(DEBUGGER_REMOTE_PACKET)", "11") //todo
+		}
+		//println(define)
+		all := strings.ReplaceAll(define, "#define", "")
+		all = strings.TrimSpace(all)
+		index := strings.Index(all, " ")
+		key := all[:index]
+		value := all[index:]
+		key += "  =" + value
+		o.stream.WriteStringLn(key)
+	}
+	o.stream.WriteStringLn(")")
+	return true
+}
+func (o *object) HandleApis(path string) (ok bool) {
+	//{} for get api Name
+	return true
+}
 func (o *object) Embed(path, objectName string) (ok bool) {
 	abs, err := filepath.Abs(path)
 	if !mycheck.Error(err) {
@@ -122,13 +187,17 @@ func (o *object) ConvertAll() (ok bool) {
 									o.stream.WriteStringLn(`type (`)
 									o.stream.WriteStringLn(caseconv.ToCamelUpper(objectName, false) + ` interface {`)
 									o.stream.WriteStringLn(`		//Fn() (ok bool)`)
-									//todo insert api
+									if !o.HandleApis(path) {
+										return err
+									}
 									o.stream.WriteStringLn(`	}`)
 									o.stream.WriteStringLn(caseconv.ToCamel(objectName, false) + `  struct{}`)
 									o.stream.WriteStringLn(`)`)
 									o.stream.WriteStringLn(`func New` + caseconv.ToCamel(objectName, false) + `() ` +
 										caseconv.ToCamelUpper(objectName, false) + ` { return & ` + caseconv.ToCamel(objectName, false) + `{} }`)
-									//todo insert all enum struct in here (last)
+									if !o.HandleDefines(path) {
+										return err
+									}
 									//buffer.WriteStringLn(``)
 									//println(buffer.String())
 									goFilePath := filepath.Join("go", filepath.Dir(path), objectName+".go")
@@ -155,11 +224,13 @@ func (o *object) C2go() (ok bool) {
 }
 
 func (o *object) Format() (ok bool) {
-	//for s, goPath := range o.files {
-	//
-	//}
-	for _, file := range o.files {
-		readFile, err := os.ReadFile(file)
+	for path, body := range o.files {
+		if !tool.File().WriteTruncate(path, body) {
+			return
+		}
+	}
+	for path := range o.files {
+		readFile, err := os.ReadFile(path)
 		if !mycheck.Error(err) {
 			return
 		}
@@ -167,7 +238,7 @@ func (o *object) Format() (ok bool) {
 		if !mycheck.Error(err) {
 			return
 		}
-		if !tool.File().WriteTruncate(file, source) {
+		if !tool.File().WriteTruncate(path, source) {
 			return
 		}
 	}
@@ -186,7 +257,6 @@ func New() Interface {
 		containsNot: nil,
 		root:        nil,
 		ext:         nil,
-		defines:     nil,
 		apis:        nil,
 		replaces:    nil,
 		files:       make(map[string]string),
