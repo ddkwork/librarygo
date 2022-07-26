@@ -50,6 +50,19 @@ type (
 	}
 )
 
+func New() Interface {
+	return &object{
+		contains:    nil,
+		containsNot: nil,
+		root:        nil,
+		ext:         nil,
+		apis:        nil,
+		replaces:    nil,
+		files:       make(map[string]string),
+		skip:        "",
+		stream:      stream.New(),
+	}
+}
 func NewSetup(setup Setup) Interface {
 	return &object{
 		contains:    setup.SetContains(),
@@ -58,18 +71,18 @@ func NewSetup(setup Setup) Interface {
 		ext:         setup.SetExt(),
 		apis:        nil,
 		replaces:    nil,
-		files:       nil, //goFilePath goFileBody
+		files:       make(map[string]string), //goFilePath goFileBody
 		skip:        setup.SetSkip(),
 		stream:      stream.New(),
 	}
 }
 
 func (o *object) HandleDefines(path string) (ok bool) {
-	Constants, err := os.ReadFile(path)
+	body, err := os.ReadFile(path)
 	if !mycheck.Error(err) {
 		return
 	}
-	lines, ok := tool.File().ToLines(Constants)
+	lines, ok := tool.File().ToLines(body)
 	if !ok {
 		return
 	}
@@ -230,9 +243,9 @@ func (o *object) ConvertAll() (ok bool) {
 									//println(buffer.String())
 									goFilePath := filepath.Join("go", filepath.Dir(path), objectName+".go")
 									o.files[goFilePath] = o.stream.String()
-									if !o.HandleApis(path) {
-										return err
-									}
+									//if !o.HandleApis(path) {
+									//	return err
+									//}
 									if !o.HandleDefines(path) {
 										return err
 									}
@@ -284,20 +297,6 @@ func (o *object) SetRoot(root []string)                  { o.root = root }
 func (o *object) SetContainsNot(containsNot []string)    { o.containsNot = containsNot }
 func (o *object) SetContains(contains []string)          { o.contains = contains }
 func (o *object) SetReplaces(replaces map[string]string) { o.replaces = replaces }
-
-func New() Interface {
-	return &object{
-		contains:    nil,
-		containsNot: nil,
-		root:        nil,
-		ext:         nil,
-		apis:        nil,
-		replaces:    nil,
-		files:       make(map[string]string),
-		skip:        "",
-		stream:      stream.New(),
-	}
-}
 
 func Run(path string) {
 	abs, err := filepath.Abs(path)
