@@ -128,24 +128,23 @@ func (o *object) HandleDefines(path string) (ok bool) {
 	return true
 }
 func (o *object) HandleApis(path string) (ok bool) {
-	Constants, err := os.ReadFile(path)
+	b, err := os.ReadFile(path)
 	if !mycheck.Error(err) {
 		return
 	}
-	apis, ok := tool.File().ToLines(Constants)
+	body, ok := tool.File().ToLines(b)
 	if !ok {
 		return
 	}
-	ss := make([]string, 0)
-	for i, line := range apis {
+	apis := make([]string, 0)
+	for i, line := range body {
 		if strings.Contains(line, "funcs") { //todo
-			ss = apis[i+1:]
+			apis = apis[i+1:]
 			break
 		}
 	}
-	lines := make([]string, 0)
-	lines, b := tool.File().ToLines(o.stream.String())
-	if !b {
+	lines, ok2 := tool.File().ToLines(o.stream.String())
+	if !ok2 {
 		return
 	}
 	s := stream.New()
