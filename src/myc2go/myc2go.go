@@ -9,7 +9,6 @@ import (
 	"github.com/goplus/c2go/cl"
 	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
-	"go/format"
 	"io/fs"
 	"os"
 	"path/filepath"
@@ -28,6 +27,7 @@ type (
 		SetContainsNot(containsNot []string)
 		SetSkip(skip string)
 		SetReplaces(replaces map[string]string)
+		SetBasicTypes(basicTypes string)
 	}
 	Setup struct {
 		SetRoot        func() []string
@@ -36,6 +36,7 @@ type (
 		SetContainsNot func() []string
 		SetSkip        func() string
 		SetReplaces    func() map[string]string
+		SetBasicTypes  func() string
 	}
 	object struct {
 		contains    []string
@@ -47,6 +48,7 @@ type (
 		files       map[string]string
 		skip        string
 		stream      *stream.Stream
+		basicTypes  string
 	}
 )
 
@@ -74,8 +76,134 @@ func NewSetup(setup Setup) Interface {
 		files:       make(map[string]string), //goFilePath goFileBody
 		skip:        setup.SetSkip(),
 		stream:      stream.New(),
+		basicTypes:  setup.SetBasicTypes(),
 	}
 }
+
+func (o *object) HandleBasicTypes(path string) (ok bool) {
+	base := filepath.Base(filepath.Dir(path))
+	if base == o.basicTypes {
+		cFiles := make([]string, 0)
+		if !mycheck.Error(filepath.Walk(filepath.Dir(path), func(path string, info fs.FileInfo, err error) error {
+			if filepath.Ext(path) == `.h` {
+				abs, err := filepath.Abs(path)
+				if !mycheck.Error(err) {
+					return err
+				}
+				c := strings.ReplaceAll(abs, `.h`, `.c`)
+				cFiles = append(cFiles, c)
+			}
+			return err
+		})) {
+			return
+		}
+
+		for _, file := range cFiles {
+			s := stream.NewString(BasicTypes)
+			b, err := os.ReadFile(path)
+			if !mycheck.Error(err) {
+				return
+			}
+			all := strings.ReplaceAll(string(b), "#pragma once", "")
+			s.WriteStringLn(all)
+			if !tool.File().WriteTruncate(file, s.String()) {
+				return
+			}
+		}
+		for _, file := range cFiles {
+			abs, err := filepath.Abs(file)
+			if !mycheck.Error(err) {
+				return
+			}
+			Run(abs, o.basicTypes)
+		}
+
+		goFiles := make([]string, 0)
+
+		if !mycheck.Error(filepath.Walk(filepath.Dir(path), func(path string, info fs.FileInfo, err error) error {
+			if filepath.Ext(path) == `.go` {
+				goFiles = append(goFiles, path)
+			}
+			return err
+		})) {
+			return
+		}
+		for _, file := range goFiles {
+			b, err := os.ReadFile(file)
+			if !mycheck.Error(err) {
+				return
+			}
+			all := strings.ReplaceAll(string(b), cType, ``)
+			if !tool.File().WriteTruncate(file, all) {
+				return
+			}
+		}
+		if !tool.File().WriteTruncate(filepath.Join(filepath.Dir(path), "cType.go"), cType) {
+			return
+		}
+	}
+	return true
+}
+
+const cType = `
+type DWORD = uint32
+type BOOL = int32
+type BYTE = uint8
+type WORD = uint16
+type FLOAT = float32
+type PFLOAT = *float32
+type INT = int32
+type UINT = uint32
+type PUINT = *uint32
+type PBOOL = *int32
+type LPBOOL = *int32
+type PBYTE = *uint8
+type LPBYTE = *uint8
+type PINT = *int32
+type LPINT = *int32
+type PWORD = *uint16
+type LPWORD = *uint16
+type LPLONG = *int32
+type PDWORD = *uint32
+type LPDWORD = *uint32
+type LPVOID = unsafe.Pointer
+type PVOID = unsafe.Pointer
+type LPCVOID = unsafe.Pointer
+type ULONG = uint32
+type PULONG = *uint32
+type USHORT = uint16
+type PUSHORT = *uint16
+type UCHAR = uint8
+type PUCHAR = *uint8
+type CHAR = int8
+type SHORT = int16
+type LONG = int32
+type QWORD = uint64
+type UINT64 = uint64
+type PUINT64 = *uint64
+type ULONG64 = uint64
+type PULONG64 = *uint64
+type DWORD64 = uint64
+type PDWORD64 = *uint64
+type BOOLEAN = uint8
+type PBOOLEAN = *uint8
+type INT8 = int8
+type PINT8 = *int8
+type INT16 = int16
+type PINT16 = *int16
+type INT32 = int32
+type PINT32 = *int32
+type INT64 = int64
+type PINT64 = *int64
+type UINT8 = uint8
+type PUINT8 = *uint8
+type UINT16 = uint16
+type PUINT16 = *uint16
+type UINT32 = uint32
+type PUINT32 = *uint32
+type wchar_t = *int16
+type WCHAR = *int16
+`
 
 func (o *object) HandleDefines(path string) (ok bool) {
 	body, err := os.ReadFile(path)
@@ -223,6 +351,9 @@ func (o *object) ConvertAll() (ok bool) {
 							objectName, ext := o.ObjectName(path)
 							for _, e := range o.ext {
 								if e == ext {
+									if !o.HandleBasicTypes(path) {
+										return err
+									}
 									o.stream.Reset()
 									pkgName := o.PkgName(path)
 									o.stream.WriteStringLn("package " + pkgName)
@@ -263,9 +394,9 @@ func (o *object) ConvertAll() (ok bool) {
 	return o.Format()
 }
 func (o *object) C2go() (ok bool) {
-	for _, file := range o.files {
-		Run(file)
-	}
+	//for _, file := range o.files {
+	//	Run(file)
+	//}
 	return o.Format()
 }
 func (o *object) Format() (ok bool) {
@@ -274,20 +405,11 @@ func (o *object) Format() (ok bool) {
 			return
 		}
 	}
-	for path := range o.files {
-		readFile, err := os.ReadFile(path)
-		if !mycheck.Error(err) {
-			return
-		}
-		source, err := format.Source(readFile)
-		if !mycheck.Error(err) {
-			return
-		}
-		//todo add rename const's
-		if !tool.File().WriteTruncate(path, source) {
-			return
-		}
-	}
+	//for path := range o.files {//todo move to last
+	//	if !cmd.Run(`gofmt -l -w ` + path) {
+	//		return
+	//	}
+	//}
 	return true
 }
 func (o *object) SetSkip(skip string)                    { o.skip = skip }
@@ -296,8 +418,9 @@ func (o *object) SetRoot(root []string)                  { o.root = root }
 func (o *object) SetContainsNot(containsNot []string)    { o.containsNot = containsNot }
 func (o *object) SetContains(contains []string)          { o.contains = contains }
 func (o *object) SetReplaces(replaces map[string]string) { o.replaces = replaces }
+func (o *object) SetBasicTypes(basicTypes string)        { o.basicTypes = basicTypes }
 
-func Run(path string) {
+func Run(path, pkg string) {
 	abs, err := filepath.Abs(path)
 	if !mycheck.Error(err) {
 		return
@@ -305,5 +428,85 @@ func Run(path string) {
 	cl.SetDebug(cl.DbgFlagAll)
 	preprocessor.SetDebug(preprocessor.DbgFlagAll)
 	gox.SetDebug(gox.DbgFlagInstruction) // | gox.DbgFlagMatch)
-	c2go.Run("main", abs, c2go.FlagDumpJson, nil)
+	c2go.Run(pkg, abs, c2go.FlagDumpJson, nil)
 }
+
+const BasicTypes = `
+#define MAX_PATH          260
+typedef unsigned long DWORD;
+typedef int BOOL;
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef float FLOAT;
+typedef FLOAT *PFLOAT;
+typedef int INT;
+typedef unsigned int UINT;
+typedef unsigned int *PUINT;
+typedef int BOOL;
+typedef unsigned char BYTE;
+typedef unsigned short WORD;
+typedef float FLOAT;
+typedef FLOAT *PFLOAT;
+typedef BOOL *PBOOL;
+typedef BOOL *LPBOOL;
+typedef BYTE *PBYTE;
+typedef BYTE *LPBYTE;
+typedef int *PINT;
+typedef int *LPINT;
+typedef WORD *PWORD;
+typedef WORD *LPWORD;
+typedef long *LPLONG;
+typedef DWORD *PDWORD;
+typedef DWORD *LPDWORD;
+typedef void *LPVOID;
+typedef void *PVOID;
+typedef const void *LPCVOID;
+typedef int INT;
+typedef unsigned int UINT;
+typedef unsigned int *PUINT;
+typedef unsigned long ULONG;
+typedef ULONG *PULONG;
+typedef unsigned short USHORT;
+typedef USHORT *PUSHORT;
+typedef unsigned char UCHAR;
+typedef UCHAR *PUCHAR;
+typedef char CHAR;
+typedef short SHORT;
+typedef long LONG;
+typedef int INT;
+
+
+typedef unsigned long long QWORD;
+typedef unsigned __int64   UINT64, *PUINT64;
+typedef unsigned long      DWORD;
+typedef int                BOOL;
+typedef unsigned char      BYTE;
+typedef unsigned short     WORD;
+typedef int                INT;
+typedef unsigned int       UINT;
+typedef unsigned int *     PUINT;
+typedef unsigned __int64   ULONG64, *PULONG64;
+typedef unsigned __int64   DWORD64, *PDWORD64;
+typedef char               CHAR;
+
+typedef void *LPVOID;
+typedef void *PVOID;
+typedef const void *LPCVOID;
+
+typedef unsigned char    UCHAR;
+typedef unsigned short   USHORT;
+typedef unsigned long    ULONG;
+typedef UCHAR            BOOLEAN;  // winnt
+typedef BOOLEAN *        PBOOLEAN; // winnt
+typedef signed char      INT8, *PINT8;
+typedef signed short     INT16, *PINT16;
+typedef signed int       INT32, *PINT32;
+typedef signed __int64   INT64, *PINT64;
+typedef unsigned char    UINT8, *PUINT8;
+typedef unsigned short   UINT16, *PUINT16;
+typedef unsigned int     UINT32, *PUINT32;
+typedef unsigned __int64 UINT64, *PUINT64;
+
+typedef             PINT16 wchar_t;
+typedef wchar_t            WCHAR;
+`
