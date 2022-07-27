@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
+	"github.com/ddkwork/librarygo/src/stream/tool"
 	"github.com/ddkwork/librarygo/src/stream/tool/cmd"
 	"github.com/goplus/c2go"
 	"github.com/goplus/c2go/cl"
@@ -12,7 +13,7 @@ import (
 	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
 	"path/filepath"
-	"strconv"
+	"strings"
 	"testing"
 )
 
@@ -21,48 +22,22 @@ func TestName(t *testing.T) {
 	//typedef unsigned short wchar_t;
 	//typedef void *PVOID;
 	//typedef void *PVOID64;
+	//#pragma once
 
 	//D:\codespace\workspace\src\cppkit\gui\sdk\HyperDbgDev\hyperdbg\hprdbgctrl\code\app\hprdbgctrl.cpp
-	p := "./Headers/Events.h"
-	//p := "./Headers/Constants.h"
-	//p := "D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\code\\app\\hprdbgctrl.cpp"
-	//D:\codespace\workspace\src\cppkit\gui\sdk\HyperDbgDev\hyperdbg\hprdbgctrl\code\debugger\communication\forwarding.cpp
-	//c := "clang -Xclang -ast-dump=json -fsyntax-only "
-	//"D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\header\\
-	//c := `clang -Xclang -dD -E -ast-dump=json -fsyntax-only `
-	c := `gcc -posix -E -dM - < `
-	abs, err3 := filepath.Abs(p)
-	if !mycheck.Error(err3) {
-		return
-	}
-	abs = strconv.Quote(abs)
-	b, err2 := cmd.Run(c + abs)
+	//p := "./Headers/Events.h"
+	p := "./Headers/Constants.h"
+	c := `clang -Xclang -dM -E -ast-dump=json -fsyntax-only `
+	b, err2 := cmd.Run(c + p)
 	if !mycheck.Error(err2) {
 		return
 	}
-	mylog.Json("ast", b)
-	select {}
-	return
 	node, warning, err := parser.ParseFile(p, 0)
 	if !mycheck.Error(err) {
 		return
 	}
 	mylog.Info("", warning)
-	//mylog.Struct(node)
 	for _, n := range node.Inner {
-		//if n.Type != nil {
-		//mylog.Struct(*n.Type)
-		//}
-		//if n.Field != nil {
-		//	dumpNode("Field", n.Field)
-		//}
-		//if n.Decl != nil {
-		//	dumpNode("Decl", n.Decl)
-		//}
-		//if n.OwnedTagDecl != nil {
-		//	dumpNode("OwnedTagDecl", n.OwnedTagDecl)
-		//}
-		//mylog.Info("Kind", n.Kind)
 		switch n.Kind {
 		case ast.RecordDecl:
 			mylog.Info("type struct{")
@@ -84,18 +59,19 @@ func TestName(t *testing.T) {
 				}
 			}
 		}
-
-		//if n.ArrayFiller != nil {
-		//	for _, n2 := range n.ArrayFiller {
-		//		if n2 != nil {
-		//			dumpNode("ArrayFiller", n2)
-		//		}
-		//	}
-		//}
-
-		//if n.Kind == ast.EnumDecl {
-		//dumpNode("Kind == ast.EnumDecl", n)
-		//}
+	}
+	//mylog.Json("ast", b)
+	lines, ok := tool.File().ToLines(b)
+	if !ok {
+		return
+	}
+	for _, line := range lines {
+		if strings.Contains(line, `#define`) {
+			split := strings.Split(line, ` `)
+			key := split[1]
+			value := strings.Join(split[2:], ``)
+			fmt.Printf("%-70s%s\n", key, value)
+		}
 	}
 }
 
@@ -103,27 +79,17 @@ func dumpNode(title string, n ast.Node) {
 	if n.Name == "" {
 		return
 	}
-	//mylog.Info("----------", "--------------------")
 	mylog.Warning(title, "")
-	//mylog.Info("Name", n.Name)
-	//mylog.Info("Kind Inner", n.Kind)
 	mylog.Info("Kind", n.Kind)
-
-	//mylog.Info("Size", n.Size)
-	//mylog.Info("IsBitfield", n.IsBitfield)
 	s := n.Name
 	s += "\t\t"
 	if n.Type != nil {
-		//mylog.Info("QualType", n.Type.QualType)
 		s += s + n.Type.QualType
-		//s += "\t\t"
 	}
 	if n.Loc != nil {
-		//mylog.Info("Line", n.Loc.Line)
 		s += " //" + fmt.Sprint(n.Loc.Line)
 	}
 	mylog.Success("code", s)
-	//mylog.Info("----------", "--------------------\n")
 }
 
 func Run(path, pkg string) {
