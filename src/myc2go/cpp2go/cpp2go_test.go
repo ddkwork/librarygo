@@ -36,9 +36,7 @@ func TestName(t *testing.T) {
 		return
 	}
 	abs = strconv.Quote(abs)
-	//b, err2 := session.Run(c + abs)
-	c = c
-	b, err2 := cmd.Run("C:\\Windows\\System32\\PING.EXE www.baidu.com -t ")
+	b, err2 := cmd.Run(c + abs)
 	if !mycheck.Error(err2) {
 		return
 	}
