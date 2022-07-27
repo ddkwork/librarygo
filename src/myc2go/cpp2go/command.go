@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"golang.org/x/text/encoding/simplifiedchinese"
 	"io"
 	"log"
 	"os"
@@ -25,7 +26,10 @@ func (s *Session) SetDir(dir string)   { s.dir = strings.TrimSpace(dir) }
 func (s *Session) SetLog(wr io.Writer) { s.logWriter = wr }
 func (s *Session) GetPid() <-chan int  { return s.pid }
 
-func (s *Session) Run(ctx context.Context, command string, disableStybel bool) (string, error) {
+func (s *Session) Run(command string) (string, error) {
+	return s.run(context.Background(), command, true)
+}
+func (s *Session) run(ctx context.Context, command string, disableStybel bool) (string, error) {
 	if s.ShowLog {
 		log.SetPrefix("go-command: ")
 		if s.logWriter != nil {
@@ -88,13 +92,34 @@ func (s *Session) Run(ctx context.Context, command string, disableStybel bool) (
 	err = cmd.Wait()
 	done <- struct{}{}
 	if err != nil {
-		return "", errors.New(outputErr.String())
+		return "", errors.New(ConvertByte2String(outputErr.Bytes(), GB18030))
 	}
-
-	return outputOut.String(), nil
+	return ConvertByte2String(outputOut.Bytes(), GB18030), nil
 }
 
 func Kill(pid int) error {
 	return nil
 	//return syscall.Kill(pid, syscall.SIGKILL)
+}
+
+type Charset string
+
+const (
+	UTF8    = Charset("UTF-8")
+	GB18030 = Charset("GB18030")
+)
+
+func ConvertByte2String(byte []byte, charset Charset) string {
+
+	var str string
+	switch charset {
+	case GB18030:
+		decodeBytes, _ := simplifiedchinese.GB18030.NewDecoder().Bytes(byte)
+		str = string(decodeBytes)
+	case UTF8:
+		fallthrough
+	default:
+		str = string(byte)
+	}
+	return str
 }

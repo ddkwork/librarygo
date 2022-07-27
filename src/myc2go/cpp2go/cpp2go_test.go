@@ -1,7 +1,6 @@
 package cpp2go
 
 import (
-	"context"
 	"fmt"
 	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
@@ -12,6 +11,7 @@ import (
 	"github.com/goplus/c2go/clang/preprocessor"
 	"github.com/goplus/gox"
 	"path/filepath"
+	"strconv"
 	"testing"
 )
 
@@ -21,18 +21,29 @@ func TestName(t *testing.T) {
 	//typedef void *PVOID;
 	//typedef void *PVOID64;
 
+	//D:\codespace\workspace\src\cppkit\gui\sdk\HyperDbgDev\hyperdbg\hprdbgctrl\code\app\hprdbgctrl.cpp
 	p := "./Headers/Events.h"
+	//p := "./Headers/Constants.h"
+	//p := "D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\code\\app\\hprdbgctrl.cpp"
 	//D:\codespace\workspace\src\cppkit\gui\sdk\HyperDbgDev\hyperdbg\hprdbgctrl\code\debugger\communication\forwarding.cpp
-	c := "clang -Xclang -ast-dump=json -fsyntax-only "
-	//c := "clang -cxx-isystem ./Headers -Xclang -ast-dump=json -fsyntax-only "
+	//c := "clang -Xclang -ast-dump=json -fsyntax-only "
+	//"D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\header\\
+	//c := `clang -Xclang -dD -E -ast-dump=json -fsyntax-only `
+	c := `gcc -posix -E -dM - < `
 	session := NewSession()
 	session.ShowLog = true
-	session.SetDir(".")
-	_, err2 := session.Run(context.Background(), c+p, true)
+	//session.SetDir(".")
+	abs, err3 := filepath.Abs(p)
+	if !mycheck.Error(err3) {
+		return
+	}
+	abs = strconv.Quote(abs)
+	b, err2 := session.Run(c + abs)
 	if !mycheck.Error(err2) {
 		return
 	}
-	//mylog.Json("ast", string(b))
+	mylog.Json("ast", string(b))
+	return
 	node, warning, err := parser.ParseFile(p, 0)
 	if !mycheck.Error(err) {
 		return
