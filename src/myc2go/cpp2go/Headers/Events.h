@@ -19,6 +19,7 @@
  * @brief enum to show type of all HyperDbg events
  *
  */
+ #include "BasicTypes.h"
 typedef enum _DEBUGGER_EVENT_TYPE_ENUM
 {
 

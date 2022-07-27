@@ -14,6 +14,9 @@
 //////////////////////////////////////////////////
 //               Basic Datatypes                //
 //////////////////////////////////////////////////
+typedef unsigned short wchar_t;
+typedef void *PVOID;
+typedef void *PVOID64;
 
 typedef unsigned long long QWORD;
 typedef unsigned __int64   UINT64, *PUINT64;

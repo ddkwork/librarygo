@@ -15,3 +15,7 @@ func Run(command string) (ok bool) {
 	mylog.Info("cmd out", buf)
 	return true
 }
+func RunWithReturn(command string) (b []byte, err error) {
+	mylog.Info("command", command)
+	return gcmd.Command(command).ConvertUtf8().Start()
+}
