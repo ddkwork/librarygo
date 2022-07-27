@@ -22,12 +22,13 @@ func TestName(t *testing.T) {
 	//typedef unsigned short wchar_t;
 	//typedef void *PVOID;
 	//typedef void *PVOID64;
-	//#pragma once
 
-	//D:\codespace\workspace\src\cppkit\gui\sdk\HyperDbgDev\hyperdbg\hprdbgctrl\code\app\hprdbgctrl.cpp
 	//p := "./Headers/Events.h"
-	p := "./Headers/Constants.h"
-	c := `clang -Xclang -dM -E -ast-dump=json -fsyntax-only `
+	//p := "./Headers/Constants.h"
+	p := "D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\code\\app\\hprdbgctrl.cpp"
+	include := "D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl"
+	//c := `clang++ -Xclang -dM -E -ast-dump=json -fsyntax-only `
+	c := `clang++ -Xclang -dM -E -I` + include + " "
 	b, err2 := cmd.Run(c + p)
 	if !mycheck.Error(err2) {
 		return
@@ -65,14 +66,16 @@ func TestName(t *testing.T) {
 	if !ok {
 		return
 	}
+	println("const(")
 	for _, line := range lines {
 		if strings.Contains(line, `#define`) {
 			split := strings.Split(line, ` `)
 			key := split[1]
 			value := strings.Join(split[2:], ``)
-			fmt.Printf("%-70s%s\n", key, value)
+			fmt.Printf("%-70s = %s\n", key, value)
 		}
 	}
+	println(")")
 }
 
 func dumpNode(title string, n ast.Node) {
