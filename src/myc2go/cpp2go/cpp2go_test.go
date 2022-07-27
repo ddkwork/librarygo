@@ -16,7 +16,7 @@ import (
 func TestName(t *testing.T) {
 	p := "./Headers/Events.h"
 	//"-Xclang", "-ast-dump=json", "-fsyntax-only",
-	if !cmd.Run("clang -I ./Headers -Xclang -ast-dump=json -fsyntax-only " + p) {
+	if !cmd.Run("clang -dI ./Headers -Xclang -ast-dump=json -fsyntax-only " + p) {
 		return
 	}
 	return
