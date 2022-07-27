@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/ddkwork/librarygo/src/mycheck"
 	"github.com/ddkwork/librarygo/src/mylog"
+	"github.com/ddkwork/librarygo/src/stream/tool/cmd"
 	"github.com/goplus/c2go"
 	"github.com/goplus/c2go/cl"
 	"github.com/goplus/c2go/clang/ast"
@@ -30,19 +31,19 @@ func TestName(t *testing.T) {
 	//"D:\\codespace\\workspace\\src\\cppkit\\gui\\sdk\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\header\\
 	//c := `clang -Xclang -dD -E -ast-dump=json -fsyntax-only `
 	c := `gcc -posix -E -dM - < `
-	session := NewSession()
-	session.ShowLog = true
-	//session.SetDir(".")
 	abs, err3 := filepath.Abs(p)
 	if !mycheck.Error(err3) {
 		return
 	}
 	abs = strconv.Quote(abs)
-	b, err2 := session.Run(c + abs)
+	//b, err2 := session.Run(c + abs)
+	c = c
+	b, err2 := cmd.Run("C:\\Windows\\System32\\PING.EXE www.baidu.com -t ")
 	if !mycheck.Error(err2) {
 		return
 	}
-	mylog.Json("ast", string(b))
+	mylog.Json("ast", b)
+	select {}
 	return
 	node, warning, err := parser.ParseFile(p, 0)
 	if !mycheck.Error(err) {

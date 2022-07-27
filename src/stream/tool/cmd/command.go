@@ -1,4 +1,4 @@
-package cpp2go
+package cmd
 
 import (
 	"bytes"
@@ -26,8 +26,8 @@ func (s *Session) SetDir(dir string)   { s.dir = strings.TrimSpace(dir) }
 func (s *Session) SetLog(wr io.Writer) { s.logWriter = wr }
 func (s *Session) GetPid() <-chan int  { return s.pid }
 
-func (s *Session) Run(command string) (string, error) {
-	return s.run(context.Background(), command, true)
+func Run(command string) (string, error) {
+	return NewSession().run(context.Background(), command, true)
 }
 func (s *Session) run(ctx context.Context, command string, disableStybel bool) (string, error) {
 	if s.ShowLog {
