@@ -36,6 +36,7 @@ func NewFromUint64(n uint64) BitField {
 func (b BitField) Size() int     { return len(b) }
 func (b BitField) Bytes() []byte { return b }
 
+//https://github.com/prysmaticlabs/go-bitfield
 /*
 	struct {
 	    USHORT Mode0 : 1;
