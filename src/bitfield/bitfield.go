@@ -1,12 +1,11 @@
 package bitfield
 
-// BitField type
 type BitField []byte
 
 // New returns a new BitField of at least n bits, all 0s
 func New(n int) BitField {
 	n = 1 + ((n - 1) / 8) // Ceiling of the division
-	return BitField(make([]byte, n))
+	return make([]byte, n)
 }
 
 // NewFromUint32 returns a new BitField of 4 bytes, with n initial value
@@ -34,31 +33,65 @@ func NewFromUint64(n uint64) BitField {
 }
 
 // Size returns BitField size in bytes (not bits)
-func (b BitField) Size() int {
-	return len(b)
+func (b BitField) Size() int     { return len(b) }
+func (b BitField) Bytes() []byte { return b }
+
+/*
+	struct {
+	    USHORT Mode0 : 1;
+	    USHORT Mode1 : 1;
+	    USHORT Mode2 : 1;
+	    USHORT Reserved1 : 5;
+	    USHORT Mode0Sel : 1;
+	    USHORT Mode1Sel : 1;
+	    USHORT Mode2Sel : 1;
+	    USHORT Reserved2 : 5;
+	} wMultiWordDMA;
+*/
+func (b BitField) SetX(index int, v int) BitField {
+	field := New(v)
+	for i := range b {
+		if i+2 == index {
+			for _, b2 := range field {
+				b[i+2] = b2
+			}
+			return b
+		}
+	}
+	return nil
+}
+func (b BitField) GetX(index int) BitField {
+	field := New(0)
+	for i := range b {
+		if i+1 == len(b)-index {
+			field = b[i+1 : i+1+index]
+			return field
+		}
+	}
+	return nil
 }
 
 // Set sets bit i to 1
 func (b BitField) Set(i uint32) {
-	idx, offset := (i / 8), (i % 8)
-	b[idx] |= (1 << uint(offset))
+	idx, offset := i/8, i%8
+	b[idx] |= 1 << uint(offset)
 }
 
 // Clear sets bit i to 0
 func (b BitField) Clear(i uint32) {
-	idx, offset := (i / 8), (i % 8)
+	idx, offset := i/8, i%8
 	b[idx] &= ^(1 << uint(offset))
 }
 
 // Flip toggles the value of bit i
 func (b BitField) Flip(i uint32) {
-	idx, offset := (i / 8), (i % 8)
-	b[idx] ^= (1 << uint(offset))
+	idx, offset := i/8, i%8
+	b[idx] ^= 1 << uint(offset)
 }
 
 // Test returns true/false on bit i value
 func (b BitField) Test(i uint32) bool {
-	idx, offset := (i / 8), (i % 8)
+	idx, offset := i/8, i%8
 	return (b[idx] & (1 << uint(offset))) != 0
 }
 
@@ -123,7 +156,7 @@ func (b BitField) XORMask(m BitField) {
 	}
 }
 
-// ToUint32 returns the lowest 4 bytes as a uint32
+// ToUint32 returns the lowest 4 bytes as an uint32
 // NO BOUNDS CHECKING, ENSURE BitField is at least 4 bytes long
 func (b BitField) ToUint32() uint32 {
 	var r uint32
@@ -134,7 +167,7 @@ func (b BitField) ToUint32() uint32 {
 	return r
 }
 
-// ToUint32Safe returns the lowest 4 bytes as a uint32
+// ToUint32Safe returns the lowest 4 bytes as an uint32
 func (b BitField) ToUint32Safe() uint32 {
 	var r uint32
 	for idx := range b {
@@ -146,7 +179,7 @@ func (b BitField) ToUint32Safe() uint32 {
 	return r
 }
 
-// ToUint64 returns the lowest 8 bytes as a uint64
+// ToUint64 returns the lowest 8 bytes as an uint64
 // NO BOUNDS CHECKING, ENSURE BitField is at least 8 bytes long
 func (b BitField) ToUint64() uint64 {
 	var r uint64
@@ -161,7 +194,7 @@ func (b BitField) ToUint64() uint64 {
 	return r
 }
 
-// ToUint64Safe returns the lowest 8 bytes as a uint64
+// ToUint64Safe returns the lowest 8 bytes as an uint64
 func (b BitField) ToUint64Safe() uint64 {
 	var r uint64
 	for idx := range b {
