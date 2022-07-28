@@ -7,9 +7,7 @@ import (
 	"fmt"
 	"github.com/ddkwork/librarygo/src/hardwareIndo/cpuid"
 	"github.com/ddkwork/librarygo/src/mybinary"
-	"github.com/ddkwork/librarygo/src/mylog"
 	"github.com/ddkwork/librarygo/src/stream"
-	"strings"
 )
 
 func cpuid_low(arg1, arg2 uint32) (eax, ebx, ecx, edx uint32) // implemented in cpuidlow_amd64.s
@@ -56,7 +54,7 @@ func (c *cpuInfo) Get() (ok bool) {
 	b.Write(mybinary.LittleEndian.PutUint32(edx))
 	b.Write(mybinary.LittleEndian.PutUint32(ecx))
 	c.Vendor = b.String()
-	mylog.Info("cpu vendor", b.String())
+	//mylog.Info("cpu vendor", b.String())
 
 	eax, ebx, ecx, edx = cpuid_low(1, 0)
 	c.Cpu1 = Reg{
@@ -65,11 +63,11 @@ func (c *cpuInfo) Get() (ok bool) {
 		ecx: ecx,
 		edx: edx,
 	}
-	mylog.Hex("eax", eax)
-	mylog.Hex("ebx", ebx)
-	mylog.Hex("ecx", ecx)
-	mylog.Hex("edx", edx)
-	mylog.Info("ProcessorBrandString:", strings.TrimSpace(cpuid.ProcessorBrandString))
+	//mylog.Hex("eax", eax)
+	//mylog.Hex("ebx", ebx)
+	//mylog.Hex("ecx", ecx)
+	//mylog.Hex("edx", edx)
+	//mylog.Info("ProcessorBrandString:", strings.TrimSpace(cpuid.ProcessorBrandString))
 	c.ProcessorBrandString = cpuid.ProcessorBrandString
 	return true
 }
