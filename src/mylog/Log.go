@@ -39,7 +39,7 @@ func (o *object) Hex(title string, msg any) {
 		tag:   tagHex,
 		title: title,
 		color: 36, //CyanString
-		msg:   fmt.Sprintf("%#X", msg),
+		msg:   fmt.Sprintf("%#x", msg),
 		debug: o.debug,
 	}
 	o.do()
