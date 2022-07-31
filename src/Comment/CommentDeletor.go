@@ -1,4 +1,4 @@
-package CommentDeletor
+package Comment
 
 import (
 	"github.com/ddkwork/librarygo/src/mycheck"
