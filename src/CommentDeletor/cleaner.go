@@ -22,6 +22,7 @@ func (o *object) Exts() []string {
 		".ixx",
 		".cs",
 		".go",
+		".back",
 	}
 }
 func (o *object) hasExt() (ok bool) {
