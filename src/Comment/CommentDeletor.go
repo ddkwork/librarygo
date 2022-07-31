@@ -92,8 +92,8 @@ func (o *object) CleanFile(path string) (ok bool) {
 	//}
 	//}()
 	paths := o.paths
-	isKeepSpace := o.isKeepNewLine
-	*o = *newObject() //todo change to reset
+	isKeepSpace := o.isKeepNewLine //todo public
+	*o = *newObject()              //todo change to reset
 	o.paths = paths
 	o.isKeepNewLine = isKeepSpace
 	return true
