@@ -11,21 +11,21 @@ import (
 type (
 	Interface interface {
 		Delete(root string) (ok bool)
-		DeleteKepSpace(root string) (ok bool)
+		DeleteKeepNewLine(root string) (ok bool)
 	}
 	skipInfo struct {
 		index int
 		code  string
 	}
 	object struct {
-		body        string
-		lines       []string
-		path        string
-		paths       []string
-		isDebug     bool
-		index       int
-		skipLines   []skipInfo
-		isKeepSpace bool
+		body          string
+		lines         []string
+		path          string
+		paths         []string
+		isDebug       bool
+		index         int
+		skipLines     []skipInfo
+		isKeepNewLine bool
 	}
 )
 
@@ -44,8 +44,8 @@ func newObject() *object {
 	}
 }
 
-func (o *object) DeleteKepSpace(root string) (ok bool) {
-	o.isKeepSpace = true
+func (o *object) DeleteKeepNewLine(root string) (ok bool) {
+	o.isKeepNewLine = true
 	return o.Delete(root)
 }
 func (o *object) Paths() []string { return o.paths }
@@ -60,7 +60,7 @@ func main() {
 }
 func (o *object) Delete(root string) (ok bool) {
 	return mycheck.Error(filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
-		if filepath.Ext(path) == ".clang-format" && !o.isKeepSpace {
+		if filepath.Ext(path) == ".clang-format" && !o.isKeepNewLine {
 			if !mycheck.Error(os.Remove(path)) {
 				return err
 			}
@@ -92,10 +92,10 @@ func (o *object) CleanFile(path string) (ok bool) {
 	//}
 	//}()
 	paths := o.paths
-	isKeepSpace := o.isKeepSpace
+	isKeepSpace := o.isKeepNewLine
 	*o = *newObject() //todo change to reset
 	o.paths = paths
-	o.isKeepSpace = isKeepSpace
+	o.isKeepNewLine = isKeepSpace
 	return true
 }
 func (o *object) FindGroup() {
@@ -161,9 +161,9 @@ func (o *object) RemoveSpace() (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
-	isKeepSpace := o.isKeepSpace
+	isKeepSpace := o.isKeepNewLine
 	for _, line := range o.lines {
-		if line != "" && !o.isKeepSpace {
+		if line != "" && !o.isKeepNewLine {
 			isKeepSpace = false
 		}
 		if isKeepSpace {
