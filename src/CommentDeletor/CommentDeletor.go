@@ -60,7 +60,7 @@ func main() {
 }
 func (o *object) Delete(root string) (ok bool) {
 	return mycheck.Error(filepath.Walk(root, func(path string, info fs.FileInfo, err error) error {
-		if filepath.Ext(path) == ".clang-format" {
+		if filepath.Ext(path) == ".clang-format" && !o.isKeepSpace {
 			if !mycheck.Error(os.Remove(path)) {
 				return err
 			}
