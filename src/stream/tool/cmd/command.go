@@ -21,14 +21,14 @@ type Session struct {
 	logWriter  io.Writer
 }
 
+func Run(command string) (string, error) {
+	return NewSession().run(context.Background(), command, true)
+}
+
 func NewSession() *Session             { return &Session{pid: make(chan int, 1)} }
 func (s *Session) SetDir(dir string)   { s.dir = strings.TrimSpace(dir) }
 func (s *Session) SetLog(wr io.Writer) { s.logWriter = wr }
 func (s *Session) GetPid() <-chan int  { return s.pid }
-
-func Run(command string) (string, error) {
-	return NewSession().run(context.Background(), command, true)
-}
 func (s *Session) run(ctx context.Context, command string, disableStybel bool) (string, error) {
 	if s.ShowLog {
 		log.SetPrefix("go-command: ")

@@ -73,25 +73,25 @@ func (s *ssdInfo) Get() (ok bool) {
 	}
 	getVersionInParam := (*struct__GETVERSIONINPARAMS)(unsafe.Pointer(&outBuffer[0]))
 	mylog.MarshalJson("getVersionInParam", *getVersionInParam)
-	if getVersionInParam.BIDEDeviceMap == 1 { //? <=0
+	if getVersionInParam.IDEDeviceMap == 1 { //? <=0
 	}
 	var BytesReturned uint32
 	sendcmdinparams := struct__SENDCMDINPARAMS{
-		CBufferSize: 0, //32
-		IrDriveRegs: struct__IDEREGS{
-			BFeaturesReg:     0,
-			BSectorCountReg:  0,
-			BSectorNumberReg: 0,
-			BCylLowReg:       0,
-			BCylHighReg:      0,
-			BDriveHeadReg:    0,
-			BCommandReg:      ID_CMD,
-			BReserved:        0,
+		BufferSize: 0,
+		irDriveRegs: struct__IDEREGS{
+			FeaturesReg:     0,
+			SectorCountReg:  0,
+			SectorNumberReg: 0,
+			CylLowReg:       0,
+			CylHighReg:      0,
+			DriveHeadReg:    0,
+			CommandReg:      ID_CMD,
+			Reserved:        0,
 		},
-		BDriveNumber: 0,
-		BReserved:    [3]uint8{},
-		DwReserved:   [4]uint32{},
-		BBuffer:      [1]uint8{},
+		DriveNumber: 0,
+		Reserved1:   [3]uint8{},
+		Reserved2:   [4]uint32{},
+		Buffer:      [1]uint8{},
 	}
 	marshal, err := cstruct.Marshal(&sendcmdinparams)
 	if !mycheck.Error(err) {
@@ -127,17 +127,17 @@ func (s *ssdInfo) Get() (ok bool) {
 		return
 	}
 	outParams_ := (*struct__SENDCMDOUTPARAMS)(unsafe.Pointer(&outBuffer[0]))
-	b := outParams_.BBuffer[:]
+	b := outParams_.Buffer[:]
 	mylog.HexDump("index 0 address", b)
 
 	info := (*struct__IDINFO)(unsafe.Pointer(&b[0]))
-	sSerialNumber := stream.NewBytes(info.sSerialNumber[:])
+	sSerialNumber := stream.NewBytes(info.SerialNumber[:])
 	serialNumber := tool.New().Swap().SerialNumber(sSerialNumber.String())
 
-	sModelNumber := stream.NewBytes(info.sModelNumber[:])
+	sModelNumber := stream.NewBytes(info.ModelNumber[:])
 	ModelNumber := tool.New().Swap().SerialNumber(sModelNumber.String())
 
-	sFirmwareRev := stream.NewBytes(info.sFirmwareRev[:])
+	sFirmwareRev := stream.NewBytes(info.FirmwareRev[:])
 	FirmwareRev := tool.New().Swap().SerialNumber(sFirmwareRev.String())
 
 	mylog.Info("serialNumber", strconv.Quote(serialNumber))
