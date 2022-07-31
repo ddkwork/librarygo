@@ -83,9 +83,6 @@ func (o *object) CleanFile(path string) (ok bool) {
 	o.FindGroup()
 	o.FindSingularLines()
 	//o.debug()
-	if strings.Contains(path, "ia32.h.back") { //debug
-		println()
-	}
 	if !o.RemoveSpace() {
 		return
 	}
