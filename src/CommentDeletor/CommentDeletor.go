@@ -11,25 +11,28 @@ import (
 type (
 	Interface interface {
 		Delete(root string) (ok bool)
+		DeleteKepSpace(root string) (ok bool)
 	}
 	skipInfo struct {
 		index int
 		code  string
 	}
 	object struct {
-		body      string
-		lines     []string
-		path      string
-		paths     []string
-		isDebug   bool
-		index     int
-		skipLines []skipInfo
+		body        string
+		lines       []string
+		path        string
+		paths       []string
+		isDebug     bool
+		index       int
+		skipLines   []skipInfo
+		isKeepSpace bool
 	}
 )
 
-func (o *object) Paths() []string { return o.paths }
-
-func New() *object {
+func New() Interface {
+	return newObject()
+}
+func newObject() *object {
 	return &object{
 		body:      "",
 		lines:     nil,
@@ -40,6 +43,12 @@ func New() *object {
 		skipLines: make([]skipInfo, 0),
 	}
 }
+
+func (o *object) DeleteKepSpace(root string) (ok bool) {
+	o.isKeepSpace = true
+	return o.Delete(root)
+}
+func (o *object) Paths() []string { return o.paths }
 
 func main() {
 	d := New()
@@ -83,7 +92,7 @@ func (o *object) CleanFile(path string) (ok bool) {
 	//}
 	//}()
 	paths := o.paths
-	*o = *New() //todo change to reset
+	*o = *newObject() //todo change to reset
 	o.paths = paths
 	return true
 }
@@ -151,7 +160,7 @@ func (o *object) RemoveSpace() (ok bool) {
 		return
 	}
 	for _, line := range o.lines {
-		if line != "" {
+		if line != "" && !o.isKeepSpace {
 			if !mycheck.Error2(file.WriteString(line)) {
 				return
 			}

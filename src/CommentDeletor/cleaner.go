@@ -10,12 +10,6 @@ import (
 	"strings"
 )
 
-// https://regexr.com/
-// github.com/gskinner/regexr/
-// base0 := `//.*`                           //标准匹配单行注释
-// base1 := `\/\*(?:[^\*]|\*+[^\/\*])*\*+\/` //标准匹配多行注释
-// singular
-
 func (o *object) Exts() []string {
 	return []string{
 		".c",
@@ -52,7 +46,6 @@ func (o *object) FileToLines(path string) (ok bool) {
 	o.lines = lines
 	return true
 }
-
 func (o *object) debug() {
 	for _, line := range o.skipLines {
 		fmt.Printf("file-->%s  line-->%04d code-->%s", o.path, line.index, strconv.Quote(line.code))
