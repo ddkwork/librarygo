@@ -83,6 +83,9 @@ func (o *object) CleanFile(path string) (ok bool) {
 	o.FindGroup()
 	o.FindSingularLines()
 	//o.debug()
+	if strings.Contains(path, "ia32.h.back") { //debug
+		println()
+	}
 	if !o.RemoveSpace() {
 		return
 	}
@@ -92,8 +95,10 @@ func (o *object) CleanFile(path string) (ok bool) {
 	//}
 	//}()
 	paths := o.paths
+	isKeepSpace := o.isKeepSpace
 	*o = *newObject() //todo change to reset
 	o.paths = paths
+	o.isKeepSpace = isKeepSpace
 	return true
 }
 func (o *object) FindGroup() {
@@ -159,12 +164,13 @@ func (o *object) RemoveSpace() (ok bool) {
 	if !mycheck.Error(err) {
 		return
 	}
+	isKeepSpace := o.isKeepSpace
 	for _, line := range o.lines {
 		if line != "" && !o.isKeepSpace {
-			if !mycheck.Error2(file.WriteString(line)) {
-				return
-			}
-			if !mycheck.Error2(file.WriteString("\n")) {
+			isKeepSpace = false
+		}
+		if isKeepSpace {
+			if !mycheck.Error2(file.WriteString(line + "\n")) {
 				return
 			}
 			if line == "}" {
