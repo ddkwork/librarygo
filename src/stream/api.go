@@ -35,10 +35,31 @@ type (
 		SplitBytes(size int) (blocks [][]byte)
 		SplitString(size int) (blocks []string)
 		RemoveHexDumpNewLine(dump string) (newDump string)
+		LinesToString(lines []string) string
 	}
 	Stream struct{ *bytes.Buffer }
 )
 
+func (s *Stream) LinesToString(lines []string) string {
+	for _, line := range lines {
+		s.WriteStringLn(line)
+	}
+	return s.String()
+}
+
+var Default = New()
+
+func newInterface() _Interface {
+	return &Stream{
+		Buffer: &bytes.Buffer{},
+	}
+}
+
+func New() *Stream {
+	return &Stream{
+		Buffer: &bytes.Buffer{},
+	}
+}
 func (s *Stream) RemoveHexDumpNewLine(dump string) (newDump string) {
 	//strings.TrimSuffix()
 	panic("implement me")
@@ -58,13 +79,6 @@ func (s *Stream) CutWithIndex(x, y int) {
 	panic("implement me")
 }
 
-var Default = New()
-
-func New() *Stream {
-	return &Stream{
-		Buffer: &bytes.Buffer{},
-	}
-}
 func NewBytes(b []byte) *Stream           { return &Stream{bytes.NewBuffer(b)} }
 func NewBuffer(buf *bytes.Buffer) *Stream { return &Stream{buf} }
 func NewString(ss string) *Stream         { return &Stream{Buffer: bytes.NewBufferString(ss)} }
@@ -89,8 +103,3 @@ func NewHexStringOrBytes(data any) (b *Stream) {
 }
 func NewNil() *Stream                 { return New() }
 func NewErrorInfo(err string) *Stream { return NewString(err) }
-func newInterface() _Interface {
-	return &Stream{
-		Buffer: &bytes.Buffer{},
-	}
-}
