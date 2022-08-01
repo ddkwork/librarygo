@@ -293,7 +293,7 @@ func (o *object) Convert() *object {
 		//mylog.Json("cpp ==> go", b.String())
 		source, err := format.Source(b.Bytes())
 		if err != nil {
-			//mylog.Info("format", err.Error())
+			mylog.Info("format", err.Error())
 		}
 		//Check(err)
 		source = source
