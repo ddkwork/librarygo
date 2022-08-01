@@ -74,7 +74,7 @@ func (at *blockMarkCtx) isComplicated(ref *blockMarkCtx) bool {
 }
 
 type labelCtx struct {
-	at      *blockMarkCtx          // block that defines this label
+	at      *blockMarkCtx          // cppBlock that defines this label
 	refs    map[*blockMarkCtx]none // blocks that refer this label
 	defined bool
 }

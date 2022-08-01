@@ -27,12 +27,20 @@ type (
 		WriteJson(name string, Obj any) (ok bool)
 		WriteHjson(name string, Obj any) (ok bool)
 		ToLines(data any) (lines []string, ok bool)
-		RaedToLines(path string) (lines []string, ok bool)
+		ReadToLines(path string) (lines []string, ok bool)
 		GoCode() string
 		Copy(source, destination string) (ok bool)
 	}
 	object struct{ goCode string }
 )
+
+func (o *object) ReadToLines(path string) (lines []string, ok bool) {
+	file, err := os.ReadFile(path)
+	if !mycheck.Error(err) {
+		return
+	}
+	return o.ToLines(file)
+}
 
 func New() Interface {
 	return &object{
