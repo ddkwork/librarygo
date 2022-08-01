@@ -299,6 +299,7 @@ func (o *object) Convert() *object {
 		source = source
 		if !tool.File().WriteTruncate(o.goPath[i].path, source) {
 			mylog.Warning("cpp ==> go error")
+			mylog.Json("need fix", b.String())
 			//panic("cpp ==> go error")
 		}
 		b.Reset()
