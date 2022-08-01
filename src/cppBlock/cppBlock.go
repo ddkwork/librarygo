@@ -1,5 +1,7 @@
 package cppBlock
 
+//Warning, this package only tested with comments removed and formatted
+
 import (
 	"strings"
 )
@@ -16,7 +18,8 @@ func FindEnum(lines []string) (l Lines)   { return findAll(lines, `typedef enum`
 func FindStruct(lines []string) (l Lines) { return findAll(lines, `typedef struct`, "}") }
 func findAll(lines []string, start string, end string) (l Lines) {
 	l = make(Lines, 0)
-	for i, line := range lines {
+	for i := 0; i < len(lines); i++ {
+		line := lines[i]
 		if strings.Contains(line, start) {
 			col := i + 1
 			block := lines[i:]
@@ -25,7 +28,8 @@ func findAll(lines []string, start string, end string) (l Lines) {
 					continue
 				}
 				l = append(l, LineInfo{Line: s, Col: col + j})
-				if strings.Contains(s, end) {
+				if s[0] == '}' { //if not formatted it will be not right for find api end
+					i += j
 					break
 				}
 			}
@@ -69,20 +73,39 @@ func FindExtern(lines []string) (l Lines) {
 	return
 }
 func FindMethod(lines []string) (l Lines) {
+	/*
+		static ZyanStatus ZydisInputPeek(ZydisDecoderContext* context,
+		    ZydisDecodedInstruction* instruction, ZyanU8* value)
+		{
+		    ZYAN_ASSERT(context);
+		    ZYAN_ASSERT(instruction);
+		    ZYAN_ASSERT(value);
+
+	*/
 	start, end := `(`, `}`
-	start2 := `)`
 	l = make(Lines, 0)
 	for i := 0; i < len(lines); i++ {
 		line := lines[i]
-		if strings.Contains(line, start) && strings.Contains(line, start2) {
+		if strings.Contains(line, start) &&
+			!strings.Contains(line, `#`) {
 			col := i + 1
 			block := lines[i:]
+			isApi := false
+			for _, s := range block {
+				if strings.Contains(s, "{") {
+					isApi = true
+					break
+				}
+			}
+			if !isApi {
+				continue
+			}
 			for j, s := range block {
 				if s == "" {
 					continue
 				}
 				l = append(l, LineInfo{Line: s, Col: col + j})
-				if s == end {
+				if s == end { //if not formatted it will be not right for find api end
 					i += j
 					break
 				}
