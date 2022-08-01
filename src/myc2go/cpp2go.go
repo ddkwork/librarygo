@@ -459,6 +459,9 @@ func (o *object) bindGoType(cppType string) (goType string) {
 		return types.Typ[types.Uint64].Name()
 	case "UINT32":
 		return types.Typ[types.Uint32].Name()
+	case "BYTE":
+		return types.Typ[types.Uint8].Name()
+
 	case "time_t":
 		return "time.Time"
 	case "BOOLEAN":
