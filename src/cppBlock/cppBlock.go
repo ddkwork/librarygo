@@ -19,8 +19,8 @@ func findAll(lines []string, start string, end string) (l Lines) {
 	for i, line := range lines {
 		if strings.Contains(line, start) {
 			col := i + 1
-			start := lines[i:]
-			for j, s := range start {
+			block := lines[i:]
+			for j, s := range block {
 				if s == "" {
 					continue
 				}
@@ -64,6 +64,29 @@ func FindExtern(lines []string) (l Lines) {
 				continue
 			}
 			l = append(l, LineInfo{Line: line, Col: col})
+		}
+	}
+	return
+}
+func FindMethod(lines []string) (l Lines) {
+	start, end := `(`, `}`
+	start2 := `)`
+	l = make(Lines, 0)
+	for i := 0; i < len(lines); i++ {
+		line := lines[i]
+		if strings.Contains(line, start) && strings.Contains(line, start2) {
+			col := i + 1
+			block := lines[i:]
+			for j, s := range block {
+				if s == "" {
+					continue
+				}
+				l = append(l, LineInfo{Line: s, Col: col + j})
+				if s == end {
+					i += j
+					break
+				}
+			}
 		}
 	}
 	return

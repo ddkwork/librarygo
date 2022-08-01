@@ -15,7 +15,7 @@ func Test2(t *testing.T) {
 }
 
 func TestFindAll(t *testing.T) {
-	p := "D:\\codespace\\clone\\zydis\\src\\Decoder.c"
+	p := "Decoder.back"
 	lines, ok := tool.File().ReadToLines(p)
 	if !ok {
 		panic(111)
@@ -28,12 +28,10 @@ func TestFindAll(t *testing.T) {
 	for _, info := range l {
 		mylog.Info(fmt.Sprint(info.Col), info.Line) //147 - 222
 	}
-
-	//`(`, '}')
 }
 
 func TestFindExtern(t *testing.T) {
-	p := "D:\\codespace\\gui\\sdk\\cpp2go\\back\\HyperDbgDev\\hyperdbg\\hprdbgctrl\\code\\debugger\\commands\\debugging-commands\\dt-struct.cpp.back"
+	p := "dt-struct.cpp.back"
 	lines, ok := tool.File().ReadToLines(p)
 	if !ok {
 		panic(111)
@@ -45,12 +43,24 @@ func TestFindExtern(t *testing.T) {
 }
 
 func TestFindDefine(t *testing.T) {
-	p := "D:\\codespace\\gui\\sdk\\cpp2go\\back\\HyperDbgDev\\hyperdbg\\dependencies\\zydis\\dependencies\\zycore\\include\\Zycore\\API\\Thread.h.back"
+	p := "Thread.h.back"
 	lines, ok := tool.File().ReadToLines(p)
 	if !ok {
 		panic(111)
 	}
 	l := FindDefine(lines)
+	for _, info := range l {
+		mylog.Info(fmt.Sprint(info.Col), info.Line) //147 - 222
+	}
+}
+
+func TestFindMethod(t *testing.T) {
+	p := "common.cpp.back"
+	lines, ok := tool.File().ReadToLines(p)
+	if !ok {
+		panic(111)
+	}
+	l := FindMethod(lines)
 	for _, info := range l {
 		mylog.Info(fmt.Sprint(info.Col), info.Line) //147 - 222
 	}
