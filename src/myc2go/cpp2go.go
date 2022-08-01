@@ -292,15 +292,19 @@ func (o *object) Convert() *object {
 		}
 		//mylog.Json("cpp ==> go", b.String())
 		source, err := format.Source(b.Bytes())
-		if err != nil {
+		if err != nil { //Check(err)
 			mylog.Info("format", err.Error())
-		}
-		//Check(err)
-		source = source
-		if !tool.File().WriteTruncate(o.goPath[i].path, source) {
-			mylog.Warning("cpp ==> go error")
-			mylog.Json("need fix", b.String())
-			//panic("cpp ==> go error")
+			if !tool.File().WriteTruncate(o.goPath[i].path, b.String()) {
+				mylog.Warning("cpp ==> go error")
+				//mylog.Json("need fix", b.String())
+				//panic("cpp ==> go error")
+			}
+		} else {
+			if !tool.File().WriteTruncate(o.goPath[i].path, source) {
+				mylog.Warning("cpp ==> go error")
+				//mylog.Json("need fix", b.String())
+				//panic("cpp ==> go error")
+			}
 		}
 		b.Reset()
 	}
