@@ -461,6 +461,20 @@ func (o *object) bindGoType(cppType string) (goType string) {
 		return types.Typ[types.Uint32].Name()
 	case "BYTE":
 		return types.Typ[types.Uint8].Name()
+	case "ULONG":
+		return types.Typ[types.Uint32].Name()
+	case "UINT16":
+		return types.Typ[types.Uint16].Name()
+	case "CHAR":
+		return types.Typ[types.Int8].Name()
+	case "char":
+		return types.Typ[types.Int8].Name()
+	case "const":
+		return types.Typ[types.Bool].Name() //?
+	case "UCHAR":
+		return types.Typ[types.Uint8].Name()
+	case "wchar_t":
+		return "*uint32"
 
 	case "time_t":
 		return "time.Time"
@@ -543,6 +557,8 @@ func (o *object) HandleStructBlock(col int, lines ...string) string {
 		fields = append(fields, Struct)
 	}
 	for i, field := range fields {
+		//todo FilePath[MAX_PATH] int8 //col:8
+
 		fields[i].elemType = o.bindGoType(field.elemType)
 	}
 	if len(fields) == 0 {
@@ -553,7 +569,7 @@ func (o *object) HandleStructBlock(col int, lines ...string) string {
 	tmp := stream.New()
 	tmp.WriteStringLn("type " + fields[0].name + " struct{")
 	for _, field := range fields {
-		tmp.WriteStringLn(strings.Join([]string{field.elemName, field.elemType}, " "))
+		tmp.WriteStringLn(strings.Join([]string{field.elemName, field.elemType + field.comment}, " "))
 	}
 	tmp.WriteStringLn("}\n")
 	return tmp.String()
@@ -661,8 +677,10 @@ func (o *object) GetMethod(lines cppBlock.Lines, InterfaceName string) string {
 	for _, method := range methods {
 		b.WriteStringLn(method.api)
 	}
-	b.WriteStringLn("}\n)\n")
-	b.WriteStringLn(`func New` + InterfaceName + `() { return & ` + objectName + `{} }` + "\n")
+	b.WriteStringLn("}")
+	b.WriteStringLn(objectName + " struct{}")
+	b.WriteStringLn(")\n")
+	b.WriteStringLn(`func New` + InterfaceName + `()` + InterfaceName + `{ return & ` + objectName + `{} }` + "\n")
 
 	ReceiverName := string(objectName[0])
 	for _, method := range methods {
