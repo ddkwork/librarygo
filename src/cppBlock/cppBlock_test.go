@@ -17,7 +17,8 @@ func Test2(t *testing.T) {
 
 func TestFindAll(t *testing.T) {
 	//p := "Decoder.back"
-	p := "ntpebteb.h.back"
+	//p := "ntpebteb.h.back"
+	p := "Definition.h" //[DebuggerOutputSourceMaximumRemoteSourceForSingleEvent]; // tags of
 	lines, ok := tool.File().ReadToLines(p)
 	if !ok {
 		panic(111)
